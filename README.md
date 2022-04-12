@@ -10,5 +10,10 @@ To add documentation, install Sphinx, make a local copy of the gh-pages branch, 
 
 * docs/src/index_Technical.rst (for technical documentation)
 
+* docs/src/docs_img/ - add any images (e.g. screenshots of the tool) to this folder
+
+
 
 Note: oasislmf.github.io/RiskExplorer/ is public even though the repo is currently private.
+
+
