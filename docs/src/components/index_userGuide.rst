@@ -15,3 +15,7 @@ Section 1
 Section 2
 -----------------------------
 
+
+.. image:: ../../docs_img/testimg.png
+  :width: 600
+  :alt: placeholder image 
