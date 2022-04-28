@@ -15,17 +15,18 @@ This component, etc...
 2. Exposure
 -----------------------------
 
-* bullet 1 **(bold)**
+* bullet 1 **(bold text example)**
 
-* bullet 2
+* bullet 2 *(italic text example)*
 
 
 3. Vulnerability 
 -----------------------------
 
-__content tbd__
+content tbd
 
 
-.. image:: ../../docs_img/idf_square.jpg
+
+.. image:: ../docs_img/idf_square.jpg
   :width: 600
   :alt: placeholder image 
