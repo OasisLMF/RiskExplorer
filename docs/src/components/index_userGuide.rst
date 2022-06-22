@@ -1,7 +1,6 @@
 The Risk Explorer Tool - User guide
 ====================================================
 
-
 These pages will provide a step-by-step guide to running the Risk Explorer tool and will give more general background on the tool's uses and limitations.
 
 Introductory FAQs
@@ -9,9 +8,12 @@ Introductory FAQs
 
 **What is the Oasis Risk Explorer?**
 
-The Oasis Risk Explorer is a tool developed by the Insurance Development Forum in partnership with Oasis and Maximum Information. The central purpose of this tool is educational, serving as an introduction to the different considerations that go into designing and modelling catastrophe insurance covers. The model is currently in its pilot phase and a number of further features will be added before the full launch in November this year.
+The Oasis Risk Explorer is a tool developed by the Insurance Development Forum in partnership with Oasis and Maximum Information. The central purpose of this tool is educational, serving as an introduction to the 
+different considerations that go into designing and modelling catastrophe insurance covers. The model is currently in its pilot phase and a number of further features will be added before the full launch in November 
+this year.
 
-The tool aims to guide users through the different steps required in setting up and modelling a parametric insurance cover. Each of these steps is broken out into separate tabs that form the the basic building blocks of virtually any catastrophe model. The first three sections require input from the user to define how the insurance cover in question will work and be modelled:
+The tool aims to guide users through the different steps required in setting up and modelling a parametric insurance cover. Each of these steps is broken out into separate tabs that form the the basic building blocks 
+of virtually any catastrophe model. The first three sections require input from the user to define how the insurance cover in question will work and be modelled:
 
 * *Hazard* What type of events (e.g. windstorms/earthquakes etc.) are you modelling and what data should be used to model them?
 
@@ -64,7 +66,6 @@ As mentioned previously, the main use of this model is as an educational tool. T
 
 **Step 1: Get familiar with each tab's purpose and try and produce outputs (any outputs!).** Go through each tab with the help page open and try to understand the purpose of each section and input. E.g. why do we need to specify an exposure? Why would we want to specify an area rather than a single location? Working your way through each tab, try and get the model to produce output. Examine the outputs and try and get some idea of what they are showing and why they might have been included.
 
-
 **Step 2: Purposefully change certain inputs in each tab and see what impact these have on expected payout and other outputs.** Some ideas of inputs you could experiment with changing would be:
 
 * *Location (Exposure)*  E.g. moving your location 20km to the north?
@@ -89,17 +90,15 @@ As mentioned previously, the main use of this model is as an educational tool. T
 
 When you change these, examine the outputs and think about whether the difference is what you would expect it to be. Also consider the reasons why it is likely to be different. Some examples of outputs to look at would be:
 
-* *Average Payout for each measure* What is the impact on the average historical, unweighted and weighted simulation payouts and how do they compare to each other?
+* *Average Payout for each measure:* What is the impact on the average historical, unweighted and weighted simulation payouts and how do they compare to each other?
 
-* *Standard Deviation of Output* What is the impact on the average historical, unweighted and weighted simulation standard deviations and how do they compare to each other?
+* *Standard Deviation of Output:* What is the impact on the average historical, unweighted and weighted simulation standard deviations and how do they compare to each other?
 
-* *Distribution of Payouts for each Simulation* How has the shape of the overall payout distribution changed? You may want to pay particular attention to the extreme right of the distribution as this is where the most severe outcomes occur.
+* *Distribution of Payouts for each Simulation:* How has the shape of the overall payout distribution changed? You may want to pay particular attention to the extreme right of the distribution as this is where the most severe outcomes occur.
 
-* *Return Periods of each Category of Storm* How common is each category of storms? How big is the gap between the simulated output and the history?
+* *Return Periods of each Category of Storm:* How common is each category of storms? How big is the gap between the simulated output and the history?
 
 * *Simulation Output* Do some basic analysis on the csv files using spreadsheet software. Do you notice any trends or patterns?
-
-
 
 **Step 3: Speculative cover design and loss modelling.** While this tool does have the functionality to allow for basic modelling and design of real insurance covers, this is not its primary use. If you do intend to use the model in this way, it is very important that you have a solid grasp of the model's limitations and methodology. Even then, you should exercise a high degree of caution when using the tool for decision-making. 
 
@@ -110,84 +109,4 @@ Some examples where the Risk Explorer could be run and prove helpful in a real i
 * *Sense-check for an existing commercial model* It may be useful to have an alternative view to whichever other models are being used, especially given the transparent assumptions in the Risk Explorer.
 
 One of the reasons to be careful when using this for real-world covers is that the market prices you would likely be able to buy the insurance cover at will differ a lot from the average payouts the tool produces. In practice, insurers need to cover expenses, uncertainty risk and profit margins in the prices they charge. Prices will also be impacted by market conditions such as the competitive environment and appetite amongst insurers for writing these types of covers. As such, unless insurers have a much lower view of the underlying likely payout, it is likely that real market prices for any covers priced in the tool will be a fair  bit higher than the average payouts generated.
-
-
-
-
-Assumptions and Limitations
---------------------------------
-
-There are a number of limitations that should be considered when using this model. Bear in mind that this section is largely focused on the simulation method and data cleaning process:
-
-* *Sampling method does not handle inland decay well:* If an exposure is located near a large inland area, the model may understate the likelihood of payouts. This is because tropical cyclones tend to decay as they move overland and lose their main source of fuel. Any samples taken over land will likely see lower storm activity, so if these contribute significantly to the total loss, the average payout may be understated. The weighting function will correct for this to some degree as more inland areas are likely to be further away, but this does not completely resolve the issue. 
-
-* *Linear interpolation of tracks is likely to be inaccurate:* Cubic spline is a more appropriate method for interpolating these tracks and matches the data better.
-
-* *Inconsistencies in measurements between agencies:* Different measurement periods of max wind speeds are used by agency. These are not apples-to-apples comparisons as different time periods are used by each agency.
-
-* *Some exposures are impacted by multiple cyclone basins:* The tool currently only allows for one basin to be modelled at a time, but in practice certain areas can be impacted by storms from multiple basins. This is particularly an issue for Central America.
-
-* *Weighting function:* An exponential weighting function is used here with parameterisation selected using expert judgement. There are likely a range of "reasonable" weighting functions that could be applied and there is ultimately no way of knowing whether the weighting function selected is indeed the most appropriate one.
-
-* *Assumption of radius of maximum wind speed is constant by basin and landfall location:* In practice this will vary between each basin. The original assumption of a default radius of maximum wind speeds of 75km is largely based off the Atlantic and Pacific basins.
-
-* *IBTrACS data is over a limited number of years:* The data is only considered reliable from 1978 and beyond for a number of basins. This means there may not be enough data to get an accurate picture on the more extreme events such as category 5 storms. 
-
-* *Simulation Error:* 10,000 simulations may not be enough to reach a satisfactory level of convergence. This is especially true where higher category storms make up a large share of the cover's losses.
-
-
-
-What is going to be included in the model in the future?
---------------------------------------------------------------------
-
-There are a number of extra features and functionality that will be built into the model throughout its development. Some of the key future improvements to highlight here are:
-
-**Exposure**
-
-* *Allow for exposure upload beyond simple location/area:* Ability for users to upload multiple assets with financial information in the tool.
-
-* *Exposure Analysis Functionality:* As exposure information becomes more detailed, ability for users to break down their assets by typology, category replacement cost and other factors.
-
-
-
-**Hazard**
-
-* *Years of Selection:* Ability to vary the timeframe of historical data that feeds the tool. E.g. if the user feels there is a climate impact and would be comfortable using a more recent window.
-
-* *Greater Peril Coverage:* Additional perils to be included such as flood, wildfire, earthquake and convective storm.
-
-* *Greater Data Source Coverage:* Additional data sources beyond IBTrACS e.g. OASIS stochastic sets.
-
-* *Hazard Data Upload Functionality:* Ability to upload custom stochastic event sets directly into the tool.
-
-
-**Vulnerability**
-
-* *Ability to handle more types of insurance covers beyond simple parametric:* Traditional insurance covers as well as non-typical humanitarian based covers e.g. economic lives affected.
-
-* *Vulnerability Upload Functionality:* Ability to upload custom vulnerability functions directly into the tool.
-
-
-
-**Simulation**
-
-* *Ability to handle different calculation methods beyond existing historical sampling simulation method:* Different simulation methods will be required to handle stochastic event sets as well as additional perils where the historical sampling method may not be appropriate.
-
-* *Methodological improvements to the simulation method* including better accounting for land decay and variable RMW by basin.
-
-* *Optimise speed of calculation engine:* Ensure large number of simulations can be easily run.
-
-
-
-**Outputs**
-
-* *Build on range of outputs currently available:*  As sophistication of inputs increases, an increased and more detailed number of outputs will be generated.
-
-
-
-**UI**
-
-* *More sophisticated user feedback:* E.g. hover over tooltips, additional validation to prevent users putting in the wrong information, loading bars, direct links to appropriate help sections on each page.
-
-
 

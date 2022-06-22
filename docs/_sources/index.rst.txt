@@ -17,6 +17,11 @@ The Risk Explorer provides an introduction to the different considerations that 
    :caption: Contents:
 
    ../components/index_userGuide.rst
+   ../components/index_Walkthrough.rst
+   ../components/index_SimMethod.rst
+   ../components/index_AssumpLimits.rst
+   ../components/index_Future.rst
+   ../components/index_Glossary.rst
 
    
 
