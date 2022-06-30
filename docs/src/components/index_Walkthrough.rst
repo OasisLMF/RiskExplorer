@@ -198,7 +198,7 @@ The output tab is where the main outputs from the simulation modelling can be vi
 
 **User Instructions**
 
-.. figure:: ../docs_img/output_1.png
+.. figure:: ../docs_img/Output_1.png
   :scale: 50%
   :alt: Output Tab: Display and Model Outputs
   
@@ -256,7 +256,7 @@ Note that any payouts will always be displayed in terms of % of max insured. To 
 
 **Exhibit 1: Expected Loss and Distribution by Calculation Method**
 
-.. figure:: ../docs_img/output_2.png
+.. figure:: ../docs_img/Output_2.png
   :scale: 50%
   :alt: Output Tab: Exhibit 1
   
@@ -281,7 +281,7 @@ It is also worth considering why different methods might show different payouts.
 
 **Exhibit 2: Expected Loss and Distribution by Calculation Method**
 
-.. figure:: ../docs_img/output_3.png
+.. figure:: ../docs_img/Output_3.png
   :scale: 50%
   :alt: Output Tab: Exhibit 2
   
@@ -301,7 +301,7 @@ Note that the simulated frequency here is unweighted and takes all of the years 
 
 **Exhibit 3: Expected Loss and Distribution by Calculation Method**
 
-.. figure:: ../docs_img/output_4.png
+.. figure:: ../docs_img/Output_4.png
   :scale: 50%
   :alt: Output Tab: Exhibit 3
   
