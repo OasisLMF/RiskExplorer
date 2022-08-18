@@ -382,4 +382,3 @@ Note that any :ref:`payouts<g_payout_reference-label>` will always be displayed 
   :alt: Results Tab: Export Results
   
   Results Tab: Export Results
-

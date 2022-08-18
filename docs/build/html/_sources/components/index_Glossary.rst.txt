@@ -179,7 +179,7 @@ Peril
 Peril is often used interchangeably with ‘:ref:`hazard<g_hazard_reference-label>`’ and describes the process or type of :ref:`event<g_event_reference-label>` that can lead to an insurance loss. Examples of peril types include:
 
 * Tropical Cyclone
-* Floodingexpected 
+* Flooding
 * Earthquake
 * Wildfire
 * Extra-Tropical Cyclone

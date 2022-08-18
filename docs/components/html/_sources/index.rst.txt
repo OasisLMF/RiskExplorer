@@ -8,7 +8,6 @@ The Risk Explorer provides an introduction to the different considerations that 
 
 The tool has been built by a team with extensive experience of catastrophe modelling, insurance pricing and parametric insurance design. It has deliberately been designed to be as simple as possible, while still capturing the key features that determine risk. This document is designed to give full transparency into the chosen methodology and its limitations, as well as providing the user with a guide on how to run the tool. 
 
-
 This is an open-source tool, and the code is available at `GitHub <https://github.com/OasisLMF/RiskExplorer>`_ 
 
 

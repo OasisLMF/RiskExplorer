@@ -118,6 +118,3 @@ One of the reasons to be careful when using this for real-world covers is that t
 In practice, insurers need to cover expenses, uncertainty risk and profit margins in the prices they charge. 
 
 Prices will also be impacted by market conditions such as the competitive environment and appetite amongst insurers for writing these types of covers. As such, unless insurers have a much lower view of the underlying :ref:`expected payout<g_expectedpayout_reference-label>`, it is likely that real market prices for any covers priced in the tool will be higher than the :ref:`average payouts<g_expectedpayout_reference-label>` generated here.
-
-
-
