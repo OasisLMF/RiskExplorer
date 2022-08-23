@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How does the Simulation Methodology Work? &mdash; Risk Explorer</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/c" type="text/css" />
+      <link rel="stylesheet" href="../_static/u" type="text/css" />
+      <link rel="stylesheet" href="../_static/s" type="text/css" />
+      <link rel="stylesheet" href="../_static/t" type="text/css" />
+      <link rel="stylesheet" href="../_static/o" type="text/css" />
+      <link rel="stylesheet" href="../_static/m" type="text/css" />
+      <link rel="stylesheet" href="../_static/." type="text/css" />
+      <link rel="stylesheet" href="../_static/c" type="text/css" />
+      <link rel="stylesheet" href="../_static/s" type="text/css" />
+      <link rel="stylesheet" href="../_static/s" type="text/css" />
+    <link rel="shortcut icon" href="../_static/idf_square.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assumptions and Limitations" href="index_AssumpLimits.html" />
+    <link rel="prev" title="Navigating Through the Tool - User Instructions" href="index_Walkthrough.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Risk Explorer
+            <img src="../_static/IDF_Original.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index_UserGuide.html">The Risk Explorer Tool - User Guide and Introductory FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_Walkthrough.html">Navigating Through the Tool - User Instructions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How does the Simulation Methodology Work?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-description">Basic Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#detailed-steps">Detailed Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index_AssumpLimits.html">Assumptions and Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_Future.html">What is going to be included in the model in the future?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_Glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Risk Explorer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>How does the Simulation Methodology Work?</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/components/index_SimMethod.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="how-does-the-simulation-methodology-work">
+<span id="sim-workings-reference-label"></span><h1>How does the Simulation Methodology Work?<a class="headerlink" href="#how-does-the-simulation-methodology-work" title="Permalink to this heading"></a></h1>
+<section id="basic-description">
+<h2>Basic Description<a class="headerlink" href="#basic-description" title="Permalink to this heading"></a></h2>
+<p>This is a relatively in-depth description of how the simulation methodology calculates <a class="reference internal" href="index_Glossary.html#g-expectedpayout-reference-label"><span class="std std-ref">expected losses/payouts</span></a> and other metrics. For a more high-level overview, please consult the simulation page user instructions or in-app help text.
+The simulation method can be broken down into a few distinct steps:</p>
+<ul class="simple">
+<li><p><strong>Step 1: Randomly select a number of different latitude-longitudes near the area of exposure.</strong> The user defines the number of locations to be randomly sampled (or number of <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a>), in the simulation tab. Each random selection of a <a class="reference internal" href="index_Glossary.html#g-latlong-reference-label"><span class="std std-ref">latitude-longitude</span></a> is known as a <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">“simulation”</span></a>.</p></li>
+<li><p><strong>Step 2: Record the payouts generated for each simulation in each year of the historical data.</strong> This step involves looking at the <span class="xref std std-ref">event</span> data (e.g., <a class="reference internal" href="index_Glossary.html#g-ibtracs-reference-label"><span class="std std-ref">IBTrACS</span></a>)  and seeing which storms would have exceeded the relevant <a class="reference internal" href="index_Glossary.html#g-triggervalue-reference-label"><span class="std std-ref">trigger values</span></a> set in the <a class="reference internal" href="index_Glossary.html#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a> tab. The <a class="reference internal" href="index_Glossary.html#g-expectedpayout-reference-label"><span class="std std-ref">expected payouts</span></a> for each <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> are then recorded by checking against your <a class="reference internal" href="index_Glossary.html#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a> thresholds. The years 1978-2021 are used for all basins here except the North Atlantic.</p></li>
+<li><p><strong>Step 3: Average the payouts across all years in the historical data for each simulation.</strong> This gives us an average over all the <a class="reference internal" href="index_Glossary.html#g-simyear-reference-label"><span class="std std-ref">simulation-years</span></a> for each <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> in the history. Each observation of a particular year in the history for a given simulated location is known as a <a class="reference internal" href="index_Glossary.html#g-simyear-reference-label"><span class="std std-ref">“simulation-year”</span></a>.</p></li>
+<li><p><strong>Step 4: Apply a weighting between 0 and 1 to the average payout for each simulation.</strong> The <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting</span></a> is based on how far away the simulated location is to the <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> (e.g., a <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> that was very close might get a <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting</span></a> of 0.9, one that was far away might get a <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting</span></a> of 0.1).</p></li>
+<li><p><strong>Step 5: Calculate the weighted average of the simulated average payouts for each location calculated in the earlier steps.</strong> This is the <a class="reference internal" href="index_Glossary.html#g-weightedsimloss-reference-label"><span class="std std-ref">“weighted simulation loss/payout”</span></a>.</p></li>
+</ul>
+</section>
+<section id="detailed-steps">
+<h2>Detailed Steps<a class="headerlink" href="#detailed-steps" title="Permalink to this heading"></a></h2>
+<p>The next few sections go through each of these steps in more detail.</p>
+<p><strong>Step 1: How and why do we sample different locations?</strong></p>
+<p>It may seem odd to randomly select locations that are different to your <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>, however this is an important step which prevents over-generalising from a limited history and is the founding principle of all catastrophe models. For example, if your <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> is within a very small area or is a single location, you could have been relatively lucky and not had any significant wind <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> despite some <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> having just missed that location in the recorded history. If we just used the history at the <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> point, we would assume there is zero risk when this is clearly not the case. It is important to capture some element of variability in our <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">loss</span></a> estimate.</p>
+<p>When randomly sampling these points, what sort of limits should we apply on the types of locations we sample? Clearly it wouldn’t make sense to randomly select points anywhere the world as most of these would have very different weather patterns to our <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> and may not even be located in the same tropical cyclone <a class="reference internal" href="index_Glossary.html#g-basin-reference-label"><span class="std std-ref">basin</span></a>.</p>
+<p>The method used here only looks at locations that are within 5 times the average <a class="reference internal" href="index_Glossary.html#g-rmw-reference-label"><span class="std std-ref">radius of maximum wind speed</span></a> (also known as RMW) from a tropical cyclone. If you’re modelling an area, then the radius of this is added on to the RMW before multiplying (so zero for a single location). It is assumed in this model that the <a class="reference internal" href="index_Glossary.html#g-rmw-reference-label"><span class="std std-ref">radius of maximum wind speed</span></a> figure is 75km, based on a review of a number of academic papers and expert scientific judgement.</p>
+<p>Written as a formula, the sampling area looks like this:</p>
+<p><em>Distance from exposure to sample from = 5 x (Radius of Maximum Wind Speed of a Tropical Cyclone + Radius of Exposure)</em></p>
+<p>As an example, if we were modelling a single location, we would look to sample any locations that are within 5 x (75 + 0) = 375km of the <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>. By contrast if we were looking to model an area with a radius of 50km, we would draw sample locations from points within 5 x (75 + 50) = 625km of the <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>.</p>
+<p>Five times the RMW is selected as this gives a good spread over the area to capture variability in nearby weather patterns. The area is also not so large that we are sampling from observations that are not relevant.</p>
+<p>Random numbers are selected for each simulation for <a class="reference internal" href="index_Glossary.html#g-latlong-reference-label"><span class="std std-ref">latitudes and longitudes</span></a> that lie within the distance calculated above. These are then used in the subsequent calculations and represent our simulated locations.</p>
+<p>The average <a class="reference internal" href="index_Glossary.html#g-rmw-reference-label"><span class="std std-ref">radius of maximum wind speed</span></a> is an important figure for another reason, as it is assumed if a location sits within this radius then the location is “hit” by the storm. This will be covered in more detail in Step 2.</p>
+<p><strong>Step 2: How do we calculate payouts for each simulated location?</strong></p>
+<p>Now that we have our simulated locations, we need to check these against the storm tracks from the <a class="reference internal" href="index_Glossary.html#g-ibtracs-reference-label"><span class="std std-ref">IBTrACS</span></a> <a class="reference internal" href="index_Glossary.html#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> data. We will then be able to work out which <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> would have historically led to <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">losses</span></a>. This is done by drawing a 75km radius around each sampled location/area and checking which storms in the history would have passed through this circle. If a storm’s track has taken it within 75km of the location/area, then it is assumed that this would have affected the location and potentially led to a <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payout</span></a>. As mentioned in the section above, 75km represents the RMW and it is assumed if a location sits within this radius then the location is “hit” by the storm.</p>
+<p>Maximum wind speeds for each <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> from the <a class="reference internal" href="index_Glossary.html#g-eventset-reference-label"><span class="std std-ref">event set</span></a> (e.g., <a class="reference internal" href="index_Glossary.html#g-ibtracs-reference-label"><span class="std std-ref">IBTrACS</span></a>) that are recorded as falling within the circle are checked against relevant triggers from the <a class="reference internal" href="index_Glossary.html#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a> tab. These are then used to calculate the appropriate <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payouts</span></a> for each <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a>. The <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payouts</span></a> generated by each storm are then recorded, giving us a complete history of all storms impacting each simulated location over the years.</p>
+<p>Consider an example where we run two <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> using a cyclone <a class="reference internal" href="index_Glossary.html#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> dataset that covers three years of data (2019-2021). The cover being looked at is for a single location and has one trigger set at 178km/h which leads to a payout of 100,000 USD when a qualifying <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> occurs. The cover also has no <a class="reference internal" href="index_Glossary.html#g-reinstatement-reference-label"><span class="std std-ref">reinstatements</span></a>. The table below gives an idea of how the steps described above would work in practice, each row is an <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> in the <a class="reference internal" href="index_Glossary.html#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> dataset that lies within a reasonable distance of the <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>.</p>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">List of Hazard Data Events and Payouts</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Row Number</p></th>
+<th class="head"><p>Simulation Location Number</p></th>
+<th class="head"><p>Simulation-Year</p></th>
+<th class="head"><p>Max Wind Speed</p></th>
+<th class="head"><p>Distance from Location</p></th>
+<th class="head"><p>Payout (USD)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2019</p></td>
+<td><p>185km/h</p></td>
+<td><p>50km</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2019</p></td>
+<td><p>200 km/h</p></td>
+<td><p>25km</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>2020</p></td>
+<td><p>220km/h</p></td>
+<td><p>90km</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>2021</p></td>
+<td><p>190km/h</p></td>
+<td><p>45km</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>2</p></td>
+<td><p>2019</p></td>
+<td><p>185km/h</p></td>
+<td><p>40km</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>2021</p></td>
+<td><p>140km/h</p></td>
+<td><p>35km</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>The <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> in row 3 doesn’t generate a <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payout</span></a> despite exceeding the trigger, as it lies further than 75km away from location 1 and is therefore deemed to have not affected it. The <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> in row 6 doesn’t generate a <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">loss</span></a> either as the wind speed is below the trigger amount of 178km/h.</p>
+<p><strong>Step 3: How do we get an expected payout for each simulation?</strong></p>
+<p>The individual <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payouts</span></a> calculated in Step 2 are then added up by <a class="reference internal" href="index_Glossary.html#g-simyear-reference-label"><span class="std std-ref">simulation-year</span></a>, giving a picture of the total <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payout</span></a> generated across each year of the history for each location. This is also where any <a class="reference internal" href="index_Glossary.html#g-reinstatement-reference-label"><span class="std std-ref">reinstatement</span></a> capping would apply.    E.g., if there are no <a class="reference internal" href="index_Glossary.html#g-reinstatement-reference-label"><span class="std std-ref">reinstatements</span></a>, only <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">losses</span></a> up to the <a class="reference internal" href="index_Glossary.html#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a> for a single <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> would lead to <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payouts</span></a> from the cover.</p>
+<p>Once we have the <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payouts</span></a> for each year of this history, it is simply a case of averaging across these to get an <a class="reference internal" href="index_Glossary.html#g-expectedpayout-reference-label"><span class="std std-ref">average payout</span></a> for each simulation. This is all we need to give us one view of the <a class="reference internal" href="index_Glossary.html#g-expectedpayout-reference-label"><span class="std std-ref">expected payout</span></a>, the <a class="reference internal" href="index_Glossary.html#g-unweightedsimloss-reference-label"><span class="std std-ref">unweighted expected loss</span></a>, which is a simple average of the <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payout</span></a> from each simulation.</p>
+<p>Going back to the example in step 2, the table below shows how we get from the <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> data to a table of <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">losses</span></a> by <a class="reference internal" href="index_Glossary.html#g-simyear-reference-label"><span class="std std-ref">simulation-year</span></a>.</p>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">Payouts by Simulation-Year</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Row Number</p></th>
+<th class="head"><p>Simulation Location Number</p></th>
+<th class="head"><p>Simulation-Year</p></th>
+<th class="head"><p>Payout (USD) Before Reinstatement Capping</p></th>
+<th class="head"><p>Payout (USD) After Reinstatement Capping</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2019</p></td>
+<td><p>200,000</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2020</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>2021</p></td>
+<td><p>100,000</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>2019</p></td>
+<td><p>100,000</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>2</p></td>
+<td><p>2020</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>2021</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Notice that all years are listed here including those with no relevant <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> or <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payouts</span></a>. The impact of having no <a class="reference internal" href="index_Glossary.html#g-reinstatement-reference-label"><span class="std std-ref">reinstatements</span></a> on the cover is shown in row 1. 100,000 is the <a class="reference internal" href="index_Glossary.html#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a>, and because this has already been breached by the first <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> in the year, the total <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">loss</span></a> is capped at this level and no further <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payout</span></a> is generated by the second <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a>. If there had been one <a class="reference internal" href="index_Glossary.html#g-reinstatement-reference-label"><span class="std std-ref">reinstatement</span></a> on the cover, the <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payout</span></a> would have been capped at 200,000 as it would be assumed that the cover re-instated after the first <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> triggering the <a class="reference internal" href="index_Glossary.html#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a>.</p>
+<p>The next step is then to calculate a historical average across all years for each <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a>.</p>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">Payouts by Simulation</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Row Number</p></th>
+<th class="head"><p>Simulation Location Number</p></th>
+<th class="head"><p>Average Payout (USD) After Reinstatement Capping</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>(100,000 + 0 + 100,000) / 3 = <strong>66,666.7</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>(100,000 + 0 + 0) / 3 = <strong>33,333.3</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Unweighted Simulated Loss</strong></p></td>
+<td></td>
+<td><p>(33,333.33 + 66,666.7) / 2 = <strong>50,000</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>For each <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> we are taking the total <a class="reference internal" href="index_Glossary.html#g-reinstatement-reference-label"><span class="std std-ref">reinstatement</span></a>-capped <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payouts</span></a> from the previous table and dividing these by the number of years of data to get an average. 2019-2021 is three years of data, hence the denominator of 3 above. This now gives us an <a class="reference internal" href="index_Glossary.html#g-expectedpayout-reference-label"><span class="std std-ref">average payout</span></a> for each <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a>, taking a straight average across the two <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> gives us the <a class="reference internal" href="index_Glossary.html#g-unweightedsimloss-reference-label"><span class="std std-ref">unweighted expected loss</span></a> which is displayed in the bottom row. This assumes all <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> are given identical <span class="xref std std-ref">weight</span> and forms one of the measures of <a class="reference internal" href="index_Glossary.html#g-expectedpayout-reference-label"><span class="std std-ref">expected loss/payout</span></a> in the Risk Explorer’s output tab.</p>
+<p><strong>Step 4: How do we weight each simulation?</strong></p>
+<p>To get a view that takes into account the distance of the <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> from the <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>, we need to work out how to appropriately <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weight</span></a> each <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a>. Simulations nearer the <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> are likely to be more relevant and generalisable than those further away. As such, closer locations should be given higher <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weights</span></a> in the <a class="reference internal" href="index_Glossary.html#g-expectedpayout-reference-label"><span class="std std-ref">expected payout</span></a> calculation.</p>
+<p><a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">Weightings</span></a> for each <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> will all be between 0 and 1 and are generally expressed as percentages. The most intuitive way to think of the <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> themselves is in relative terms. A <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting</span></a> of 0.8 can be thought of as 80% of the potential maximum weighting, but it can also be interpreted as being given 8 times more weight in the final calculation than an observation weighted at 10%.</p>
+<p>There are a number of potential weighting methods that could be used here so it’s worth bearing in mind that there is a certain degree of judgement in this step. An exponential <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting function</span></a> with a lambda parameter of 3.2 has been selected for calculating the weightings in this model based on scientific and actuarial expert judgement. The table below shows the different weightings for a single location at intervals of 75km away from the <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> to give some idea of how the weighting changes in practice:</p>
+<table class="colwidths-given docutils align-default" id="id4">
+<caption><span class="caption-text">Weighting Examples</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Row Number</p></th>
+<th class="head"><p>Distance from Exposure</p></th>
+<th class="head"><p>Exponential Weighting</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>75</p></td>
+<td><p>53%</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>150</p></td>
+<td><p>28%</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>225</p></td>
+<td><p>15%</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>300</p></td>
+<td><p>8%</p></td>
+</tr>
+</tbody>
+</table>
+<p>There are a few desirable properties to this function and parameterisation which makes the exponential a good choice. These are highlighted below:</p>
+<ul class="simple">
+<li><p>The <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting</span></a> decreases at a constant rate as we move away from the <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>. For a single location, the weighting decreases by 19% in relative terms for every 25km we move away from the <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>. E.g., the weighting at 100km from the <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> is 43%, which is a 19% decrease from the 53% weighting for a location 75km from the <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>.</p></li>
+<li><p>The <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting function</span></a> drops off quickly initially but the absolute decrease in <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weights</span></a> slows as we get further away.    The reason for this is there is intuitively a bigger gap in usefulness of an observation 0km vs 75km away compared to an observation being 300km vs 375km away.</p></li>
+<li><p>The <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting</span></a> approaches zero as we get towards the edge of the potential sampling area.</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/Weighting.png"><img alt="Weighting Graph" src="../_images/Weighting.png" style="width: 340.0px; height: 196.0px;" /></a>
+</figure>
+<p>Exhibit demonstrating relationship between distance from exposure and weight for a single location.</p>
+<p>Returning to our example in the earlier steps, these are the weightings that would be applied to each location:</p>
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-text">Weightings by Simulation</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Simulation Location Number</p></th>
+<th class="head"><p>Distance from Exposure</p></th>
+<th class="head"><p>Weighting</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>125km</p></td>
+<td><p>34%</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>200km</p></td>
+<td><p>18%</p></td>
+</tr>
+</tbody>
+</table>
+<p>A detailed understanding of how the exponential function is calculated is not necessary to use the tool, however if you are interested in learning more about this, you can consult the appendix section at the bottom of the page.</p>
+<p><strong>Step 5: How do we calculate the Simulated Weighted Payout?</strong></p>
+<p>The last step in getting our <a class="reference internal" href="index_Glossary.html#g-weightedsimloss-reference-label"><span class="std std-ref">Simulated weighted Payout`</span></a> is calculating a weighted average. The <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payouts</span></a> for each <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> are scaled by their <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> and then divided by the sum of all <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a>.</p>
+<p>Returning to the earlier example, we can now calculate the simulated weighted payout:</p>
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-text">Weightings by Simulation</span><a class="headerlink" href="#id6" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Simulation Location Number</p></th>
+<th class="head"><p>Distance from Exposure</p></th>
+<th class="head"><p>Weighting</p></th>
+<th class="head"><p>Average Payout (USD) After Reinstatement Capping</p></th>
+<th class="head"><p>Weighting x Average Payout</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>125km</p></td>
+<td><p>34%</p></td>
+<td><p>66,666.7</p></td>
+<td><p>0.34 x 66,666.7 = 22,944</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>200km</p></td>
+<td><p>18%</p></td>
+<td><p>33,333.3</p></td>
+<td><p>0.18 x 33,333.3 = 6,049</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Simulated Weighted Payout</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>(22,944 + 6,049) / (34%+18%) = <strong>55,159</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>In this case the expected weighted payout is 55,159. Note that this is higher than the <a class="reference internal" href="index_Glossary.html#g-unweightedsimloss-reference-label"><span class="std std-ref">expected unweighted payout</span></a> of 50,000 which was calculated in step 3. The reason for this difference is that
+<a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> 1 which had a higher average loss was given a higher <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weight</span></a> in the calculation than <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> 2 which was lower. The reason for weighting location 1 higher is that it is closer to the <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> than location 2.
+In the unweighted calculation we implicitly assume all <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> have identical weighting so this generates a lower figure relative to the weighted payout.</p>
+<p>The Weighting x Average Payout column doesn’t really have a practical interpretation but is shown to illustrate the different steps. The reason we need to divide by the sum of the <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> in the final calculation
+is to ensure we aren’t understating the total <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">loss</span></a>. If we just added together the Weighting x Payout column, this number wouldn’t account for the potential for a number of different <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> to emerge from the
+simulation process. This comes back again to the idea that the <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> themselves have more meaning when considered relative to one another, the sum of all <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> will differ each time a set of <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a>
+is run so they need to be scaled accordingly.</p>
+<p><strong>Appendix: Step 4: How do we weight each simulation?</strong></p>
+<p>This section gives a brief demonstration of how we would go about calculating the exponential <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> described earlier. The calculation of these <a class="reference internal" href="index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> relies on the mathematical constant “e” which is equal to  2.71828… .The formula for calculating the weighing is:</p>
+<p><em>Weighting = e ^ ( (sim distance / max distance) x – (exponential parameter) )</em></p>
+<p>Let’s assume we simulate a location that lies 150km from our <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> which is a single point. We also use the exponential parameter of 3.2 in the model. The weighting for this particular observation would be:</p>
+<p><em>Weighting = e ^ ( (150/( 5 x 75)) x -3.2 )</em></p>
+<p><em>Weighting = e^(1.28)</em></p>
+<p><em>Weighting = 27.8%</em></p>
+<p>This is the same weighting given in row 3 in the first table of step 4 (where it is rounded to one decimal place).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index_Walkthrough.html" class="btn btn-neutral float-left" title="Navigating Through the Tool - User Instructions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index_AssumpLimits.html" class="btn btn-neutral float-right" title="Assumptions and Limitations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
