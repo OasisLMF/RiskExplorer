@@ -13,7 +13,7 @@ The distinct areas where tropical cyclones form. These are sometimes grouped sli
       * North Indian: Covers the Arabic peninsula, a large portion of coastal South Asia well as the  West coast of Africa. 
       * South Indian: Covers The Eastern coast of Africa and Southern Indian Ocean.
       * North-East Pacific: Covers the Western coast of Central and North America.
-      * North-West Pacific: Covers a large portion of the Eastern coast of Asia and a number of islands in the Pacific ocean 
+      * North-West Pacific: Covers a large portion of the Eastern coast of Asia and a number of islands in the Pacific ocean.
       * South Pacific: Covers Oceania.
 
 There is some subjectivity over exactly where these basins begin and end. The image below shows the areas used to suggest the appropriate basin to the user in the :ref:`hazard<g_hazard_reference-label>` tab.
@@ -48,7 +48,11 @@ Event Set
 The :ref:`event<g_event_reference-label>` set defines all the :ref:`events<g_event_reference-label>` that can occur within a given model. E.g., for the North-West Pacific :ref:`basin<g_basin_reference-label>` in the Risk Explorer, the event set is all of the tropical cyclones recorded by your  
 selected :ref:`meteorological agency<g_agency_reference-label>` between 1978-2021.
 
-Experience An insurance term that refers to a method of quantifying the expected insurance loss to a cover based on what has happened in the past. Generally, this takes the form of an average
+.. _g_history_reference-label:
+
+Experience/History 
+--------------------
+An insurance term that refers to a method of quantifying the expected insurance loss to a cover based on what has happened in the past. Generally, this takes the form of an average
 of the :ref:`payouts<g_payout_reference-label>` that would have occurred throughout recent years, adjusting for any changes in the cover, :ref:`exposure<g_exposure_reference-label>` or other important external factors. "Experience" is sometimes used interchangeably with "History".
 
 .. _g_exposure_reference-label:
@@ -57,9 +61,18 @@ Exposure
 --------------------
 * Definition 1: Exposure is one of the key components of a catastrophe model, along with :ref:`hazard<g_hazard_reference-label>` and :ref:`vulnerability<g_vulnerability_reference-label>`. Exposure refers to the assets you want to insure. The exposure(s) can be defined as a specific location(s), a list of assets/buildings or an area that is to be protected by the insurance cover. This module interacts with the :ref:`hazard<g_hazard_reference-label>` and :ref:`vulnerability<g_vulnerability_reference-label>` modules to produce simulated :ref:`insurance losses/payouts<g_payout_reference-label>`.
 
-* Definition 2: An insurance term that refers to a method of quantifying the expected insurance loss to a cover based on the underlying assets being covered. Typically, the way the exposure price is calculated will differ based on the type of asset being covered e.g., a building's construction type.
+* Definition 2: An insurance term that refers to a method of quantifying the expected insurance loss to a cover based on the underlying assets being covered. Typically, the way the exposure price is calculated will differ based on the type of asset being covered (e.g., a building's construction type).
 
 .. _g_expectedpayout_reference-label:
+
+Exposure Payout Radius/Area
+----------------------------
+
+The exposure payout area or radius refers to the area around the exposure within which triggering :ref:`events<g_event_reference-label>` would generate payouts for the cover. The :ref:`latitude and longitudes<g_latlong_reference-label>` included in the track data refer only to the position of the cyclone's eye (or centre). 
+We therefore need to make an assumption of whether a triggering windspeed/pressure would be recorded for your exposure based on how close any given storm in the hazard data passes. With the tool's current assumptions, it is assumed that any storm within 75km 
+"hits" the exposure as we assume all storms have an RMW of 75km.
+
+.. _g_payoutradius_reference-label:
 
 Expected Loss/Payout 
 --------------------
@@ -78,7 +91,7 @@ Hazard
 --------------------
 Hazard is one of the key components of a catastrophe model, along with :ref:`exposure<g_exposure_reference-label>` and :ref:`vulnerability<g_vulnerability_reference-label>`. The main purpose of the Hazard module is to determine the level of physical risk from an :ref:`event<g_event_reference-label>` at each 
 potential :ref:`exposure<g_exposure_reference-label>` location One example of a hazard component is the :ref:`IBTrACS<g_ibtracs_reference-label>` data that feeds this model. For any area in a tropical cyclone :ref:`basin<g_basin_reference-label>`, it contains a record of the historic wind speeds from 
-previous cyclones. These wind speeds are used as a measure of the relative cyclone "hazard" at each location. This module interacts with the :ref:`exposure<g_exposure_reference-label>` and :ref:`vulnerability<g_vulnerability_reference-label>` modules to produce simulated insurance.
+previous cyclones. These wind speeds are used as a measure of the relative cyclone "hazard" at each location. This module interacts with the :ref:`exposure<g_exposure_reference-label>` and :ref:`vulnerability<g_vulnerability_reference-label>` modules to produce simulated insurance losses.
 
 .. _g_historicalloss_reference-label:
 
@@ -154,7 +167,7 @@ Payout/Loss
 --------------------
 Payout refers to the amount received by a policyholder when an :ref:`event<g_event_reference-label>` triggers their policy. Note that this does not factor in any premium originally paid for the policy. The more standard term 
 in the industry for this is "loss", however this is a more insurer-centric way of defining things as for the insured themselves an :ref:`event<g_event_reference-label>` represents a payout. You may note that payout and loss are used somewhat 
-interchangeably here in order to expose users to the more intuitive definition as well as the standard market terminology.
+interchangeably here in order to expose users to the more intuitive definition as well as the standard insurance market terminology.
 
 .. _g_percentpayout_reference-label:
 
@@ -162,7 +175,7 @@ Percentage of Maximum Payout
 ----------------------------------------
 A method of stating the :ref:`loss/payout<g_payout_reference-label>` from a cover by expressing it as a percentage of the :ref:`maximum payout<g_maxpayout_reference-label>`. The reason for expressing :ref:`losses<g_payout_reference-label>` in this way is it enables us to compare the relative burden of :ref:`losses<g_payout_reference-label>` for different covers regardless of the financial amount. It is also useful for comparing the relative likelihood of seeing :ref:`losses/payouts<g_payout_reference-label>` from different covers. 
 
-E.g., Consider a cover with only one trigger of USD 100,000. After running a large number of simulated years , the simulated average yearly loss is calculated to be 20,000 which is 20% of the :ref:`maximum payout<g_maxpayout_reference-label>`. This 20% gives us an idea of the annual :ref:`frequency<g_frequency_reference-label>` of :ref:`events<g_event_reference-label>` hitting the cover, i.e we would expect a loss roughly 20% or every 1 in 5 years (as it has a 20% chance of occurring in any given year). A separate cover with a trigger of 1,000,000 also has a simulated loss of 20,000 representing 2% of the maximum. We can see from the small percentage that this is quite a remote cover that we would only expect to see a loss from roughly every 1 in 50 years. These covers are evidently quite different despite having the same :ref:`expected payout<g_expectedpayout_reference-label>` of 20,000 as one is hit far more often than the other and generally sustains more :ref:`losses<g_payout_reference-label>` relative to its :ref:`maximum payout<g_maxpayout_reference-label>`.
+E.g., Consider a cover with only one trigger of USD 100,000. After running a large number of simulated years, the simulated average yearly loss is calculated to be 20,000 which is 20% of the :ref:`maximum payout<g_maxpayout_reference-label>`. This 20% gives us an idea of the annual :ref:`frequency<g_frequency_reference-label>` of :ref:`events<g_event_reference-label>` hitting the cover, i.e we would expect a loss roughly 20% or every 1 in 5 years (as it has a 20% chance of occurring in any given year). A separate cover with a trigger of 1,000,000 also has a simulated loss of 20,000 representing 2% of the maximum. We can see from the small percentage that this is quite a remote cover that we would only expect to see a loss from roughly every 1 in 50 years. These covers are evidently quite different despite having the same :ref:`expected payout<g_expectedpayout_reference-label>` of 20,000 as one is hit far more often than the other and generally sustains more :ref:`losses<g_payout_reference-label>` relative to its :ref:`maximum payout<g_maxpayout_reference-label>`.
 
 .. _g_percentile_reference-label:
 
@@ -170,8 +183,8 @@ Percentile
 ------------
 Percentile refers to the total percentage of values that are below a given value in the distribution. 
 
-In Exhibit 4 in the Analysis tab, the start and ends of the percentile for each value are given. E.g., if a :ref:`payout<g_payout_reference-label>` of USD 100 has a percentile start of 40% and percentile end of 50%, this means that 40% of observations have a :ref:`payout<g_payout_reference-label>` less than USD 100 and 50% have a :ref:`payout<g_payout_reference-label>` of equal to USD 100 or less. We can also determine from this that 10% of :ref:`payouts<g_payout_reference-label>` are exactly USD 100. 
-
+Exhibit 4 in the Analysis tab displays this metric for each payout value. E.g., if a :ref:`payout<g_payout_reference-label>` of USD 100 has a percentile of 50.0%, this means that 50% have a :ref:`payout<g_payout_reference-label>` of equal to USD 100 or less.
+ 
 .. _g_peril_reference-label:
 
 Peril 
@@ -206,7 +219,7 @@ is capped so as not to exceed the :ref:`maximum payout<g_maxpayout_reference-lab
 
 Return Period 
 --------------------
-Return period refers to the average time you would have to wait before observing a given :ref:`event<g_event_reference-label>` or a loss of a given amount.. E.g., a return period of 5 years for a cat 2 storm means you would expect to have one storm at cat 2 or above every 5 years on average. Of course this is an average, and it is possible to have two 100-year :ref:`events<g_event_reference-label>` occur in subsequent years. An :ref:`event<g_event_reference-label>` with a 100-year :ref:`event<g_event_reference-label>` return period in terms of hurricane category may not equate to a 100-year loss return period (for example if there was little :ref:`exposure<g_exposure_reference-label>` hit, resulting in a low loss)
+Return period refers to the average time you would have to wait before observing a given :ref:`event<g_event_reference-label>` or a loss of a given amount. E.g., a return period of 5 years for a cat 2 storm means you would expect to have one storm at cat 2 or above every 5 years on average. Of course this is an average, and it is possible to have two 100-year :ref:`events<g_event_reference-label>` occur in subsequent years. An :ref:`event<g_event_reference-label>` with a 100-year :ref:`event<g_event_reference-label>` return period in terms of hurricane category may not equate to a 100-year loss return period (for example if there was little :ref:`exposure<g_exposure_reference-label>` hit, resulting in a low loss).
 The return period also communicates the probability of occurrence in any given year. A 10-year return period means there is a roughly 1 in 10 (10%) chance of an :ref:`event<g_event_reference-label>` (or loss) happening in any given year. For relatively rare :ref:`events<g_event_reference-label>`, return periods can be considered the reciprocals
 of frequencies, e.g., an :ref:`event<g_event_reference-label>` (or loss) with a :ref:`frequency<g_frequency_reference-label>` of 0.1 has a return period of around 10 years as 1 / 0.1 = 10. 
 
@@ -287,7 +300,7 @@ distributions, 75% or more of observations will lie within 2 standard deviations
 
 Stochastic 
 --------------------
-:ref:`events<g_event_reference-label>` that are stochastic follow a random distribution or pattern, however aren't exactly forecastable. This term is often used in the context of an :ref:`event set<g_eventset_reference-label>`. 
+:ref:`Events<g_event_reference-label>` that are stochastic follow a random distribution or pattern, however aren't exactly forecastable. This term is often used in the context of an :ref:`event set<g_eventset_reference-label>`. 
 
 .. _g_triggermeasure_reference-label:
 
@@ -310,7 +323,7 @@ trigger value and one :ref:`payout<g_payout_reference-label>` is known as a bina
 Unweighted Simulation Loss 
 ----------------------------------------
 This is the average annual insurance payout across all :ref:`simulations<g_simulation_reference-label>` with no weighting for proximity to the :ref:`exposure<g_exposure_reference-label>` applied. The downside of using this method is that it may unduly
-weight :ref:`simulations<g_simulation_reference-label>` a long way from the :ref:`exposure<g_exposure_reference-label>`. However it can be a useful point of comparison to the :ref:`weighted simulation loss`<g_weightedsimloss_reference-label>`, as it will give us an idea of how much impact the weighting function is having on the metric.
+weight :ref:`simulations<g_simulation_reference-label>` a long way from the :ref:`exposure<g_exposure_reference-label>`. However, it can be a useful point of comparison to the :ref:`weighted simulation loss<g_weightedsimloss_reference-label>`, as it will give us an idea of how much impact the weighting function is having on the metric.
 
 .. _g_vulnerability_reference-label:
 

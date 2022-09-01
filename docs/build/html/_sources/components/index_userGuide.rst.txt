@@ -5,7 +5,7 @@ These pages provide a step-by-step guide to running the Risk Explorer tool and g
 
 What is the Oasis Risk Explorer?
 ---------------------------------
-The :ref:`Oasis<g_oasis_reference-label>` Risk Explorer is a tool developed by the :ref:`Insurance Development Forum<g_idf_reference-label>` in partnership with :ref:`Oasis<g_oasis_reference-label>` and Maximum Information. The central purpose of this tool is educational, serving as an introduction to the 
+The :ref:`Oasis<g_oasis_reference-label>` Risk Explorer is a tool developed by the :ref:`Insurance Development Forum<g_idf_reference-label>` in partnership with :ref:`Oasis<g_oasis_reference-label>` and `Maximum Information<https://www.maximuminformation.com/>`. The central purpose of this tool is educational, serving as an introduction to the 
 different considerations that go into designing and modelling catastrophe insurance covers. 
 
 The model is currently in its pilot phase and a number of further features will be added before the full launch in November this year. The tool aims to guide users through the different steps required in setting up and modelling a parametric insurance cover. Each of these steps is broken out into separate tabs that form the basic building blocks of virtually any catastrophe model. 

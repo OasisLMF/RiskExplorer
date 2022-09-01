@@ -54,7 +54,7 @@ The location or area you enter in this tab will ultimately feed through to your 
   
   Exposure Step 1 
 
-**Step 2  : Specify the area  you want your insurance policy to cover.**
+**Step 2: Specify the area you want your insurance policy to cover.**
 
 If you are looking to model a single location, you will be able to skip this step as the area around the location being covered is simply zero. If you are looking at modelling an area rather than a single location, you will specify the radius that you believe is representative of the area. This will define the total area in which the insurance cover will respond.     You can also easily experiment with different radii using the map.
 
@@ -74,6 +74,7 @@ At present, circles are the only :ref:`exposure<g_exposure_reference-label>` sha
 
 * **Tropical cyclones are circular.** Using circles means the :ref:`exposure<g_exposure_reference-label>` area and simulation methodology tie in more closely with the :ref:`hazard<g_hazard_reference-label>` itself. This should also typically lead to less :ref:`payouts<g_payout_reference-label>` in cases where cyclones skirt the edge of an :ref:`exposure<g_exposure_reference-label>` area. This helps increase the likelihood of :ref:`payouts<g_payout_reference-label>` being triggered in response to :ref:`events<g_event_reference-label>` causing actual losses and keeps covers as affordable as possible.
 * **Straightforward to specify.** Only one location and one radius parameter need to be entered.
+
 It is worth bearing in mind that for :ref:`exposure<g_exposure_reference-label>` areas that are long and thin (e.g., a long line of locations along a coastline), the circle approach may not be optimal. While this is recognised as a limitation of the tool, only circles can be specified here to ensure the tool retains its simplicity.
 
 2. Hazard
@@ -189,7 +190,7 @@ For example, if your :ref:`exposure<g_exposure_reference-label>` is within a ver
 
 **Step 3: Average the payouts for each year of data and simulation.** This will give average payouts for each :ref:`simulation<g_simulation_reference-label>`. These are essentially historical averages of the :ref:`payouts<g_payout_reference-label>` from your cover at each simulated location/area generated in step 1 across all the years of data. 
 
-**Step 4: Apply weightings to the insurance payouts calculated in each simulation.** In reality, areas closer to the :ref:`exposure<g_exposure_reference-label>` are likely to be more similar in their weather patterns and therefore more applicable to the :ref:`exposure<g_exposure_reference-label>`. We therefore give greater :ref:`weight<g_:ref:`weighting<g_weighting_reference-label>`_reference-label>` to :ref:`simulations<g_simulation_reference-label>` closer to the :ref:`exposure<g_exposure_reference-label>` in the final calculation of the :ref:`expected insurance payout<g_expectedpayout_reference-label>`. The :ref:`weighting<g_weighting_reference-label>` applied here is based on the distance of the simulated area to the :ref:`exposure<g_exposure_reference-label>`, so a :ref:`simulation<g_simulation_reference-label>` that falls further away from your :ref:`exposure<g_exposure_reference-label>` gets a lower :ref:`weighting<g_weighting_reference-label>`.
+**Step 4: Apply weightings to the insurance payouts calculated in each simulation.** In reality, areas closer to the :ref:`exposure<g_exposure_reference-label>` are likely to be more similar in their weather patterns and therefore more applicable to the :ref:`exposure<g_exposure_reference-label>`. We therefore give greater :ref:`weight<g_:ref:`weighting<g_weighting_reference-label>` to :ref:`simulations<g_simulation_reference-label>` closer to the :ref:`exposure<g_exposure_reference-label>` in the final calculation of the :ref:`expected insurance payout<g_expectedpayout_reference-label>`. The :ref:`weighting<g_weighting_reference-label>` applied here is based on the distance of the simulated area to the :ref:`exposure<g_exposure_reference-label>`, so a :ref:`simulation<g_simulation_reference-label>` that falls further away from your :ref:`exposure<g_exposure_reference-label>` gets a lower :ref:`weighting<g_weighting_reference-label>`.
 
 **Step 5: Calculate the total weighted average insurance payout across all simulations.** A weighted average is calculated for the total payout over the :ref:`hazard<g_hazard_reference-label>` data for all :ref:`simulations<g_simulation_reference-label>`. This should give us a view of the :ref:`expected payout<g_expectedpayout_reference-label>` for this cover which takes into account the variability of the data. 
 
@@ -234,7 +235,7 @@ These are all covered in more detail below. The actual results and a more high-l
 
 Exhibit 1 aims to answer the question of which :ref:`events<g_event_reference-label>` in the historical data would have led to payouts in your area of exposure, leaving aside the simulation modelling. The map displays the historical tracks for any relevant :ref:`events<g_event_reference-label>` and the table gives a summary of the events' key characateristics. Note that in many cases tracks are not precise as data is only available at 3–6-hour intervals requiring estimates to be made via :ref:`interpolation<g_interpolation_reference-label>` between available points.
 
-The circle displayed on the map is the area within which a storm is deemed to cause a :ref:`loss<g_payout_reference-label>` to the :ref:`exposure<g_exposure_reference-label>` (75km, the assumed :ref:`RMW<g_rmw_reference-label>` plus the radius of :ref:`exposure<g_exposure_reference-label>` area), please see the :ref:`sim_workings_reference-label` section if you need more information on this. The wind speeds displayed are the maximum speeds recorded within the :ref:`exposure<g_exposure_reference-label>` circle. SID displays a unique ID for the storm and ISO time gives the time of the storm measurement/:ref:`interpolation<g_interpolation_reference-label>` using international standard time. 
+The circle displayed on the map is the area within which a storm is deemed to cause a :ref:`loss<g_payout_reference-label>` to the :ref:`exposure<g_exposure_reference-label>`, this is referred to as the :ref:`exposure payout radius<g_payoutradius_reference-label>`. The wind speeds displayed are the maximum speeds recorded within the :ref:`exposure<g_exposure_reference-label>` circle. SID displays a unique ID for the storm and ISO time gives the time of the storm measurement/:ref:`interpolation<g_interpolation_reference-label>` using international standard time. 
 
 .. figure:: ../docs_img/analysis_1.png    
   :scale: 50%
@@ -264,7 +265,8 @@ Exhibit 3 gives an estimate of how often storms of each :ref:`Saffir-Simpson cat
 
 * **Return Period** refers to the average time you would have to wait before observing a storm of that category or above, e.g a :ref:`return period<g_returnperiod_reference-label>` of 5 years for a cat 2 storm means you would expect to have one storm at cat 2 or above every 5 years on average. Bear in mind these represent averages, and it is possible to have two 100-year :ref:`events<g_event_reference-label>` occur in subsequent years. Another way to think about :ref:`return periods<g_returnperiod_reference-label>` is the probability of occurrence in any given year. A 10-year :ref:`return period<g_returnperiod_reference-label>` means there is a 1 in 10 (10%) chance of an :ref:`event<g_event_reference-label>` happening in any given year.
 
-This exhibit should be useful for examining why you might have a different result for your simulation method than you would have from the history at your :ref:`exposure<g_exposure_reference-label>`. It should also be useful for getting an idea of how common storms of each category are around your area of :ref:`exposure<g_exposure_reference-label>`. 
+This exhibit should be useful for examining why you might have a different result for your simulation method than you would have from the history at your :ref:`exposure<g_exposure_reference-label>`. It should also be useful for getting an idea of how common storms of each category are around your area of :ref:`exposure<g_exposure_reference-label>`.
+Note that the wind speed/pressure denotes where the category "starts" so represents a minimum for wind speed and a maximum for pressure.
 
 .. figure:: ../docs_img/analysis_3.png  
   :scale: 50%
@@ -278,7 +280,7 @@ Note that the simulated :ref:`frequency<g_frequency_reference-label>` here is un
 
 **Exhibit 4: Payout Frequency Summary**
 
-Exhibit 4 shows the :ref:`frequency<g_frequency_reference-label>` of different annual :ref:`payout<g_payout_reference-label>` values in the simulation output. This exhibit should enable you to get an idea of the likely chances of seeing different :ref:`payout<g_payout_reference-label>` values in any given year e.g., if the red bar shows 90% for a payout of zero, then 90% of simulation-years lead to a total payout of zero. The table below provides some more context, showing the average simulation :ref:`weight<g_weighting_reference-label>` for each :ref:`payout<g_payout_reference-label>` and the cumulative :ref:`percentile<g_percentile_reference-label>`. Note that the :ref:`frequencies<g_frequency_reference-label>` shown in the chart are not weighted.
+Exhibit 4 shows the unweighted :ref:`frequency<g_frequency_reference-label>` of different annual :ref:`payout<g_payout_reference-label>` values in the simulation output. This exhibit should enable you to get an idea of the likely chances of seeing different :ref:`payout<g_payout_reference-label>` values in any given year (e.g., if the red bar shows 90% for a payout of zero, then 90% of simulation-years lead to a total payout of zero). The table below provides some more context, showing the average simulation :ref:`weight<g_weighting_reference-label>` for each :ref:`payout<g_payout_reference-label>` and the cumulative :ref:`percentile<g_percentile_reference-label>`. Note that the :ref:`frequencies<g_frequency_reference-label>` shown in the chart are not weighted.
 
 :ref:`Payouts<g_payout_reference-label>` shown here are cumulative throughout the year and capped by the total number of :ref:`reinstatements<g_reinstatement_reference-label>`. E.g., if you had a 60% :ref:`payout<g_payout_reference-label>` and a further 80% :ref:`payout<g_payout_reference-label>` in a given year with a :ref:`reinstatement<g_reinstatement_reference-label>` in place, this would appear as 140% in the chart.
 
@@ -304,7 +306,7 @@ Note that output will only display on this page once the :ref:`simulations<g_sim
 
 E.g., Consider a cover with only one trigger of USD 100,000. After running a large number of simulated years, the simulated average yearly loss is calculated to be 20,000 which is 20% of the :ref:`maximum payout<g_maxpayout_reference-label>`. This 20% gives us an idea of the annual :ref:`frequency<g_frequency_reference-label>` of :ref:`events<g_event_reference-label>` hitting the cover, i.e we would expect a :ref:`loss<g_payout_reference-label>` roughly every 1 in 5 years (as it has a 20% chance of occurring in any given year). A separate cover with a trigger of 1,000,000 also has a simulated :ref:`loss<g_payout_reference-label>` of 20,000 representing 2% of the maximum. We can see from the small percentage that this is quite a remote cover that we would only expect to see a :ref:`loss<g_payout_reference-label>` from roughly every 1 in 50 years. These covers are evidently quite different despite having the same :ref:`expected payout<g_expectedpayout_reference-label>` of 20,000 as one is hit far more often than the other and generally sustains more :ref:`losses<g_payout_reference-label>` relative to its :ref:`maximum payout<g_maxpayout_reference-label>`.
 
-This simplification works very well with single trigger covers as we can directly pull out the :ref:`frequency<g_frequency_reference-label>` of :ref:`loss<g_payout_reference-label>`es. With multiple triggers we have to be a little more careful generalising, as there are :ref:`payouts<g_payout_reference-label>` at levels other than the maximum. Nevertheless, this rule of thumb should still give a good idea of how likely the cover is to pay out in most cases.
+This simplification works very well with single trigger covers as we can directly pull out the :ref:`frequency<g_frequency_reference-label>` of :ref:`losses<g_payout_reference-label>`. With multiple triggers we have to be a little more careful generalising, as there are :ref:`payouts<g_payout_reference-label>` at levels other than the maximum. Nevertheless, this rule of thumb should still give a good idea of how likely the cover is to pay out in most cases.
 
 .. figure:: ../docs_img/results_1.png  
   :scale: 50%
@@ -314,7 +316,7 @@ This simplification works very well with single trigger covers as we can directl
 
 **Expected Loss and Distribution by Calculation Method**
 
-The main exhibit shows estimates of the :ref:`expected insurance payout<g_expectedpayout_reference-label>` under different calculation methods as well as the full distribution of the simulation output. The distribution shown on the graph by the solid red line orders the :ref:`simulations<g_simulation_reference-label>` from the highest to lowest :ref:`loss<g_payout_reference-label>` so you can see the range of outcomes you might expect across the simulated history. The x-axis gives the :ref:`payout rank<g_lossrank_reference-label>` of the simulation in the overall output (e.g. :ref:`rank<g_lossrank_reference-label>` 300 of 500 simulations is the simulation that generated the 300th highest average payout).The :ref:`expected payout<g_expectedpayout_reference-label>` using different methods is also displayed by horizontal lines on the graph. 
+The main exhibit shows estimates of the :ref:`expected insurance payout<g_expectedpayout_reference-label>` under different calculation methods as well as the full distribution of the simulation output. The distribution shown on the graph by the solid red line orders the :ref:`simulations<g_simulation_reference-label>` from the highest to lowest :ref:`loss<g_payout_reference-label>` so you can see the range of outcomes you might expect across the simulated history. The x-axis gives the :ref:`payout rank<g_lossrank_reference-label>` of the simulation in the overall output (e.g. :ref:`rank<g_lossrank_reference-label>` 300 of 500 simulations is the simulation that generated the 300th highest average payout). The :ref:`expected payout<g_expectedpayout_reference-label>` using different methods is also displayed by horizontal lines on the graph. 
 The bullets below describe what each method means and how it works. 
 
 * **Historical Loss:** :ref:`This<g_historicalloss_reference-label>` method takes an average over the history for your :ref:`exposure<g_exposure_reference-label>` point or area. Simulations don't factor in to this method at all and it can simply be thought of as an average of the :ref:`payouts<g_payout_reference-label>` you would have received over the period. For example, let's assume the :ref:`hazard<g_hazard_reference-label>` data includes storms from 1978-2021. The data shows that over this period, your :ref:`exposure<g_exposure_reference-label>` area experienced 2 storms that would have each generated 100k USD :ref:`payouts<g_payout_reference-label>`. The total :ref:`payout<g_payout_reference-label>` is 200k averaged over the 44 years of data, so the :ref:`historical insurance loss<g_historicalloss_reference-label>` for a one-year period of cover in this example would be USD 4,545. 
@@ -345,27 +347,27 @@ There are two raw model outputs that can be downloaded as CSVs:
 
       * Unmarked first column: Row identifier
 
-      * sim_no: Simulation number. Each value represents a different simulated location
+      * SIM NUMBER: Simulation number. Each value represents a different simulated location
 
-      * lng: Simulated :ref:`longitude<g_latlong_reference-label>` for the :ref:`simulation<g_simulation_reference-label>`
+      * LONGITUDE: Simulated :ref:`longitude<g_latlong_reference-label>` for the :ref:`simulation<g_simulation_reference-label>`
 
-      * lat: Simulated :ref:`latitude<g_latlong_reference-label>` for the :ref:`simulation<g_simulation_reference-label>`
+      * LATITUDE: Simulated :ref:`latitude<g_latlong_reference-label>` for the :ref:`simulation<g_simulation_reference-label>`
 
-      * dist: Distance from the :ref:`exposure<g_exposure_reference-label>`. Note if this is an area then this is the distance from the centre of the area, not the edge.
+      * DISTANCE TO EXPOSURE: Distance from the :ref:`exposure<g_exposure_reference-label>`. Note if this is an area then this is the distance from the centre of the area, not the edge.
 
-      * weight: :ref:`Weighting<g_weighting_reference-label>` applied to each :ref:`simulation<g_simulation_reference-label>` in the final calculation
+      * WEIGHT: :ref:`Weighting<g_weighting_reference-label>` applied to each :ref:`simulation<g_simulation_reference-label>` in the final calculation
 
-      * average_payout: The :ref:`average payout<g_expectedpayout_reference-label>` as a :ref:`percentage of maximum payout<g_percentpayout_reference-label>` for the given :ref:`simulation<g_simulation_reference-label>` across all :ref:`simulation-years<g_simyear_reference-label>`. Note there is no capping here for :ref:`reinstatements<g_reinstatement_reference-label>`
+      * SIMULATION AVERAGE PAYOUT: The :ref:`average payout<g_expectedpayout_reference-label>` as a :ref:`percentage of maximum payout<g_percentpayout_reference-label>` for the given :ref:`simulation<g_simulation_reference-label>` across all :ref:`simulation-years<g_simyear_reference-label>`. Note capping is applied here for :ref:`reinstatements<g_reinstatement_reference-label>`
 
-      * average_payout_capped: average_payout capped for the impact of any :ref:`reinstatements<g_reinstatement_reference-label>`
+      * SIMULATION AVERAGE PAYOUT UNCAPPED: average_payout with no capping for the impact of any :ref:`reinstatements<g_reinstatement_reference-label>`
 
-      * weighted_EL: This column is the :ref:`weight<g_weighting_reference-label>` multiplied by the average capped payout. Summing this column and dividing by the sum of the total weights should give the weighted simulation payout
+      * WEIGHTED EL: This column is the :ref:`weight<g_weighting_reference-label>` multiplied by the average capped payout. Summing this column and dividing by the sum of the total weights should give the weighted simulation payout
 
 **Output by Simulation/Data Year** Each row in this file represents the payout for a given year of the history for each :ref:`simulation<g_simulation_reference-label>`. The variables displayed in the file are as follows:
 
       * Unmarked first column: Row identifier
 
-      * sim_no: Simulation number.    Each value of i represents a different simulated location
+      * sim_no: Simulation number. Each value of i represents a different simulated location
 
       * season: The relevant tropical cyclone season/year 
 
