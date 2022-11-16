@@ -30,6 +30,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Disclaimer" href="index_Disclaimer.html" />
     <link rel="prev" title="What is going to be included in the model in the future?" href="index_Future.html" /> 
 </head>
 
@@ -51,32 +52,39 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index_UserGuide.html">The Risk Explorer Tool - User Guide and Introductory FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_UserGuide.html">Risk Explorer - User Guide and Introductory FAQs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index_Walkthrough.html">Navigating Through the Tool - User Instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index_SimMethod.html">How does the Simulation Methodology Work?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index_AssumpLimits.html">Assumptions and Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_AssumpLimits.html">Assumptions and Limitations – IBTrACS Hazard Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index_Future.html">What is going to be included in the model in the future?</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Glossary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#asset">Asset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#asset-value">Asset Value</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#basin-tropical-cyclone-basin">Basin (Tropical Cyclone Basin)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#convergence">Convergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#damage">Damage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#event">Event</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#event-set">Event Set</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#experience-history">Experience/History</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exposure">Exposure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#exposure-payout-radius-area">Exposure Payout Radius/Area</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#expected-loss-payout">Expected Loss/Payout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exposure-loss-radius-area">Exposure Loss Radius/Area</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#expected-loss">Expected Loss</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#frequency">Frequency</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#hazard">Hazard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#historical-loss">Historical Loss</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ibtracs">IBTrACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#intensity-measure">Intensity Measure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#intensity-values">Intensity Values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#interpolation">Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#insurance-development-forum">Insurance Development Forum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#latitude-longitude">Latitude-Longitude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#maximum-payout">Maximum Payout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loss">Loss</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#meteorological-agency">Meteorological Agency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modified-mercalli-intensity-scale">Modified Mercalli Intensity Scale</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#oasis">Oasis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#payout-loss">Payout/Loss</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#percentage-of-maximum-payout">Percentage of Maximum Payout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#payout">Payout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#peak-ground-acceleration">Peak Ground Acceleration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#percentage-of-asset-value">Percentage of Asset Value</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#percentile">Percentile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#peril">Peril</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reinstatement">Reinstatement</a></li>
@@ -85,17 +93,18 @@
 <li class="toctree-l2"><a class="reference internal" href="#simulation">Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#simulation-year">Simulation-Year</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#saffir-simpson-category">Saffir-Simpson Category</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#simulated-loss-payout-rank">Simulated Loss/Payout Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulated-loss-rank">Simulated Loss Rank</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#standard-deviation">Standard Deviation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulation-loss">Simulation Loss</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#stochastic">Stochastic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#trigger-measure">Trigger Measure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#trigger-values">Trigger Values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#unweighted-simulation-loss">Unweighted Simulation Loss</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#vulnerability">Vulnerability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#weighting-weighting-function">Weighting/Weighting Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#weighted-simulation-loss">Weighted Simulation Loss</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="index_Disclaimer.html">Disclaimer</a></li>
 </ul>
 
         </div>
@@ -123,7 +132,15 @@
            <div itemprop="articleBody">
              
   <section id="glossary">
-<span id="glossary-reference-label"></span><h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading"></a></h1>
+<h1>Glossary<a class="headerlink" href="#glossary" title="Permalink to this heading"></a></h1>
+<section id="asset">
+<span id="g-asset-reference-label"></span><span id="glossary-reference-label"></span><h2>Asset<a class="headerlink" href="#asset" title="Permalink to this heading"></a></h2>
+<p>The physical structure(s)/building(s) whose catastrophe risk you wish to model. This could be a single building or a wider area e.g., a town or whole island.</p>
+</section>
+<section id="asset-value">
+<span id="g-assetvalue-reference-label"></span><h2>Asset Value<a class="headerlink" href="#asset-value" title="Permalink to this heading"></a></h2>
+<p>The total cost of re-building your <a class="reference internal" href="#g-asset-reference-label"><span class="std std-ref">assets</span></a>. This would also include any further economic loss from an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> (e.g., lost revenue from business interruption).</p>
+</section>
 <section id="basin-tropical-cyclone-basin">
 <span id="g-basin-reference-label"></span><h2>Basin (Tropical Cyclone Basin)<a class="headerlink" href="#basin-tropical-cyclone-basin" title="Permalink to this heading"></a></h2>
 <p>The distinct areas where tropical cyclones form. These are sometimes grouped slightly differently depending on the source of information. For the purposes of this app, the six basins and some of the areas that would fall into each basin are listed below.</p>
@@ -149,8 +166,12 @@
 <span id="g-convergence-reference-label"></span><h2>Convergence<a class="headerlink" href="#convergence" title="Permalink to this heading"></a></h2>
 <p>Convergence is the process by which a random variable ends up settling at a particular value as more observations are generated.
 An example of this would be the average score of rolls of a six-sided dice (with each side numbered 1 to 6). Assume we try and estimate the average score of rolling this dice by rolling it repeatedly and averaging all our observations. On the first roll, we get a 5 so our estimate of the average is 5. On the second roll, we get a 3, so our average is now 4. After 40 rolls, our average is 3.7.
-As we repeat this process and roll the dice more and more times, we should start to see our estimate of the average stabilise at the actual average of 3.5. Convergence is the process by which we approach this true estimate after more observations/samples.</p>
-<p>The concept is relevant to the catastrophe modelling framework, as we hope to get a better estimate of the <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> by sampling a sufficient number <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">events</span></a>/years. Once we reach a certain number of <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> we would expect to see the <a class="reference internal" href="#g-expectedpayout-reference-label"><span class="std std-ref">expected payout</span></a> “stabilise” at a certain value and not change meaningfully as we sample further.</p>
+As we repeat this process and roll the dice more and more times, we should start to see our estimate of the average stabilise at the actual average of 3.5. Convergence is the process by which we approach this true estimate after more observations/samples.
+The concept is relevant to the catastrophe modelling framework, as we hope to get a better estimate of the <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">loss</span></a> by sampling a sufficient number <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">events</span></a>/years. Once we reach a certain number of <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> we would expect to see the <a class="reference internal" href="#g-expectedloss-reference-label"><span class="std std-ref">expected loss</span></a> “stabilise” at a certain value and not change meaningfully as we sample further.</p>
+</section>
+<section id="damage">
+<span id="g-damage-reference-label"></span><h2>Damage<a class="headerlink" href="#damage" title="Permalink to this heading"></a></h2>
+<p>The damage percentage records the level of loss to your exposure for different values of the intensity measure. Damage is closely linked to financial loss. 100% damage would mean total destruction of the exposure.</p>
 </section>
 <section id="event">
 <span id="g-event-reference-label"></span><h2>Event<a class="headerlink" href="#event" title="Permalink to this heading"></a></h2>
@@ -164,26 +185,24 @@ selected <a class="reference internal" href="#g-agency-reference-label"><span cl
 </section>
 <section id="experience-history">
 <span id="g-history-reference-label"></span><h2>Experience/History<a class="headerlink" href="#experience-history" title="Permalink to this heading"></a></h2>
-<p>An insurance term that refers to a method of quantifying the expected insurance loss to a cover based on what has happened in the past. Generally, this takes the form of an average
-of the <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payouts</span></a> that would have occurred throughout recent years, adjusting for any changes in the cover, <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> or other important external factors. “Experience” is sometimes used interchangeably with “History”.</p>
+<p>A method of quantifying the expected loss to a cover based on what has happened in the past. Generally, this takes the form of an annual average
+of the <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">losses</span></a> that would have occurred throughout recent years, adjusting for any changes in the cover, <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> or other important external factors. “Experience” is sometimes used interchangeably with “History”.</p>
 </section>
 <section id="exposure">
 <span id="g-exposure-reference-label"></span><h2>Exposure<a class="headerlink" href="#exposure" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>Definition 1: Exposure is one of the key components of a catastrophe model, along with <a class="reference internal" href="#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> and <a class="reference internal" href="#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a>. Exposure refers to the assets you want to insure. The exposure(s) can be defined as a specific location(s), a list of assets/buildings or an area that is to be protected by the insurance cover. This module interacts with the <a class="reference internal" href="#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> and <a class="reference internal" href="#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a> modules to produce simulated <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">insurance losses/payouts</span></a>.</p></li>
-<li><p>Definition 2: An insurance term that refers to a method of quantifying the expected insurance loss to a cover based on the underlying assets being covered. Typically, the way the exposure price is calculated will differ based on the type of asset being covered (e.g., a building’s construction type).</p></li>
+<li><p>Definition 1: Exposure is one of the key components of a catastrophe model, along with <a class="reference internal" href="#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> and <a class="reference internal" href="#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a>. Exposure refers to the <a class="reference internal" href="#g-asset-reference-label"><span class="std std-ref">assets</span></a> you want to model or insure. The exposure(s) can be defined as a specific location(s), a list of <a class="reference internal" href="#g-asset-reference-label"><span class="std std-ref">assets</span></a>/buildings or an area that is to be protected by the insurance cover. This module interacts with the <a class="reference internal" href="#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> and <a class="reference internal" href="#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a> modules to produce simulated <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">losses</span></a>.</p></li>
+<li><p>Definition 2: An insurance term that refers to a method of quantifying the expected insurance loss to a cover based on the underlying <a class="reference internal" href="#g-asset-reference-label"><span class="std std-ref">assets</span></a> being covered. Typically, the way the exposure price is calculated will differ based on the type of asset being covered (e.g., a building’s construction type).</p></li>
 </ul>
 </section>
-<section id="exposure-payout-radius-area">
-<span id="g-expectedpayout-reference-label"></span><h2>Exposure Payout Radius/Area<a class="headerlink" href="#exposure-payout-radius-area" title="Permalink to this heading"></a></h2>
-<p>The exposure payout area or radius refers to the area around the exposure within which triggering <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">events</span></a> would generate payouts for the cover. The <a class="reference internal" href="#g-latlong-reference-label"><span class="std std-ref">latitude and longitudes</span></a> included in the track data refer only to the position of the cyclone’s eye (or centre).
-We therefore need to make an assumption of whether a triggering windspeed/pressure would be recorded for your exposure based on how close any given storm in the hazard data passes. With the tool’s current assumptions, it is assumed that any storm within 75km
-“hits” the exposure as we assume all storms have an RMW of 75km.</p>
+<section id="exposure-loss-radius-area">
+<span id="g-lossradius-reference-label"></span><h2>Exposure Loss Radius/Area<a class="headerlink" href="#exposure-loss-radius-area" title="Permalink to this heading"></a></h2>
+<p>The exposure loss area or radius refers to the area around the exposure within which recorded <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">events</span></a> would generate losses to your asset. The <a class="reference internal" href="#g-latlong-reference-label"><span class="std std-ref">latitudes and longitudes</span></a> included in the track data refer only to the position of the cyclone’s eye (or centre).
+We therefore need to make an assumption of whether a loss generating windspeed/pressure would be recorded as a loss to your exposure, based on how close any given storm in the hazard data passes. With the tool’s current assumptions, it is assumed that any storm within 87.6km “hits” the exposure as we assume all storms have an RMW of 87.6km.</p>
 </section>
-<section id="expected-loss-payout">
-<span id="g-payoutradius-reference-label"></span><h2>Expected Loss/Payout<a class="headerlink" href="#expected-loss-payout" title="Permalink to this heading"></a></h2>
-<p>An estimate of the loss/payout an insurance contract will generate on average. This can be calculated using any number of different methods and may be weighted based on the probabilities
-of different outcomes occurring. The terms loss and payout reflect the impact on the insurer and insured respectively, i.e., the insurer makes a loss on the cover whereas the insured gets a payout to reimburse them for whatever loss was experienced.</p>
+<section id="expected-loss">
+<span id="g-expectedloss-reference-label"></span><h2>Expected Loss<a class="headerlink" href="#expected-loss" title="Permalink to this heading"></a></h2>
+<p>An estimate of the loss generated in an average year. This can be calculated using any number of different methods and may be weighted based on the probabilities of different outcomes occurring. Expected loss can also refer to loss to an insurance cover as well as an asset.</p>
 </section>
 <section id="frequency">
 <span id="g-frequency-reference-label"></span><h2>Frequency<a class="headerlink" href="#frequency" title="Permalink to this heading"></a></h2>
@@ -191,14 +210,13 @@ of different outcomes occurring. The terms loss and payout reflect the impact on
 </section>
 <section id="hazard">
 <span id="g-hazard-reference-label"></span><h2>Hazard<a class="headerlink" href="#hazard" title="Permalink to this heading"></a></h2>
-<p>Hazard is one of the key components of a catastrophe model, along with <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> and <a class="reference internal" href="#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a>. The main purpose of the Hazard module is to determine the level of physical risk from an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> at each
-potential <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> location One example of a hazard component is the <a class="reference internal" href="#g-ibtracs-reference-label"><span class="std std-ref">IBTrACS</span></a> data that feeds this model. For any area in a tropical cyclone <a class="reference internal" href="#g-basin-reference-label"><span class="std std-ref">basin</span></a>, it contains a record of the historic wind speeds from
+<p>Hazard is one of the key components of a catastrophe model, along with <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> and <a class="reference internal" href="#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a>. The main purpose of the Hazard module is to determine the level of physical risk from an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> at each potential <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> location. One example of a hazard component is the <a class="reference internal" href="#g-ibtracs-reference-label"><span class="std std-ref">IBTrACS</span></a> data that feeds this model. For any area in a tropical cyclone <a class="reference internal" href="#g-basin-reference-label"><span class="std std-ref">basin</span></a>, it contains a record of the historic wind speeds from
 previous cyclones. These wind speeds are used as a measure of the relative cyclone “hazard” at each location. This module interacts with the <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> and <a class="reference internal" href="#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a> modules to produce simulated insurance losses.</p>
 </section>
 <section id="historical-loss">
 <span id="g-historicalloss-reference-label"></span><h2>Historical Loss<a class="headerlink" href="#historical-loss" title="Permalink to this heading"></a></h2>
-<p>This is one method of generating an <a class="reference internal" href="#g-expectedpayout-reference-label"><span class="std std-ref">expected loss/payout</span></a>. The method takes an average of the <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">losses/payouts</span></a> sustained over a period of history for your <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> point or area. For example,
-let’s assume we have data across storms from 1978-2021. The data shows that over this period, your <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> area experienced two storms that would have each generated 100k USD <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payouts</span></a>. The total is 200k averaged
+<p>This is one method of generating an <a class="reference internal" href="#g-expectedloss-reference-label"><span class="std std-ref">expected loss</span></a>. The method takes an average of the <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">losses</span></a> sustained over a period of history for your <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> point or area. For example,
+let’s assume we have data across storms from 1978-2021. The data shows that over this period, your <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> area experienced two storms that would have each generated 100k USD <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">losses</span></a>. The total is 200k averaged
 over the 44 years of data, and so the average annual Historical Loss in this example would be USD 4,545. What we refer to as the historical loss here is often known as the “experience” or “burn” in the insurance industry.</p>
 </section>
 <section id="ibtracs">
@@ -206,9 +224,19 @@ over the 44 years of data, and so the average annual Historical Loss in this exa
 <p>IBTrACS stands for International Best Track Archive for Climate Stewardship. According to their website, “IBTrACS merges Tropical Cyclone storm track datasets from <a class="reference internal" href="#g-agency-reference-label"><span class="std std-ref">agencies</span></a> around the world to create a global, best track Tropical Cyclone database”. The data is open-source and can be accessed online at <a class="reference external" href="https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r00/access/csv/">https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r00/access/csv/</a>.
 IBTrACS is the main source of <a class="reference internal" href="#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> data for the Risk Explorer at present and is compiled by the US government body, NOAA (National Oceanic and Atmospheric Administration).</p>
 </section>
+<section id="intensity-measure">
+<span id="g-intensitymeasure-reference-label"></span><h2>Intensity Measure<a class="headerlink" href="#intensity-measure" title="Permalink to this heading"></a></h2>
+<p>The intensity measure is the <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a>-specific measurement that will be used to determine whether an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> leads to a <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">loss</span></a> or not. The intensity measurement chosen should closely relate to the damage potential of the <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> and the likelihood of it causing a <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">loss</span></a>.
+For example, wind speed or pressure would be suitable intensity measures for a storm, as they closely relate to the amount of <a class="reference internal" href="#g-damage-reference-label"><span class="std std-ref">damage</span></a> likely to be caused to the <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> of interest. Recordings of the intensity measure within your defined <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> area will determine how much <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">loss</span></a> is caused by an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a>.</p>
+</section>
+<section id="intensity-values">
+<span id="g-intensityvalue-reference-label"></span><h2>Intensity Values<a class="headerlink" href="#intensity-values" title="Permalink to this heading"></a></h2>
+<p>The value(s) specified for the intensity measure which each correspond to a given level of <a class="reference internal" href="#g-damage-reference-label"><span class="std std-ref">damage</span></a> to your asset. The values entered here and vulnerability curve type are used to generate loss figures for each event in your hazard data.
+<a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">Losses</span></a> increase or decrease with the intensity of the intensity measure. E.g., a category 1 storm might generate <a class="reference internal" href="#g-damage-reference-label"><span class="std std-ref">damage</span></a> equating to 50% of the asset’s value, whereas a category 2 storm might generate <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">damage</span></a> of 75% of the asset’s value.</p>
+</section>
 <section id="interpolation">
 <span id="g-interpolation-reference-label"></span><h2>Interpolation<a class="headerlink" href="#interpolation" title="Permalink to this heading"></a></h2>
-<p>Interpolation refers to the estimation of new data from exisiting data. E.g., say we have storm tracks at 6-hour intervals, but wish to estimate values at 15 minute intervals too. Interpolation allows us to come up with estimates for these intermediate points based on the values we already have for the 6-hour intervals.</p>
+<p>Interpolation refers to the estimation of new data from existing data. E.g., say we have storm tracks at 6-hour intervals, but wish to estimate values at 15 minute intervals too. Interpolation allows us to come up with estimates for these intermediate points based on the values we already have for the 6-hour intervals.</p>
 </section>
 <section id="insurance-development-forum">
 <span id="g-idf-reference-label"></span><h2>Insurance Development Forum<a class="headerlink" href="#insurance-development-forum" title="Permalink to this heading"></a></h2>
@@ -222,10 +250,9 @@ and longitude values. Longitude can be thought of as how far east or west a loca
 with the Greenwich meridian lying at zero. Unlike latitudes, longitudes repeat on themselves, -180 and +180 represent the same point (the international date line). Latitude values can range from 90 degrees South (-90) to 90
 degrees North(+90), a latitude of 0 means that a location lies on the equator.</p>
 </section>
-<section id="maximum-payout">
-<span id="g-maxpayout-reference-label"></span><h2>Maximum Payout<a class="headerlink" href="#maximum-payout" title="Permalink to this heading"></a></h2>
-<p>The maximum amount that can be paid out by a cover when an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> occurs. Note that the maximum payout does not always represent the total aggregate amount insured, as the maximum payout could
-be paid out multiple times if the cover has <a class="reference internal" href="#g-reinstatement-reference-label"><span class="std std-ref">reinstatements</span></a>.</p>
+<section id="loss">
+<span id="g-loss-reference-label"></span><h2>Loss<a class="headerlink" href="#loss" title="Permalink to this heading"></a></h2>
+<p>Loss refers to the financial cost of restoring a physical asset to its previous state after it has been hit by an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a>. This would cover the cost of any re-building work, as well as any economic loss suffered as a result of interruption to business activities.</p>
 </section>
 <section id="meteorological-agency">
 <span id="g-agency-reference-label"></span><h2>Meteorological Agency<a class="headerlink" href="#meteorological-agency" title="Permalink to this heading"></a></h2>
@@ -243,26 +270,133 @@ of agencies to be used in the Risk Explorer. The below provides a list of the sh
 <li><p>Wellington: TCWC Wellington, New Zealand</p></li>
 </ul>
 </section>
+<section id="modified-mercalli-intensity-scale">
+<span id="g-mmi-reference-label"></span><h2>Modified Mercalli Intensity Scale<a class="headerlink" href="#modified-mercalli-intensity-scale" title="Permalink to this heading"></a></h2>
+<p>The Modified Mercalli Intensity Scale (frequently abbreviated to MMI) categorises earthquakes in terms of their severity and how they are generally felt by people. The table below shows the different categories on the MMI scale as well as their corresponding <a class="reference internal" href="#g-pga-reference-label"><span class="std std-ref">pga</span></a> values.</p>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">MMI Intensities</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 18%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Intensity</p></th>
+<th class="head"><p>PGA(%g)</p></th>
+<th class="head"><p>Ground Conditions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Not felt</p></li>
+</ol>
+</td>
+<td><p>&lt;0.17</p></td>
+<td><p>Not felt except by very few under especially favorable conditions.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="upperroman simple" start="2">
+<li><p>Weak</p></li>
+</ol>
+</td>
+<td><p>0.17-1.4</p></td>
+<td><p>Felt only by a few people at rest, especially on upper floors of buildings. Delicately suspended objects may swing.</p></td>
+</tr>
+<tr class="row-even"><td><ol class="upperroman simple" start="3">
+<li><p>Weak</p></li>
+</ol>
+</td>
+<td><p>0.17-1.4</p></td>
+<td><p>Felt quite noticeably by people indoors, especially on upper floors of buildings: Many people do not recognize it as an earthquake. Standing vehicles may rock slightly. Vibrations are similar to the passing of a truck, with duration estimated</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="upperroman simple" start="4">
+<li><p>Light</p></li>
+</ol>
+</td>
+<td><p>1.4-3.9</p></td>
+<td><p>Felt indoors by many, outdoors by few during the day: At night, some are awakened. Dishes, windows, and doors are disturbed; walls make cracking sounds. Sensations are like a heavy truck striking a building. Standing vehicles are rocked noticeably.</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="5">
+<li><p>Moderate</p></li>
+</ol>
+</td>
+<td><p>3.9-9.2</p></td>
+<td><p>Felt by nearly everyone; many awakened: Some dishes and windows are broken. Unstable objects are overturned. Pendulum clocks may stop.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="upperroman simple" start="6">
+<li><p>Strong</p></li>
+</ol>
+</td>
+<td><p>9.2-18</p></td>
+<td><p>Felt by all, and many are frightened. Some heavy furniture is moved; a few instances of fallen plaster occur. Damage is slight.</p></td>
+</tr>
+<tr class="row-even"><td><ol class="upperroman simple" start="7">
+<li><p>Very Strong</p></li>
+</ol>
+</td>
+<td><p>18-34</p></td>
+<td><p>Damage is negligible in buildings of good design and construction; but slight to moderate in well-built ordinary structures; damage is considerable in poorly built or badly designed structures; some chimneys are broken. Noticed by motorists.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="upperroman simple" start="8">
+<li><p>Severe</p></li>
+</ol>
+</td>
+<td><p>34-65</p></td>
+<td><p>Damage slight in specially designed structures; considerable damage in ordinary substantial buildings with partial collapse. Damage great in poorly built structures. Fall of chimneys, factory stacks, columns, monuments, walls. Heavy furniture overturned. Sand and mud ejected in small amounts. Changes in well water. Motorists are disturbed.</p></td>
+</tr>
+<tr class="row-even"><td><ol class="upperroman simple" start="9">
+<li><p>Violent</p></li>
+</ol>
+</td>
+<td><p>65-124</p></td>
+<td><p>Damage is considerable in specially designed structures; well-designed frame structures are thrown out of plumb. Damage is great in substantial buildings, with partial collapse. Buildings are shifted off foundations. Liquefaction occurs. Underground pipes are broken.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="10">
+<li><p>Extreme</p></li>
+</ol>
+</td>
+<td><p>&gt; 124</p></td>
+<td><p>Some well-built wooden structures are destroyed; most masonry and frame structures are destroyed with foundations. Rails are bent. Landslides considerable from river banks and steep slopes. Shifted sand and mud. Water splashed over banks.</p></td>
+</tr>
+<tr class="row-even"><td><ol class="upperroman simple" start="11">
+<li><p>Extreme</p></li>
+</ol>
+</td>
+<td><p>&gt; 124</p></td>
+<td><p>Few, if any, (masonry) structures remain standing. Bridges are destroyed. Broad fissures erupt in the ground. Underground pipelines are rendered completely out of service. Earth slumps and land slips in soft ground. Rails are bent greatly.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="upperroman simple" start="12">
+<li><p>Extreme</p></li>
+</ol>
+</td>
+<td><p>&gt; 124</p></td>
+<td><p>Damage is total. Waves are seen on ground surfaces. Lines of sight and level are distorted. Objects are thrown upward into the air.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="oasis">
 <span id="g-oasis-reference-label"></span><h2>Oasis<a class="headerlink" href="#oasis" title="Permalink to this heading"></a></h2>
 <p>Oasis is a not-for-profit company, owned by close to 30 insurers, reinsurers and brokers. Its aim is to open up catastrophe modelling by increasing both the user-base and supply. The company was founded
-in 2012 and aims to build a wider community of those interested in catastrophe risk across business, academia and government. For more information see oasislmf.org</p>
+in 2012 and aims to build a wider community of those interested in catastrophe risk across business, academia and government. For more information see oasislmf.org.</p>
 </section>
-<section id="payout-loss">
-<span id="g-payout-reference-label"></span><h2>Payout/Loss<a class="headerlink" href="#payout-loss" title="Permalink to this heading"></a></h2>
-<p>Payout refers to the amount received by a policyholder when an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> triggers their policy. Note that this does not factor in any premium originally paid for the policy. The more standard term
-in the industry for this is “loss”, however this is a more insurer-centric way of defining things as for the insured themselves an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> represents a payout. You may note that payout and loss are used somewhat
-interchangeably here in order to expose users to the more intuitive definition as well as the standard insurance market terminology.</p>
+<section id="payout">
+<span id="g-payout-reference-label"></span><h2>Payout<a class="headerlink" href="#payout" title="Permalink to this heading"></a></h2>
+<p>Payout refers to the amount received by a policyholder when an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> triggers their policy. Where you are using the vulnerability section to model a parametric insurance cover, payout and loss can be understood as being essentially the same thing.</p>
 </section>
-<section id="percentage-of-maximum-payout">
-<span id="g-percentpayout-reference-label"></span><h2>Percentage of Maximum Payout<a class="headerlink" href="#percentage-of-maximum-payout" title="Permalink to this heading"></a></h2>
-<p>A method of stating the <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">loss/payout</span></a> from a cover by expressing it as a percentage of the <a class="reference internal" href="#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a>. The reason for expressing <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">losses</span></a> in this way is it enables us to compare the relative burden of <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">losses</span></a> for different covers regardless of the financial amount. It is also useful for comparing the relative likelihood of seeing <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">losses/payouts</span></a> from different covers.</p>
-<p>E.g., Consider a cover with only one trigger of USD 100,000. After running a large number of simulated years, the simulated average yearly loss is calculated to be 20,000 which is 20% of the <a class="reference internal" href="#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a>. This 20% gives us an idea of the annual <a class="reference internal" href="#g-frequency-reference-label"><span class="std std-ref">frequency</span></a> of <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">events</span></a> hitting the cover, i.e we would expect a loss roughly 20% or every 1 in 5 years (as it has a 20% chance of occurring in any given year). A separate cover with a trigger of 1,000,000 also has a simulated loss of 20,000 representing 2% of the maximum. We can see from the small percentage that this is quite a remote cover that we would only expect to see a loss from roughly every 1 in 50 years. These covers are evidently quite different despite having the same <a class="reference internal" href="#g-expectedpayout-reference-label"><span class="std std-ref">expected payout</span></a> of 20,000 as one is hit far more often than the other and generally sustains more <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">losses</span></a> relative to its <a class="reference internal" href="#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a>.</p>
+<section id="peak-ground-acceleration">
+<span id="g-pga-reference-label"></span><h2>Peak Ground Acceleration<a class="headerlink" href="#peak-ground-acceleration" title="Permalink to this heading"></a></h2>
+<p>Peak Ground Acceleration is a measurement of how hard the ground shakes during an earthquake at a given location. Due to its close link to damage sustained, it is often used as an intensity measure for the earthquake peril. It is recorded in terms of the earth’s standard acceleration due to gravity (denoted %g).
+Values of this measure correspond to different intensities of the Modified Mercalli Intensity Scale which is used to classify the severity of earthquakes.</p>
+</section>
+<section id="percentage-of-asset-value">
+<span id="g-percentasset-reference-label"></span><h2>Percentage of Asset Value<a class="headerlink" href="#percentage-of-asset-value" title="Permalink to this heading"></a></h2>
+<p>A method of stating the <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">loss</span></a> to an asset by expressing it as a percentage of the <a class="reference internal" href="#g-assetvalue-reference-label"><span class="std std-ref">asset value</span></a>. The reason for expressing <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">losses</span></a> in this way is it enables us to compare the relative burden of <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">losses</span></a> for different assets regardless of the financial amount.
+E.g., an asset worth USD 1m has an average expected loss of USD 100,000 whereas another worth USD 10,000 has an average expected loss of USD2,000. The average percentage of asset value lost is 20% in the second case compared to 10% in the first case. Despite the amounts involved being smaller there is more relative risk to the second asset compared to the first. Being able to make this comparison is useful and gives us a comparison of how often an asset might be affected by events.</p>
 </section>
 <section id="percentile">
 <span id="g-percentile-reference-label"></span><h2>Percentile<a class="headerlink" href="#percentile" title="Permalink to this heading"></a></h2>
-<p>Percentile refers to the total percentage of values that are below a given value in the distribution.</p>
-<p>Exhibit 4 in the Analysis tab displays this metric for each payout value. E.g., if a <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> of USD 100 has a percentile of 50.0%, this means that 50% have a <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> of equal to USD 100 or less.</p>
+<p>Percentile refers to the total percentage of values that are below a given value in the distribution.
+Exhibit 4 in the Analysis tab displays this metric for each loss value. E.g., if a <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">loss</span></a> of USD 100 has a percentile of 50%, this means that 50% of simulations have a <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">loss</span></a> of equal to USD 100 or less. Likewise for the 98th percentile, only 2% of simulations have a higher loss and 98% have an equal or smaller loss.</p>
 </section>
 <section id="peril">
 <span id="g-peril-reference-label"></span><h2>Peril<a class="headerlink" href="#peril" title="Permalink to this heading"></a></h2>
@@ -280,45 +414,40 @@ interchangeably here in order to expose users to the more intuitive definition a
 </section>
 <section id="reinstatement">
 <span id="g-reinstatement-reference-label"></span><h2>Reinstatement<a class="headerlink" href="#reinstatement" title="Permalink to this heading"></a></h2>
-<p>A reinstatement refers to a “reinstatement of cover”. Reinstatements allow you to receive a <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> once you have “used” up your cover i.e., received the <a class="reference internal" href="#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a> over the
-course of a year. The number of reinstatements dictates how many additional times you can receive the total <a class="reference internal" href="#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a> in a year.
-If you have zero reinstatements, the cover will only pay up to your maximum once in a given year. Subsequent <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">events</span></a> after the <a class="reference internal" href="#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a> has been reached will only generate further <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payouts</span></a> if your cover
-reinstates. If you have one reinstatement, you would receive a <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> for up to two <a class="reference internal" href="#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a> <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">events</span></a>.</p>
-<p>A similar logic applies for the case of partial <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payouts</span></a>. For example, say you receive 60% of your <a class="reference internal" href="#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a> from an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a>, then a second <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> that year also generates a 60% loss. In the case where you had
-a reinstatement you would receive the full amount of 60% for the second <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> as the cover would reinstate and you would be entitled to an additional <a class="reference internal" href="#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a> over the course of the year. If you had no
-reinstatements, the <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> for the second <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> would be capped at 40%. This is because the sum of your <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payouts</span></a> for the first and second <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">events</span></a> would exceed the maximum of 100%, as such, the second <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a>
-is capped so as not to exceed the <a class="reference internal" href="#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a>. The <a class="reference internal" href="#g-expectedpayout-reference-label"><span class="std std-ref">expected payout</span></a> for a cover with multiple reinstatements will typically be higher than that of a single <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> cover (no reinstatements).</p>
+<p>A reinstatement refers to a “reinstatement of cover”. This means your insurance cover can reinstate
+Reinstatements allow you to receive a <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> once you have “used” up your cover i.e., received the maximum payout over the course of a year. The number of reinstatements dictates how many additional times you can receive the total maximum payout in a year.
+If you have zero reinstatements, the cover will only pay up to your maximum once in a given year. In the case of this model, there is an implicit assumption of no reinstatements as you are modelling the full value of your asset.</p>
 </section>
 <section id="return-period">
 <span id="g-returnperiod-reference-label"></span><h2>Return Period<a class="headerlink" href="#return-period" title="Permalink to this heading"></a></h2>
 <p>Return period refers to the average time you would have to wait before observing a given <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> or a loss of a given amount. E.g., a return period of 5 years for a cat 2 storm means you would expect to have one storm at cat 2 or above every 5 years on average. Of course this is an average, and it is possible to have two 100-year <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">events</span></a> occur in subsequent years. An <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> with a 100-year <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> return period in terms of hurricane category may not equate to a 100-year loss return period (for example if there was little <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> hit, resulting in a low loss).
-The return period also communicates the probability of occurrence in any given year. A 10-year return period means there is a roughly 1 in 10 (10%) chance of an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> (or loss) happening in any given year. For relatively rare <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">events</span></a>, return periods can be considered the reciprocals
-of frequencies, e.g., an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> (or loss) with a <a class="reference internal" href="#g-frequency-reference-label"><span class="std std-ref">frequency</span></a> of 0.1 has a return period of around 10 years as 1 / 0.1 = 10.</p>
+The return period also communicates the probability of occurrence in any given year. A 10-year return period means there is a roughly 1 in 10 (10%) chance of an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> (or loss) happening in any given year. For relatively rare <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">events</span></a>, return periods can be considered the reciprocals of frequencies, e.g., an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> (or loss) with a <a class="reference internal" href="#g-frequency-reference-label"><span class="std std-ref">frequency</span></a> of 0.1 has a return period of around 10 years as 1 / 0.1 = 10.</p>
 </section>
 <section id="rmw-radius-of-maximum-wind-speeds">
 <span id="g-rmw-reference-label"></span><h2>RMW (Radius of Maximum Wind Speeds)<a class="headerlink" href="#rmw-radius-of-maximum-wind-speeds" title="Permalink to this heading"></a></h2>
-<p>The radius of maximum wind (RMW) is the distance between the centre of a cyclone and its band of strongest winds (fastest windspeeds). This is an important consideration for the Risk Explorer as
-it tells us how wide an area maximum wind speeds are likely to be recorded in. For the purposes of the Risk Explorer, the assumed radius of maximum wind speeds is defined to be 75 km.</p>
+<p>The radius of maximum wind (RMW) is the distance between the centre of a cyclone and its band of strongest winds (fastest windspeeds). This is an important consideration for the Risk Explorer as it tells us how wide an area maximum wind speeds are likely to be recorded in.
+For the purposes of the Risk Explorer, the assumed radius of maximum wind speeds is defined to be 87.6km in all cases. This figure is based on a 2021 paper by Perez-Alarcon et al. which suggests this is the average radius observed in the Atlantic basin.</p>
 </section>
 <section id="simulation">
 <span id="g-simulation-reference-label"></span><h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this heading"></a></h2>
 <p>A simulation typically refers to a specific “run” of a model. A run will produce a distinct set of outcomes generated by a simulation model.
-In the case of version 1 of the Risk Explorer, we are trying to simulate <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">insurance losses</span></a> at a randomly sampled location over the history of the <a class="reference internal" href="#g-ibtracs-reference-label"><span class="std std-ref">IBTrACS</span></a> data-set. As such,
-one “simulation” can be thought of as the average losses generated at one distinct simulated location. A large number of simulations are typically required to get a reliable result, hence
-500 is the minimum number of simulations that can be run in the model.</p>
+For Historical IBTrACS data in the Risk Explorer, we are trying to simulate :ref:` losses&lt;g_loss_reference-label&gt;` at a randomly sampled location over the history of the <a class="reference internal" href="#g-ibtracs-reference-label"><span class="std std-ref">IBTrACS</span></a> data-set. As such, one “simulation” can be thought of as the average losses generated at one distinct simulated location over the course of all the years in the history.
+By contrast, for <a class="reference internal" href="#g-stochastic-reference-label"><span class="std std-ref">stochastic</span></a> sets, each simulation represents a year of losses at the selected location. This is an important distinction as each simulation with the stochastic set represents an individual year as opposed to a range of years in the historical data. As such you will need more simulations to get a reliable estimate with the <a class="reference internal" href="#g-stochastic-reference-label"><span class="std std-ref">stochastic</span></a> set as there is already substantial variability in each simulation under the IBTrACS approach.
+A large number of simulations are typically required to get a reliable result, hence 500 is the minimum number of simulations that can be run in the model.</p>
 </section>
 <section id="simulation-year">
 <span id="g-simyear-reference-label"></span><h2>Simulation-Year<a class="headerlink" href="#simulation-year" title="Permalink to this heading"></a></h2>
-<p>Within the Risk Explorer, a <a class="reference internal" href="#g-simyear-reference-label"><span class="std std-ref">simulation-year</span></a> refers to the <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">loss</span></a> sustained in a given historical year of the <a class="reference internal" href="#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> data for a given <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a>. For example, 5-2003 refers to the 2003 <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">loss</span></a>
-in <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> 5. In order to generate <a class="reference internal" href="#g-expectedpayout-reference-label"><span class="std std-ref">expected losses</span></a> for each <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a>, we need to average across all years within that <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a>.</p>
+<p>For IBTrACS data, a <a class="reference internal" href="#g-simyear-reference-label"><span class="std std-ref">simulation-year</span></a> refers to the <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">loss</span></a> sustained in a given historical year of the <a class="reference internal" href="#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> data for a given <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a>. For example, 5-2003 refers to the 2003 <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">loss</span></a>
+in <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> 5. In order to generate <a class="reference internal" href="#g-expectedloss-reference-label"><span class="std std-ref">expected losses</span></a> for each <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a>, we need to average across all years within that <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a>.
+For stochastic data, each simulation is an individual year so simulation-year and simulation are the same thing.</p>
 </section>
 <section id="saffir-simpson-category">
 <span id="g-sscategory-reference-label"></span><h2>Saffir-Simpson Category<a class="headerlink" href="#saffir-simpson-category" title="Permalink to this heading"></a></h2>
 <p>A Saffir-Simpson category represents a level of hurricane intensity on the Saffir-Simpson scale which is commonly used by meteorologists and the insurance industry. The Saffir-Simpson scale
 uses the measurement of sustained 1-minute maximum wind speeds to categorise hurricanes by intensity. The categories range from 1-5 with 5 being the highest intensity and 1 the lowest. Note that a category 1 hurricane still
 represents a strong storm and the majority of tropical storms are far weaker than a category 1. The table below shows the relevant wind speeds for each category:</p>
-<table class="colwidths-given docutils align-default" id="id2">
-<caption><span class="caption-text">Saffir-Simpson Categories</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">Saffir-Simpson Categories</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -354,59 +483,54 @@ represents a strong storm and the majority of tropical storms are far weaker tha
 </tbody>
 </table>
 <p>It’s worth noting that while the Saffir-Simpson scale is a useful tool for measuring hurricane intensity, it does not include the impact of flooding or storm surge. These variables can vary a lot by storm
-and can have a serious impact on economic and <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">insured losses</span></a>.</p>
+and can have a serious impact on economic and <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">insured losses</span></a>.</p>
 </section>
-<section id="simulated-loss-payout-rank">
-<span id="g-lossrank-reference-label"></span><h2>Simulated Loss/Payout Rank<a class="headerlink" href="#simulated-loss-payout-rank" title="Permalink to this heading"></a></h2>
-<p>After all <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> have been run, the average losses for each <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> are ordered from highest to lowest. The <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> with the highest average loss would be ranked 1st, the
-next highest 2nd and so on.</p>
+<section id="simulated-loss-rank">
+<span id="g-lossrank-reference-label"></span><h2>Simulated Loss Rank<a class="headerlink" href="#simulated-loss-rank" title="Permalink to this heading"></a></h2>
+<p>After all <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> have been run, the losses for each <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> are ordered from highest to lowest. The <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> with the highest average loss would be ranked 1st, the next highest 2nd and so on.</p>
 </section>
 <section id="standard-deviation">
 <span id="g-stdev-reference-label"></span><h2>Standard Deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this heading"></a></h2>
 <p>Standard deviation is a measure of the amount of variation that exists in a data set. The higher this number, the more spread out the data generally is from the mean or average. The lower
-the standard deviation, the more observations tend to be close to the mean value. The formula for calculating this can be found online and is available in nearly all spreadsheet applications. For nearly all
-distributions, 75% or more of observations will lie within 2 standard deviations of the mean value and at least 89% will lie within 3 standard deviations.</p>
+the standard deviation, the more observations tend to be close to the mean value. The formula for calculating this can be found online and is available in nearly all spreadsheet applications. For nearly all distributions, 75% or more of observations will lie within 2 standard deviations of the mean value and at least 89% will lie within 3 standard deviations.</p>
+</section>
+<section id="simulation-loss">
+<span id="g-simulationloss-reference-label"></span><h2>Simulation Loss<a class="headerlink" href="#simulation-loss" title="Permalink to this heading"></a></h2>
+<p>For <a class="reference internal" href="#g-stochastic-reference-label"><span class="std std-ref">stochastic</span></a> hazard data, the simulation loss simply represents the average annual loss to your exposure across all simulations run. This measure can be thought of as being equivalent to the unweighted or weighted simulation loss for IBTrACS data.</p>
 </section>
 <section id="stochastic">
 <span id="g-stochastic-reference-label"></span><h2>Stochastic<a class="headerlink" href="#stochastic" title="Permalink to this heading"></a></h2>
-<p><a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">Events</span></a> that are stochastic follow a random distribution or pattern, however aren’t exactly forecastable. This term is often used in the context of an <a class="reference internal" href="#g-eventset-reference-label"><span class="std std-ref">event set</span></a>.</p>
+<p><a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">Events</span></a> that are stochastic follow a random distribution or pattern, however aren’t exactly forecastable. This term is often used in the context of an <a class="reference internal" href="#g-eventset-reference-label"><span class="std std-ref">event set</span></a>. Stochastic event sets in the Risk Explorer refer to hazard data put together by catastrophe modelling experts which aim to simulate the underlying randomness of natural catastrophes.</p>
 </section>
 <section id="trigger-measure">
 <span id="g-triggermeasure-reference-label"></span><h2>Trigger Measure<a class="headerlink" href="#trigger-measure" title="Permalink to this heading"></a></h2>
-<p>The trigger measure is the <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a>-specific measurement that will be used to determine whether an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> leads to a <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> or not. The trigger measurement chosen should closely relate to
-the intensity of the <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> and the likelihood of it causing a <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">loss</span></a>. For example, wind speed or pressure would be suitable triggers for a storm, as they closely relate to the amount of damage likely to be
-caused to the <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> of interest. Recordings of the trigger measure within your defined <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> area will determine how much <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> is received in an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a>.</p>
-</section>
-<section id="trigger-values">
-<span id="g-triggervalue-reference-label"></span><h2>Trigger Values<a class="headerlink" href="#trigger-values" title="Permalink to this heading"></a></h2>
-<p>The value(s) which the trigger measure must exceed for an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> to generate a <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> for the insured. Each trigger value will have a pre-defined <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> associated with its exceedance, with
-<a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payouts</span></a> generally increasing with the intensity of the trigger measure. E.g., a category 1 storm might generate a <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> of 5m USD whereas a category 2 storm might generate a <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> of 10m USD. A cover with only one
-trigger value and one <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payout</span></a> is known as a binary cover.</p>
+<p>The trigger measure is the <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a>-specific measurement that will be used to determine whether an <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">event</span></a> leads to an insurance payout under a parametric insurance cover or not. The trigger measurement chosen should closely relate to the <a class="reference internal" href="#g-damage-reference-label"><span class="std std-ref">damage</span></a> potential of the event.
+The trigger measure and intensity measure in the vulnerability function are closely related and can essentially be thought of as the same thing when you are modelling a parametric cover in the tool.</p>
 </section>
 <section id="unweighted-simulation-loss">
 <span id="g-unweightedsimloss-reference-label"></span><h2>Unweighted Simulation Loss<a class="headerlink" href="#unweighted-simulation-loss" title="Permalink to this heading"></a></h2>
-<p>This is the average annual insurance payout across all <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> with no weighting for proximity to the <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> applied. The downside of using this method is that it may unduly
+<p>For IBTrACS hazard data, this is the average annual loss across all <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> with no weighting for proximity to the <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> applied. The downside of using this method is that it may unduly
 weight <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> a long way from the <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>. However, it can be a useful point of comparison to the <a class="reference internal" href="#g-weightedsimloss-reference-label"><span class="std std-ref">weighted simulation loss</span></a>, as it will give us an idea of how much impact the weighting function is having on the metric.</p>
 </section>
 <section id="vulnerability">
 <span id="g-vulnerability-reference-label"></span><h2>Vulnerability<a class="headerlink" href="#vulnerability" title="Permalink to this heading"></a></h2>
-<p>Vulnerability is one of the key components of a catastrophe model, along with <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> and <a class="reference internal" href="#g-hazard-reference-label"><span class="std std-ref">hazard</span></a>. Vulnerability defines how physical <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">events</span></a> translate into damage/financial loss. In the case of
-a parametric cover, the financial loss is solely defined by your triggers/insurance structure because given values of your trigger measure lead to specific <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">payouts</span></a>. As such, for a parametric cover, vulnerability and
-the insurance structure itself are essentially the same thing. This module interacts with the <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> and <a class="reference internal" href="#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> modules to produce simulated <a class="reference internal" href="#g-payout-reference-label"><span class="std std-ref">insurance losses/payouts</span></a>. In the Risk Explorer, the trigger measure is based on <a class="reference internal" href="#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> intensity (windspeed or central pressure).</p>
+<p>Vulnerability is one of the key components of a catastrophe model, along with <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> and <a class="reference internal" href="#g-hazard-reference-label"><span class="std std-ref">hazard</span></a>. Vulnerability defines how physical <a class="reference internal" href="#g-event-reference-label"><span class="std std-ref">events</span></a> translate into <a class="reference internal" href="#g-damage-reference-label"><span class="std std-ref">damage</span></a>/financial loss. In the Risk Explorer, this is achieved through defining a relationship between the damage percentage and intensity measure.
+This module interacts with the <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> and <a class="reference internal" href="#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> modules to produce simulated <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">losses</span></a>. In the Risk Explorer, the trigger measure is based on <a class="reference internal" href="#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> intensity (windspeed or central pressure).
+In the case of a parametric cover, the financial loss is solely defined by your triggers/insurance structure because given values of your trigger measure lead to specific <a class="reference internal" href="#g-loss-reference-label"><span class="std std-ref">losses</span></a>. As such, for a parametric cover, vulnerability and the insurance structure itself are essentially the same thing.</p>
 </section>
 <section id="weighting-weighting-function">
 <span id="g-weighting-reference-label"></span><h2>Weighting/Weighting Function<a class="headerlink" href="#weighting-weighting-function" title="Permalink to this heading"></a></h2>
-<p>The weighting is the degree of importance given to a particular value in a calculation, e.g. a weighting of 0.2 implies the value has double the relative importance on the calculation as a value with a weighting of 0.1 would.  The weighting function is a formula that takes the distance of the <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> from the initial <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> as an input and produces a weight between 0 and 1 to apply to the
+<p>For IBTrACS hazard data, the weighting is the degree of importance given to a particular value in a calculation, e.g. a weighting of 0.2 implies the value has double the relative importance on the calculation as a value with a weighting of 0.1 would.  The weighting function is a formula that takes the distance of the <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> from the initial <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> as an input and produces a weight between 0 and 1 to apply to the
 <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> as an output. The idea is to give a higher weighting to observations that lie closer to the <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> in the final calculation. There are a number of potential weighting methods that could be used
 to do this. An exponential weighting function with a lambda parameter of 3.2 is selected for calculating the weightings in this model based on scientific and actuarial expert judgement.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../_images/Weighting.png"><img alt="Weighting Graph" src="../_images/Weighting.png" style="width: 340.0px; height: 196.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/Weighting.png"><img alt="Weighting Graph" src="../_images/Weighting.png" style="width: 235.5px; height: 138.0px;" /></a>
 </figure>
 <p>Exhibit demonstrating relationship between distance from <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> and weight for a single location.</p>
 </section>
 <section id="weighted-simulation-loss">
 <span id="g-weightedsimloss-reference-label"></span><h2>Weighted Simulation Loss<a class="headerlink" href="#weighted-simulation-loss" title="Permalink to this heading"></a></h2>
-<p>This is the average annual insurance payout across all your <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> including the weighting for proximity to the <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> applied. This is one of the main
+<p>For IBTrACS hazard data, this is the average annual loss across all your <a class="reference internal" href="#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> including the weighting for proximity to the <a class="reference internal" href="#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> applied. This is one of the main
 outputs from the simulation approach. See the <a class="reference internal" href="index_SimMethod.html#sim-workings-reference-label"><span class="std std-ref">How does the Simulation Methodology Work?</span></a> in the FAQs section for a more detailed discussion of how this is calculated.</p>
 </section>
 </section>
@@ -416,6 +540,7 @@ outputs from the simulation approach. See the <a class="reference internal" href
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index_Future.html" class="btn btn-neutral float-left" title="What is going to be included in the model in the future?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index_Disclaimer.html" class="btn btn-neutral float-right" title="Disclaimer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

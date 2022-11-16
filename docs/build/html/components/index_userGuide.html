@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Risk Explorer Tool - User Guide and Introductory FAQs &mdash; Risk Explorer</title>
+  <title>Risk Explorer - User Guide and Introductory FAQs &mdash; Risk Explorer</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/c" type="text/css" />
@@ -52,17 +52,19 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">The Risk Explorer Tool - User Guide and Introductory FAQs</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Risk Explorer - User Guide and Introductory FAQs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-the-oasis-risk-explorer">What is the Oasis Risk Explorer?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-regions-and-perils-can-the-tool-model">What regions and perils can the tool model?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-parametric-insurance">What is parametric insurance?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-should-this-model-be-used">How should this model be used?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="index_Walkthrough.html">Navigating Through the Tool - User Instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index_SimMethod.html">How does the Simulation Methodology Work?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="index_AssumpLimits.html">Assumptions and Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_AssumpLimits.html">Assumptions and Limitations – IBTrACS Hazard Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index_Future.html">What is going to be included in the model in the future?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index_Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index_Disclaimer.html">Disclaimer</a></li>
 </ul>
 
         </div>
@@ -79,7 +81,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>The Risk Explorer Tool - User Guide and Introductory FAQs</li>
+      <li>Risk Explorer - User Guide and Introductory FAQs</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/components/index_UserGuide.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,49 +91,69 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="the-risk-explorer-tool-user-guide-and-introductory-faqs">
-<h1>The Risk Explorer Tool - User Guide and Introductory FAQs<a class="headerlink" href="#the-risk-explorer-tool-user-guide-and-introductory-faqs" title="Permalink to this heading"></a></h1>
+  <section id="risk-explorer-user-guide-and-introductory-faqs">
+<h1>Risk Explorer - User Guide and Introductory FAQs<a class="headerlink" href="#risk-explorer-user-guide-and-introductory-faqs" title="Permalink to this heading"></a></h1>
 <p>These pages provide a step-by-step guide to running the Risk Explorer tool and give more general background on the tool’s uses and limitations.</p>
 <section id="what-is-the-oasis-risk-explorer">
 <h2>What is the Oasis Risk Explorer?<a class="headerlink" href="#what-is-the-oasis-risk-explorer" title="Permalink to this heading"></a></h2>
-<p>The <a class="reference internal" href="index_Glossary.html#g-oasis-reference-label"><span class="std std-ref">Oasis</span></a> Risk Explorer is a tool developed by the <a class="reference internal" href="index_Glossary.html#g-idf-reference-label"><span class="std std-ref">Insurance Development Forum</span></a> in partnership with <a class="reference internal" href="index_Glossary.html#g-oasis-reference-label"><span class="std std-ref">Oasis</span></a> and <cite>Maximum Information&lt;https://www.maximuminformation.com/&gt;</cite>. The central purpose of this tool is educational, serving as an introduction to the
-different considerations that go into designing and modelling catastrophe insurance covers.</p>
-<p>The model is currently in its pilot phase and a number of further features will be added before the full launch in November this year. The tool aims to guide users through the different steps required in setting up and modelling a parametric insurance cover. Each of these steps is broken out into separate tabs that form the basic building blocks of virtually any catastrophe model.</p>
+<p>The <a class="reference internal" href="index_Glossary.html#g-oasis-reference-label"><span class="std std-ref">Oasis</span></a> Risk Explorer is a tool developed by the <a class="reference internal" href="index_Glossary.html#g-idf-reference-label"><span class="std std-ref">Insurance Development Forum</span></a> in partnership with <a class="reference internal" href="index_Glossary.html#g-oasis-reference-label"><span class="std std-ref">Oasis</span></a> and <a class="reference external" href="https://www.maxinfo.io/">Maximum Information</a>. The central purpose of this tool is educational, serving as an introduction to the different considerations that go into modelling catastrophe risk with specific applications to parametric insurance.
+The tool aims to guide users through the different elements that need to be considered when modelling catastrophe risk. Each of these elements is broken out into separate tabs that form the basic building blocks of the model.</p>
 <figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="../_images/Intro1.png"><img alt="Risk Explorer Tabs" src="../_images/Intro1.png" style="width: 851.0px; height: 72.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/toolbar.png"><img alt="Risk Explorer Tabs" src="../_images/toolbar.png" style="width: 944.0px; height: 43.5px;" /></a>
 <figcaption>
 <p><span class="caption-text">Risk Explorer Toolbar Displaying the Application’s Different Tabs</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
-<p>The first three sections (excluding the introduction and help) require inputs from the user that define how the insurance cover will work and be modelled:</p>
+<p>The first three sections (excluding the introduction) require inputs from the user that define how the risk will be modelled:</p>
 <ul class="simple">
-<li><p><strong>Exposure:</strong> Which location or area are you interested in covering?</p></li>
+<li><p><strong>Exposure:</strong> Which location or area are you interested in modelling?</p></li>
 <li><p><strong>Hazard:</strong> What type of <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> (e.g., windstorms/earthquakes etc.) are you modelling and what data should be used to model them?</p></li>
-<li><p><strong>Vulnerability:</strong> What <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> will your insurance cover pay out based on and how much <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payout</span></a> will you receive?</p></li>
+<li><p><strong>Vulnerability:</strong> How will the physical <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> in the model lead to <a class="reference internal" href="index_Glossary.html#g-damage-reference-label"><span class="std std-ref">damage</span></a> and financial <a class="reference internal" href="index_Glossary.html#g-loss-reference-label"><span class="std std-ref">loss</span></a>?</p></li>
 </ul>
-<p>The next two sections allow the user to run modelling and view output from their modelling:</p>
+<p>The next three sections allow the user to run modelling and view outputs from their modelling:</p>
 <ul class="simple">
-<li><p><strong>Simulation:</strong> Once <a class="reference internal" href="index_Glossary.html#g-hazard-reference-label"><span class="std std-ref">hazard</span></a>, <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> and <a class="reference internal" href="index_Glossary.html#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a> are specified, this is where you can run probabilistic modelling on your cover.</p></li>
-<li><p><strong>Output:</strong> Once your <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> are complete, model outputs will display on this tab. These outputs will help you to make sense of the modelling and include downloadable data, tables, graphs and maps.</p></li>
+<li><p><strong>Simulation:</strong> Once <a class="reference internal" href="index_Glossary.html#g-hazard-reference-label"><span class="std std-ref">hazard</span></a>, <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> and <a class="reference internal" href="index_Glossary.html#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a> are specified, this is where you can run simulation modelling.</p></li>
+<li><p><strong>Event Analysis:</strong> Once your <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> are complete, this tab will allow you to examine the model’s output in more detail. The main goal of this tab is to give a better sense of the type of events that occur in the simulations.</p></li>
+<li><p><strong>Loss Analysis:</strong> Once your <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> are complete, this tab will allow you to analyse the financial losses that flow from your modelling. You can also export Excel files here for further analysis.</p></li>
 </ul>
+</section>
+<section id="what-regions-and-perils-can-the-tool-model">
+<span id="regionperilscope-reference-label"></span><h2>What regions and perils can the tool model?<a class="headerlink" href="#what-regions-and-perils-can-the-tool-model" title="Permalink to this heading"></a></h2>
+<p>The Risk Explorer is able to model tropical cyclone worldwide using IBTrACS Historical data. The map below shows the different basins covered by the tool:</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/Basin_Areas.png"><img alt="Tropical Cyclone Basins" src="../_images/Basin_Areas.png" style="width: 346.0px; height: 285.5px;" /></a>
+<figcaption>
+<p><span class="caption-text">Tropical Cyclone Basins</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Note these boundaries are somewhat arbitrary, however this should give you a rough idea of which areas you would expect to see tropical cyclone activity in.
+The model also uses <a class="reference internal" href="index_Glossary.html#g-stochastic-reference-label"><span class="std std-ref">stochastic</span></a> hazard data from vendors giving coverage for a number of regions for tropical cyclone and earthquake. Note the red areas on the map denote earthquake coverage, and the blue ones denote cyclone coverage</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/region_coverage.png"><img alt="Stochastic data regions" src="../_images/region_coverage.png" style="width: 346.0px; height: 264.0px;" /></a>
+</figure>
+<p>Tropical Cyclone Coverage for Stochastic Hazard Data
+The stochastic hazard datasets available and relevant vendors are:
+* Earthquake Pakistan (Karachi) – Aon Impact Forecasting
+* Tropical Cylone Japan (Ginoza Region) – Aon Impact Forecasting
+* Tropical Cylone Bangladesh – Oasis</p>
 </section>
 <section id="what-is-parametric-insurance">
 <span id="parametric-reference-label"></span><h2>What is parametric insurance?<a class="headerlink" href="#what-is-parametric-insurance" title="Permalink to this heading"></a></h2>
-<p>The <a class="reference internal" href="index_Glossary.html#g-oasis-reference-label"><span class="std std-ref">Oasis</span></a> Risk Explorer is a parametric insurance tool. Parametric insurance covers are attractive to a wide range of customers due to their simplicity and the speed with which pay-outs can be calculated and distributed to policyholders compared to standard insurance covers.</p>
-<p>Parametric insurance pays out a pre-agreed amount when a certain type of <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> occurs in a given location or area. The amount paid to the policyholder will often be specified in “steps” determined by the magnitude or intensity of the <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> in question. The example below gives a simplified demonstration of how a cover might work.</p>
+<p>The <a class="reference internal" href="index_Glossary.html#g-oasis-reference-label"><span class="std std-ref">Oasis</span></a> Risk Explorer is an educational tool that enables you to model simple parametric covers using the vulnerability tab.
+Parametric insurance covers are attractive to a wide range of customers due to their simplicity and the speed with which pay-outs can be calculated and distributed to policyholders compared to standard insurance covers.
+Parametric insurance pays out a pre-agreed amount when a certain type of <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> occurs in a given location or area. The amount paid to the policyholder will often be specified in “steps” determined by the magnitude or intensity of the <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> in question. The example below gives a simplified demonstration of how a cover might work.</p>
 <p><em>Example</em></p>
-<p>A parametric insurance product is purchased by a local authority or national government to cover windstorm damage in a town that is prone to typhoons. The local government have some
-idea of the economic cost of these types of <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> from previous typhoons that have hit the town in the past.</p>
-<p>They decide that they want coverage for <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> that are at least of category 2 strength on the <a class="reference internal" href="index_Glossary.html#g-sscategory-reference-label"><span class="std std-ref">Saffir-Simpson</span></a> scale, as recent <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> have demonstrated that this is generally where the cost of such <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> becomes higher than the government can cover from their national reserves. They also want the cover to protect them from more extreme <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a>, up to the worst event that is likely to occur in a 50-year time period. They estimate that a category 4 typhoon impacts their town roughly every 50 years, so decide to purchase cover that will be enough to reimburse them for the likely damage from this.</p>
-<p>They decide based on their budget and their knowledge of previous <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> to purchase parametric insurance that:</p>
+<p>A parametric insurance product is purchased by a local authority or national government to cover windstorm damage in a town that is prone to typhoons. The local government have some idea of the economic cost of these types of <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> from previous typhoons that have hit the town in the past.
+They decide that they want coverage for <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> that are at least of category 2 strength on the <a class="reference internal" href="index_Glossary.html#g-sscategory-reference-label"><span class="std std-ref">Saffir-Simpson</span></a> scale, as recent <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> have demonstrated that this is generally where the cost of such <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> becomes higher than the government can cover from their national reserves. They also want the cover to protect them from more extreme <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a>, up to the worst event that is likely to occur in a 50-year time period. They estimate that a category 4 typhoon impacts their town roughly every 50 years, so decide to purchase cover that will be enough to reimburse them for the likely damage from this.
+They decide based on their budget and their knowledge of previous <a class="reference internal" href="index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> to purchase parametric insurance that:</p>
 <ol class="arabic simple">
 <li><p>Covers an area of 5km radius around the centre of the town</p></li>
-<li><p><a class="reference internal" href="index_Glossary.html#g-triggervalue-reference-label"><span class="std std-ref">Triggers</span></a> based on wind speed</p></li>
-<li><p>Has a <a class="reference internal" href="index_Glossary.html#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a> amount of $10m</p></li>
+<li><p><a class="reference internal" href="index_Glossary.html#g-triggermeasure-reference-label"><span class="std std-ref">Triggers</span></a> based on wind speed</p></li>
+<li><p>Has a maximum <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payout</span></a> amount of $10m</p></li>
 </ol>
 <p>With these priorities in mind, they select the following <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payout</span></a> terms:</p>
-<table class="colwidths-given docutils align-default" id="id2">
-<caption><span class="caption-text">Example Payout Terms</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">Example Payout Terms</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -153,42 +175,43 @@ idea of the economic cost of these types of <a class="reference internal" href="
 </tr>
 </tbody>
 </table>
-<p>In this example, if a wind speed greater than 154km/h but less than 178km/h is recorded within a 5km radius of the town, the local authority would receive $5m in pay-out. Similarly, if a wind speed of say 180km/h was recorded, they would receive a pay-out of $7.5m. Any wind speed recorded above 209km/h would result in the <a class="reference internal" href="index_Glossary.html#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a> amount of $10m.</p>
+<p>In this example, if a wind speed greater than 154km/h but less than 178km/h is recorded within a 5km radius of the town, the local authority would receive $5m in pay-out. Similarly, if a wind speed of 180km/h was recorded, they would receive a pay-out of $7.5m. Any wind speed recorded above 209km/h would result in the maximum payout amount of $10m.
+This type of payout structure is replicated by the “step” vulnerability curve in the Risk Explorer.</p>
 </section>
 <section id="how-should-this-model-be-used">
 <h2>How should this model be used?<a class="headerlink" href="#how-should-this-model-be-used" title="Permalink to this heading"></a></h2>
 <p>As mentioned previously, the main use of this model is as an educational tool. The way that you use this app will depend on the background knowledge you already have of risk modelling and parametric insurance. If you have no in-depth prior knowledge of the area, it is suggested that you go through the Risk Explorer in the following steps:</p>
-<p><strong>Step 1: Get familiar with each tab’s purpose and try to produce outputs (any outputs!).</strong> Go through each tab with these help pages open and try to understand the purpose of each section and input. E.g., why do we need to specify an <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>? Why would we want to specify an area rather than a single location? Working your way through each tab, try and get the model to produce output. Examine the outputs and try and get some idea of what they are showing and why they might have been included.</p>
-<p><strong>Step 2: Purposefully change certain inputs in each tab and see what impact these have on expected payout and other outputs.</strong> This will help you to understand potential volatility in the output . This process should also give you an idea of the careful choices required in structuring a parametric insurance cover   that will provide cost-effective resilience. Some ideas of inputs you could experiment with changing would be:</p>
+<p><strong>Step 1: Get familiar with each tab’s purpose and try to produce outputs (any outputs!).</strong> Go through each tab with these help pages open and try to understand the purpose of each section and input. E.g., why do we need to specify an <a class="reference internal" href="index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>? Why would we want to specify an area rather than a single location? Working your way through each tab, try and get the model to produce results on the event and loss analysis tabs. Examine the outputs and try and get some idea of what they are showing and why they might have been included. You may wish to start by using <a class="reference internal" href="index_Glossary.html#g-stochastic-reference-label"><span class="std std-ref">stochastic</span></a> hazard data, as the outputs are a bit easier to understand. Once you have run this, move on to using IBTrACS data.</p>
+<p><strong>Step 2: Purposefully change certain inputs in each tab and see what impact these have on expected payout and other outputs.</strong> This will help you to understand potential variability in the output. This process should also give you an idea of the careful choices required in modelling risk and structuring insurance covers that will provide cost-effective resilience. Some ideas of inputs you could experiment with changing would be:</p>
 <ul class="simple">
 <li><p><strong>Location (on the Exposure tab)</strong>  E.g., moving your location 20km to the north?</p></li>
 <li><p><strong>Area around your Location (Exposure)</strong>  E.g., modelling a single location vs 50km radius?</p></li>
-<li><p><strong>Meteorological Agency (Hazard)</strong> E.g., using Japanese meteorological data vs Chinese data for the West Pacific <a class="reference internal" href="index_Glossary.html#g-basin-reference-label"><span class="std std-ref">basin</span></a>?</p></li>
-<li><p><strong>Trigger (Vulnerability)</strong> E.g., using a pressure trigger rather than wind speed trigger?</p></li>
-<li><p><strong>Maximum Amount Insured (Vulnerability)</strong> E.g., doubling your <a class="reference internal" href="index_Glossary.html#g-maxpayout-reference-label"><span class="std std-ref">maximum payout</span></a>?</p></li>
-<li><p><strong>Number of Steps in your Payout (Vulnerability)</strong> E.g., looking at a cover with triggers for cat 1,3 and 5 wind speeds rather than for all categories?</p></li>
-<li><p><strong>Trigger Values at each Step in your Payout (Vulnerability)</strong> E.g., adding 10km/h to the wind speed for each of your <a class="reference internal" href="index_Glossary.html#g-triggervalue-reference-label"><span class="std std-ref">trigger values</span></a>.</p></li>
-<li><p><strong>Payouts at each Trigger Value (Vulnerability)</strong> E.g., increasing your <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payout</span></a> at lower trigger amounts vs. higher trigger amounts.</p></li>
-<li><p><strong>Number of Reinstatements (Vulnerability)</strong> E.g., Using zero vs one <a class="reference internal" href="index_Glossary.html#g-reinstatement-reference-label"><span class="std std-ref">reinstatement</span></a>?</p></li>
+<li><p><strong>Asset Value (Exposure)</strong> E.g., doubling your <a class="reference internal" href="index_Glossary.html#g-assetvalue-reference-label"><span class="std std-ref">asset value</span></a>?</p></li>
+<li><p><strong>Meteorological Agency (Hazard)</strong> E.g., For IBTrACS data, using Japanese meteorological data vs Chinese data for the West Pacific <a class="reference internal" href="index_Glossary.html#g-basin-reference-label"><span class="std std-ref">basin</span></a>?</p></li>
+<li><p><strong>Intensity Measure (Vulnerability)</strong> E.g., using a pressure intensity measure rather than wind speed?</p></li>
+<li><p><strong>Number of Steps in your Vulnerability (Vulnerability)</strong> E.g., looking at a curve with increases in <a class="reference internal" href="index_Glossary.html#g-damage-reference-label"><span class="std std-ref">damage</span></a> for cat 1,3 and 5 wind speeds rather than for all categories?</p></li>
+<li><p><strong>Intensity Measure Values at each Level in your Vulnerability Curve (Vulnerability)</strong> E.g., adding 10km/h to the wind speed for each of your <a class="reference internal" href="index_Glossary.html#g-intensityvalue-reference-label"><span class="std std-ref">intensity values</span></a>.</p></li>
+<li><p><strong>Damage Percentages at each Intensity Level (Vulnerability)</strong> E.g., increasing or decreasing your <a class="reference internal" href="index_Glossary.html#g-damage-reference-label"><span class="std std-ref">damage</span></a> at lower or higher intensity measures.</p></li>
+<li><p><strong>Shape of your Vulnerability Curve (Vulnerability)</strong> E.g., Using a linear vulnerability curve compared to a stepped curve?</p></li>
 <li><p><strong>Number of Simulations (Simulation)</strong> E.g., Running 5,000 <a class="reference internal" href="index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> rather than 2,000?</p></li>
 </ul>
-<p>When you change these, examine the outputs and think about whether the difference is what you would expect it to be. Also consider the reasons why it is likely to be different. Some examples of outputs to look at would be:</p>
+<p>When you change each of these aspects, examine the outputs and think about whether the difference is what you would expect it to be. Also consider the reasons why it is likely to be different. Some examples of outputs to look at would be:</p>
 <ul class="simple">
-<li><p><strong>Expected Payout for each Method:</strong> What is the impact on the <a class="reference internal" href="index_Glossary.html#g-historicalloss-reference-label"><span class="std std-ref">historical</span></a>, <a class="reference internal" href="index_Glossary.html#g-unweightedsimloss-reference-label"><span class="std std-ref">unweighted</span></a> and <a class="reference internal" href="index_Glossary.html#g-weightedsimloss-reference-label"><span class="std std-ref">weighted</span></a> simulation payouts and how do they compare to each other?</p></li>
-<li><p><strong>Standard Deviation of Output:</strong> What is the impact on the average <a class="reference internal" href="index_Glossary.html#g-historicalloss-reference-label"><span class="std std-ref">historical</span></a>, <a class="reference internal" href="index_Glossary.html#g-unweightedsimloss-reference-label"><span class="std std-ref">unweighted</span></a> and <a class="reference internal" href="index_Glossary.html#g-weightedsimloss-reference-label"><span class="std std-ref">weighted</span></a> simulation <a class="reference internal" href="index_Glossary.html#g-stdev-reference-label"><span class="std std-ref">standard deviations</span></a> and how do they compare to each other?</p></li>
-<li><p><strong>Distribution of Payouts for each Simulation:</strong> How has the shape of the overall <a class="reference internal" href="index_Glossary.html#g-payout-reference-label"><span class="std std-ref">payout</span></a> distribution changed? You may want to pay particular attention to the extreme right of the distribution as this is where the most severe outcomes occur.</p></li>
-<li><p><strong>Return Periods of each Category of Storm:</strong> How common is each <a class="reference internal" href="index_Glossary.html#g-sscategory-reference-label"><span class="std std-ref">category</span></a> of storm? How big is the gap between the simulated output and the history?</p></li>
+<li><p><strong>Expected Loss for each Method:</strong> For <a class="reference internal" href="index_Glossary.html#g-ibtracs-reference-label"><span class="std std-ref">IBTrACS</span></a> hazard data, what is the impact on the <a class="reference internal" href="index_Glossary.html#g-historicalloss-reference-label"><span class="std std-ref">historical</span></a>, <a class="reference internal" href="index_Glossary.html#g-unweightedsimloss-reference-label"><span class="std std-ref">unweighted</span></a> and <a class="reference internal" href="index_Glossary.html#g-weightedsimloss-reference-label"><span class="std std-ref">weighted</span></a> simulation losses and how do they compare to each other?</p></li>
+<li><p><strong>Standard Deviation:</strong> How does the standard deviation compare to the expected loss? For IBTrACS hazard data, what is the impact on the average <a class="reference internal" href="index_Glossary.html#g-historicalloss-reference-label"><span class="std std-ref">historical</span></a>, <a class="reference internal" href="index_Glossary.html#g-unweightedsimloss-reference-label"><span class="std std-ref">unweighted</span></a> and <a class="reference internal" href="index_Glossary.html#g-weightedsimloss-reference-label"><span class="std std-ref">weighted</span></a> simulation <a class="reference internal" href="index_Glossary.html#g-stdev-reference-label"><span class="std std-ref">standard deviations</span></a> and how do they compare to each other?</p></li>
+<li><p><strong>Distribution of Losses for each Simulation:</strong> How has the shape of the overall <a class="reference internal" href="index_Glossary.html#g-loss-reference-label"><span class="std std-ref">loss</span></a> distribution changed? You may want to pay particular attention to the extreme right of the distribution as this is where the most severe outcomes occur.</p></li>
+<li><p><strong>Return Periods of each Category of Storm:</strong> How common is each <a class="reference internal" href="index_Glossary.html#g-sscategory-reference-label"><span class="std std-ref">category</span></a> of storm or earthquake? How big is the gap between the simulated output and the history?</p></li>
 <li><p><strong>Simulation Output</strong> Do some basic analysis on the csv files using spreadsheet software. Do you notice any trends or patterns?</p></li>
 </ul>
-<p><strong>Step 3: Speculative cover design and loss modelling.</strong> While this tool does have the functionality to allow for basic modelling and design of real insurance covers, this is not its primary use. If you do intend to use the model in this way, it is very important that you have a solid grasp of the model’s limitations and methodology. Even then, you should exercise a high degree of caution when using the tool for decision-making.</p>
+<p><strong>Step 3: Speculative cover design and loss modelling.</strong> While this tool does have the functionality to allow for basic modelling and design of insurance covers, this is not its primary use. If you do intend to use the model in this way, it is very important that you have a solid grasp of the model’s limitations and methodology. Even then, you should exercise a very high degree of caution when using the tool for any kind of decision-making.</p>
 <p>Some examples where the Risk Explorer could be run and prove helpful in a real insurance modelling setting might be:</p>
 <ul class="simple">
-<li><p><strong>Modelling and designing covers in under-served regions with no commercial models available.</strong> There may not be any commercially available tools for some regions that sit outside of the main insurance markets. In this case the Risk Explorer may be helpful for gauging some idea of potentially reasonable pricing for the cover.</p></li>
+<li><p><strong>Modelling parametric covers in under-served regions with no commercial models available.</strong> There may not be any commercially available tools for some regions that sit outside of the main insurance markets. In this case the Risk Explorer may be helpful for gauging some idea of potentially reasonable pricing for the cover.</p></li>
 <li><p><strong>Sense-check for an existing commercial model.</strong> It may be useful to have an alternative view to whichever other models are being used, especially given the transparent assumptions in the Risk Explorer.</p></li>
 </ul>
-<p>One of the reasons to be careful when using this for real-world covers is that the market prices you would likely be able to buy the insurance cover at will differ a lot from the <a class="reference internal" href="index_Glossary.html#g-expectedpayout-reference-label"><span class="std std-ref">average payouts</span></a> the tool produces.
+<p>One of the reasons to be careful when using this for real-world covers is that the market prices you would likely be able to buy the insurance cover at will differ a lot from the <a class="reference internal" href="index_Glossary.html#g-expectedloss-reference-label"><span class="std std-ref">average losses</span></a> the tool produces.
 In practice, insurers need to cover expenses, uncertainty risk and profit margins in the prices they charge.</p>
-<p>Prices will also be impacted by market conditions such as the competitive environment and appetite amongst insurers for writing these types of covers. As such, unless insurers have a much lower view of the underlying <a class="reference internal" href="index_Glossary.html#g-expectedpayout-reference-label"><span class="std std-ref">expected payout</span></a>, it is likely that real market prices for any covers priced in the tool will be higher than the <a class="reference internal" href="index_Glossary.html#g-expectedpayout-reference-label"><span class="std std-ref">average payouts</span></a> generated here.</p>
+<p>Prices will also be impacted by market conditions such as the competitive environment and appetite amongst insurers for writing these types of covers. As such, unless insurers have a much lower view of the underlying <a class="reference internal" href="index_Glossary.html#g-expectedloss-reference-label"><span class="std std-ref">expected loss</span></a>, it is likely that real market prices for any covers priced in the tool will be higher than the <a class="reference internal" href="index_Glossary.html#g-expectedloss-reference-label"><span class="std std-ref">average losses</span></a> generated here.</p>
 </section>
 </section>
 

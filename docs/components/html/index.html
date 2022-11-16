@@ -30,7 +30,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="The Risk Explorer Tool - User Guide and Introductory FAQs" href="components/index_UserGuide.html" /> 
+    <link rel="next" title="Risk Explorer - User Guide and Introductory FAQs" href="components/index_UserGuide.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,12 +51,13 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="components/index_UserGuide.html">The Risk Explorer Tool - User Guide and Introductory FAQs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_UserGuide.html">Risk Explorer - User Guide and Introductory FAQs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="components/index_Walkthrough.html">Navigating Through the Tool - User Instructions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="components/index_SimMethod.html">How does the Simulation Methodology Work?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_AssumpLimits.html">Assumptions and Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_AssumpLimits.html">Assumptions and Limitations – IBTrACS Hazard Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="components/index_Future.html">What is going to be included in the model in the future?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="components/index_Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_Disclaimer.html">Disclaimer</a></li>
 </ul>
 
         </div>
@@ -86,55 +87,73 @@
   <section id="the-risk-explorer-tool">
 <h1>The Risk Explorer Tool<a class="headerlink" href="#the-risk-explorer-tool" title="Permalink to this heading"></a></h1>
 <p>Welcome to the homepage of the Oasis Risk Explorer.</p>
-<p>The Oasis Risk Explorer is an educational tool developed by the <a class="reference external" href="https://www.insdevforum.org/">Insurance Development Forum</a>  in partnership with <a class="reference external" href="https://oasislmf.org">Oasis</a> and <a class="reference external" href="https://www.maximuminformation.com/">Maximum Information</a>.
-The Risk Explorer provides an introduction to the different considerations that go into designing and modelling parametric catastrophe insurance covers. It is designed to be transparent, easily accessible and quick to run.</p>
-<p>The tool has been built by a team with extensive experience of catastrophe modelling, insurance pricing and parametric insurance design. It has deliberately been designed to be as simple as possible, while still capturing the key features that determine risk. This document is designed to give full transparency into the chosen methodology and its limitations, as well as providing the user with a guide on how to run the tool.</p>
-<p>This is an open-source tool, and the code is available at <a class="reference external" href="https://github.com/OasisLMF/RiskExplorer">GitHub</a></p>
+<p>The Oasis Risk Explorer is an educational tool developed by the <a class="reference external" href="https://www.insdevforum.org/">Insurance Development Forum</a>  in partnership with <a class="reference external" href="https://oasislmf.org">Oasis</a> and <a class="reference external" href="https://www.maxinfo.io/">Maximum Information</a>.
+The team would also like to thank Aon Impact Forecasting for providing hazard data and AXA XL for helping with model validation.
+The Risk Explorer provides an introduction to the different considerations that that go into modelling catastrophe risk with specific applications to parametric insurance.. It is designed to be transparent, easily accessible and quick to run.</p>
+<p>The Risk Explorer can be accessed at the following <a class="reference external" href="https://grma.shinyapps.io/oasisriskexplorer/">link</a>.</p>
+<p>The tool has been built by a team with extensive experience of catastrophe modelling and insurance pricing. It has deliberately been designed to be as simple as possible, while still capturing the key features that determine catastrophe risk. This document is designed to give full transparency into the chosen methodology and its limitations, as well as providing the user with a guide on how to run the tool.</p>
+<p>This is an open-source tool, and the code is available at <a class="reference external" href="https://github.com/OasisLMF/RiskExplorer">GitHub</a> , should you wish to review it.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="components/index_UserGuide.html">The Risk Explorer Tool - User Guide and Introductory FAQs</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="components/index_UserGuide.html">Risk Explorer - User Guide and Introductory FAQs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="components/index_UserGuide.html#what-is-the-oasis-risk-explorer">What is the Oasis Risk Explorer?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_UserGuide.html#what-regions-and-perils-can-the-tool-model">What regions and perils can the tool model?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_UserGuide.html#what-is-parametric-insurance">What is parametric insurance?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_UserGuide.html#how-should-this-model-be-used">How should this model be used?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="components/index_Walkthrough.html">Navigating Through the Tool - User Instructions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#introduction-and-help">0. Introduction and Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#introduction">0. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#exposure">1. Exposure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#hazard">2. Hazard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#vulnerability">3. Vulnerability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#simulation">4. Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#analysis">5. Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#results-summary">6. Results Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#event-analysis">5. Event Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#loss-analysis">6. Loss Analysis</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="components/index_SimMethod.html">How does the Simulation Methodology Work?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="components/index_SimMethod.html#basic-description">Basic Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_SimMethod.html#detailed-steps">Detailed Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_SimMethod.html#basic-description-ibtracs-hazard-data">Basic Description – IBTrACS Hazard Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_SimMethod.html#detailed-steps-ibtracs-hazard-data">Detailed Steps– IBTrACS Hazard Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_SimMethod.html#basic-description-stochastic-hazard-data">Basic Description – Stochastic Hazard Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_SimMethod.html#detailed-description-stochastic-hazard-data">Detailed Description – Stochastic Hazard Data</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_AssumpLimits.html">Assumptions and Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_AssumpLimits.html">Assumptions and Limitations – IBTrACS Hazard Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components/index_AssumpLimits.html#assumptions-and-limitations-ibtracs">Assumptions and Limitations - IBTrACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_AssumpLimits.html#assumptions-and-limitations-stochastic-sets">Assumptions and Limitations – Stochastic Sets</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="components/index_Future.html">What is going to be included in the model in the future?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="components/index_Glossary.html">Glossary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#asset">Asset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#asset-value">Asset Value</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#basin-tropical-cyclone-basin">Basin (Tropical Cyclone Basin)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#convergence">Convergence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#damage">Damage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#event">Event</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#event-set">Event Set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#experience-history">Experience/History</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#exposure">Exposure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#expected-loss-payout">Expected Loss/Payout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#exposure-loss-radius-area">Exposure Loss Radius/Area</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#expected-loss">Expected Loss</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#frequency">Frequency</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#hazard">Hazard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#historical-loss">Historical Loss</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#ibtracs">IBTrACS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#intensity-measure">Intensity Measure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#intensity-values">Intensity Values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#interpolation">Interpolation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#insurance-development-forum">Insurance Development Forum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#latitude-longitude">Latitude-Longitude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#maximum-payout">Maximum Payout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#loss">Loss</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#meteorological-agency">Meteorological Agency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#modified-mercalli-intensity-scale">Modified Mercalli Intensity Scale</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#oasis">Oasis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#payout-loss">Payout/Loss</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#percentage-of-maximum-payout">Percentage of Maximum Payout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#payout">Payout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#peak-ground-acceleration">Peak Ground Acceleration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#percentage-of-asset-value">Percentage of Asset Value</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#percentile">Percentile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#peril">Peril</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#reinstatement">Reinstatement</a></li>
@@ -143,17 +162,18 @@ The Risk Explorer provides an introduction to the different considerations that 
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#simulation">Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#simulation-year">Simulation-Year</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#saffir-simpson-category">Saffir-Simpson Category</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#simulated-loss-payout-rank">Simulated Loss/Payout Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#simulated-loss-rank">Simulated Loss Rank</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#standard-deviation">Standard Deviation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#simulation-loss">Simulation Loss</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#stochastic">Stochastic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#trigger-measure">Trigger Measure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#trigger-values">Trigger Values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#unweighted-simulation-loss">Unweighted Simulation Loss</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#vulnerability">Vulnerability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#weighting-weighting-function">Weighting/Weighting Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#weighted-simulation-loss">Weighted Simulation Loss</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_Disclaimer.html">Disclaimer</a></li>
 </ul>
 </div>
 </section>
@@ -162,7 +182,7 @@ The Risk Explorer provides an introduction to the different considerations that 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="components/index_UserGuide.html" class="btn btn-neutral float-right" title="The Risk Explorer Tool - User Guide and Introductory FAQs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="components/index_UserGuide.html" class="btn btn-neutral float-right" title="Risk Explorer - User Guide and Introductory FAQs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
