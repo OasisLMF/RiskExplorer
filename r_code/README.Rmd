@@ -1,0 +1,6 @@
+# Risk Explorer Tool
+
+The Risk Explorer is an educational cat modelling tool accessible and runnable via https://www.grma.shinyapps.io/oasisriskexplorer
+
+
+
