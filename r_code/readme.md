@@ -8,6 +8,9 @@ Hazard data sources:
   3. Stochastic earthquake data in Oasis LMF format (sample for Sindh Province) from [Impact Forecasting](https://www.aon.com/reinsurance/impact-forecasting/default).
   4. Stochastic earthquake data in Oasis LMF format (for China) from the [Global Earthquake Model (GEM) Foundation](https://www.globalquakemodel.org/).
 
+
+All code written to run the model and display in R Shiny is available in this repo. Hazard data is not stored here due to large file size. Contact stuart@disaster-risk.uk for hazard data.
+
   
 Original concept: Tom Philp (Maximum Information).
 Tool design: Tom Philp, Stuart Fraser (IDF), James McIlwaine (IDF), Claire Souch (IDF).
