@@ -348,9 +348,7 @@ This tab analyses the financial loss and :ref:`damage<g_damage_reference-label>`
 * **Exhibit 4: Loss Frequency Summary** How often should I expect to sustain different annual :ref:`loss<g_loss_reference-label>` amounts in any given year?
 
 
-
 * **Exhibit 5:Expected Loss and Distribution by Calculation Method** What is my expected loss in any given year and how does this vary across simulations? This exhibit shows the distribution of different :ref:`loss<g_loss_reference-label>` amounts across each :ref:`simulation<g_simulation_reference-label>` as well as the :ref:`expected loss<g_expectedloss_reference-label>` for each calculation method.
-
 
 
 * **Raw Model Output:** These are downloadable csv files containing the model output at different levels of granularity. These can be used to perform supplementary analysis or just to gain a better idea of the calculations underpinning the model. These files would also be a useful aid when reviewing the :ref:`sim_workings_reference-label` page in the FAQs.
