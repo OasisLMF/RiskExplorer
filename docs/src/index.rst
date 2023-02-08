@@ -3,11 +3,13 @@ The Risk Explorer Tool
 
 Welcome to the homepage of the Oasis Risk Explorer. 
 
-The Oasis Risk Explorer is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Oasis <https://oasislmf.org>`_ and `Maximum Information <https://www.maxinfo.io/>`_. 
-The team would also like to thank Aon Impact Forecasting for providing hazard data and AXA XL for helping with model validation.
-The Risk Explorer provides an introduction to the different considerations that that go into modelling catastrophe risk with specific applications to parametric insurance.. It is designed to be transparent, easily accessible and quick to run. 
+Access the Risk Explorer at `idf-rmsg.shinyapps.io/oasisriskexplorer <https://idf-rmsg.shinyapps.io/oasisriskexplorer/>`_.
 
-The Risk Explorer can be accessed at the following `link <https://grma.shinyapps.io/oasisriskexplorer/>`_.
+The Oasis Risk Explorer is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Oasis <https://oasislmf.org>`_ and `Maximum Information <https://www.maxinfo.io/>`_. 
+
+The team would also like to thank Aon Impact Forecasting for providing hazard data and AXA XL for helping with model validation.
+
+The Risk Explorer provides an introduction to the different considerations that that go into modelling catastrophe risk with specific applications to parametric insurance.. It is designed to be transparent, easily accessible and quick to run. 
 
 The tool has been built by a team with extensive experience of catastrophe modelling and insurance pricing. It has deliberately been designed to be as simple as possible, while still capturing the key features that determine catastrophe risk. This document is designed to give full transparency into the chosen methodology and its limitations, as well as providing the user with a guide on how to run the tool. 
 
