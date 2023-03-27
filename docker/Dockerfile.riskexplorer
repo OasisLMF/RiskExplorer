@@ -1,0 +1,47 @@
+FROM rocker/r-ver:4.0.5
+
+# system dependencies
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y r-cran-hmisc libfontconfig1-dev libpq-dev libssl-dev libudunits2-dev libproj-dev libgdal-dev
+
+# app dependencies
+RUN R -e "install.packages('bslib', dependencies=TRUE)"
+RUN R -e "install.packages('shinyWidgets', dependencies=TRUE)"
+RUN R -e "install.packages('Hmisc', dependencies=TRUE)"
+RUN R -e "install.packages('readr', dependencies=TRUE)"
+RUN R -e "install.packages('dplyr', dependencies=TRUE)"
+RUN R -e "install.packages('data.table', dependencies=TRUE)"
+RUN R -e "install.packages('purrr', dependencies=TRUE)"
+RUN R -e "install.packages('scales', dependencies=TRUE)"
+RUN R -e "install.packages('shiny', dependencies=TRUE)"
+RUN R -e "install.packages('shinyBS', dependencies=TRUE)"
+RUN R -e "install.packages('ggplot2', dependencies=TRUE)"
+RUN R -e "install.packages('plotly', dependencies=TRUE)"
+RUN R -e "install.packages('htmltools', dependencies=TRUE)"
+RUN R -e "install.packages('DT', dependencies=TRUE)"
+RUN R -e "install.packages('tidyr', dependencies=TRUE)"
+RUN R -e "install.packages('leaflet', dependencies=TRUE)"
+RUN R -e "install.packages('leaflet.extras', dependencies=TRUE)"
+RUN R -e "install.packages('tictoc', dependencies=TRUE)"
+RUN R -e "install.packages('lubridate', dependencies=TRUE)"
+RUN R -e "install.packages('sf', dependencies=TRUE)"
+RUN R -e "install.packages('sp', dependencies=TRUE)"
+RUN R -e "install.packages('data.table', dependencies=TRUE)"
+RUN R -e "install.packages('rgeos', dependencies=TRUE)"
+RUN R -e "install.packages('geosphere', dependencies=TRUE)"
+
+# set up file system
+WORKDIR /srv/shiny-server/
+
+# copy required code and data in
+COPY ./r_code/ /srv/shiny-server/
+
+# Set port
+EXPOSE 3838
+
+# Launch UI
+# CMD ["/usr/bin/shiny-server"]
+CMD ["R", "-e", "options('shiny.port'=3838,'shiny.host'='0.0.0.0');shiny::runApp()"]
+
+

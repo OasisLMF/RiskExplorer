@@ -1,0 +1,19 @@
+version: '3' 
+services:
+  shiny_proxy:
+    restart: always
+    container_name: riskexplorer_proxy
+    image: riskexplorer_proxy
+    ports:
+     - 8081:8081
+    environment:
+     - RE_DOCKER_IMAGE=riskexplorer
+     #- DATA_SHARE_FILEPATH=./downloads
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+     - shiny-net
+
+networks:
+  shiny-net:
+    external: true

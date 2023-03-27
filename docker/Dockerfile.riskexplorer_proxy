@@ -1,0 +1,13 @@
+FROM ubuntu:20.04
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y default-jre-headless iproute2
+
+ARG SHINY_VER='2.6.1'
+ADD https://www.shinyproxy.io/downloads/shinyproxy-$SHINY_VER.jar ./shinyproxy.jar
+
+COPY ./shinyproxy/application.yml ./
+COPY ./shinyproxy/startup.sh ./
+
+ENTRYPOINT ./startup.sh
