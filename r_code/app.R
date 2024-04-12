@@ -1,5 +1,7 @@
 library(bslib)
 library(shinyWidgets)
+library(raster)
+library(shinyjs)
 library(Hmisc)
 library(readr)
 library(dplyr)
@@ -20,63 +22,139 @@ library(lubridate)
 library(sf)
 library(sp)
 library(data.table)
-library(rgeos)
 library(geosphere)
+library(here)
+library(reticulate)
+library(abind)
+library(runjags)
+library(ncdf4)
+library(tidync)
+library(RColorBrewer)
 
 # options(shiny.trace=TRUE)
 options(shiny.sanitize.errors = FALSE,scipen = 999)
 
 # Read in mapping csvs
-curr_cd <<- read.csv("./data/mappings/curr_codes.csv")
-h_mappings <<- read.csv("./data/mappings/hazard_mappings.csv")
-v_intensity_mappings <<- read.csv("./data/mappings/intensity_mappings.csv")
+
+mappings <- list(
+  curr_mappings = read.csv("./data/mappings/curr_codes.csv"),
+  hazard_mappings = read.csv("./data/mappings/hazard_mappings.csv"),
+  vulnerability_mappings = read.csv("./data/mappings/vulnerability_mappings.csv"),
+  pentad_mappings = read.csv("./data/mappings/pentad_mappings.csv")
+)
 
 # Source UI functions
-source("./ui/functionsUI.R")
-source("./ui/tabsUI.R")
+
 
 # Set Theme
 theme <- bslib::bs_theme(bg = "#FFFFFF", fg = "black", primary = "#D41F29",
                          secondary = "#D41F29", base_font = font_google("Raleway"))
 
 # Set up page HTML,toolbar and pull in individual tabs from UI script.
-ui <- fluidPage(title="Oasis Risk Explorer",list(
-                tags$head(HTML("<link rel=\"icon\", href=\"MyIcon.png\",
-                                     type=\"image/png\" />"))),
-                tags$style(type = "text/css", "body {padding-top: 20px;}
-                           .navbar{max-height:55px;}"),
-                div(style = "padding: 1px 0px;",
-                titlePanel(title = "", windowTitle = "My Window Title")), 
-                tags$script(
-                  '$(".sidebar-toggle").on("click", function() { $(this).trigger("shown"); });'
-                ),
-                  navbarPage(title = div(img(src = "OasisIcon.png",height = 40, width = 141.03), "Risk Explorer",
-                                         img(src = "IDFIcon.png",height = 40, width = 163.25), 
-                                         img(src = "maxinfoIcon.png",height = 40, width = 124.44)),
-                                         position = "fixed-top", 
-                                         id="tabset",
-                                         theme = theme,
-                                         intro_tab, 
-                                         exposure_tab, 
-                                         hazard_tab, 
-                                         vulnerability_tab,
-                                         simulation_tab, 
-                                         analysis_tab,
-                                         results_tab))
+ui <- fluidPage(
+  title = "Oasis Risk Explorer",
+  list(
+    tags$head(HTML("<link rel=\"icon\", href=\"MyIcon.png\",
+                                       type=\"image/png\" />"))),
+  tags$style(type = "text/css", 
+             "body {padding-top: 20px;}.navbar{max-height:55px;}"),
+  div(style = "padding: 1px 0px;",
+      titlePanel(title = "", 
+                 windowTitle = "My Window Title")), 
+  tags$script(
+    '$(".sidebar-toggle").on("click", function() { $(this).trigger("shown"); });'
+  ),
+  navbarPage(title = div(img(src = "OasisIcon.png",
+                             height = 40, 
+                             width = 141.03, 
+                             position = "fixed-top" ), 
+                         "Risk Explorer",
+                         img(src = "IDFIcon.png", 
+                             height = 40, 
+                             width = 163.25), 
+                         img(src = "maxinfoIcon.png",
+                             height = 40, 
+                             width = 124.44),
+                         style = "float:left"),
+             position = "fixed-top", 
+             id = "tabset",
+             theme = theme,
+             useShinyjs(), 
+             extendShinyjs(text = "shinyjs.button = function() {window.scrollTo(0, 0);}",
+                           functions = c("button")),
+             shiny::tabPanel(title = "Intro",
+                             icon = icon("door-open"),
+                             value = "intro",
+                             tab_intro_UI('intro1')),
+             shiny::tabPanel("1.Hazard",
+                             icon = shiny::icon("cloud-showers-heavy"),
+                             value = "hazard",
+                             tab_hazard_UI('hazard1')),
+             shiny::tabPanel("2.Exposure",
+                             icon = icon("building"),
+                             value="exposure",
+                             tab_exposure_UI('exposure1')),
+             shiny::tabPanel("3.Vulnerability",
+                             icon = shiny::icon("ruler-vertical"),
+                             value = "vulnerability",
+                             tab_vulnerability_UI('vulnerability1')),
+             shiny::tabPanel("4.Simulation",
+                             icon = shiny::icon("calculator"),
+                             value = "simulation",
+                             tab_simulation_UI('simulation1')),
+             shiny::tabPanel("5.Events",
+                             icon = shiny::icon("poll"),
+                             value = "events",
+                             tab_events_UI('events1')),
+             shiny::tabPanel("6.Losses",
+                             icon = shiny::icon("bullseye"),
+                             value = "losses",
+                             tab_payouts_UI('losses1'))
+  )
+)
 
 server <- function(input, output, session) {
   
-  observeEvent(input$i_nextpage, {
-    updateTabsetPanel(session, "tabset",
-                      selected = "exposure")
-  })
+  tab_intro_Server('intro1', parent = session) 
   
-  source("./server/exposureServer.R", local = TRUE)
-  source("./server/hazardServer.R", local = TRUE)
-  source("./server/vulnerabilityServer.R", local = TRUE)
-  source("./server/simulationServer.R", local = TRUE)
-  source("./server/analysisServer.R", local = TRUE)
-  source("./server/resultsServer.R", local = TRUE)
+  hazard_data <- tab_hazard_Server('hazard1', 
+                                   h_mappings = mappings$hazard_mappings,
+                                   parent = session)
+  
+  exposure_data <- tab_exposure_Server('exposure1',
+                                       selected_hazard_mappings = 
+                                         hazard_data$selected_hazard_mappings, 
+                                       curr_codes = 
+                                         mappings$curr_mappings$Code,
+                                       parent = session)
+  
+  vulnerability_data <- tab_vulnerability_Server('vulnerability1',
+                                                 selected_hazard_mappings = 
+                                                   hazard_data$selected_hazard_mappings,
+                                                 v_mappings = 
+                                                   mappings$vulnerability_mappings,
+                                                 parent = session)
+  
+  sim_output <- 
+    tab_simulation_Server(
+      'simulation1',
+      hazard_data = hazard_data,
+      exposure_data = exposure_data,
+      vulnerability_data = vulnerability_data,
+      pentad_mappings = mappings$pentad_mappings,
+      vulnerability_mappings = mappings$vulnerability_mappings,
+      parent = session
+    )
+  
+  display_type <-
+    tab_events_Server('events1', 
+                      sim_output = sim_output,
+                      parent = session)
+  
+  tab_payouts_Server('losses1', 
+                     sim_output = sim_output,
+                     display_type = display_type,
+                     parent = session)
   
 }
 
