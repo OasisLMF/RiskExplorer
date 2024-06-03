@@ -41,11 +41,15 @@ generate_sim_map_tc <- function(individual_sim_data,
                  layerId = "mini_circles")
   
   if(sum(individual_sim_data$Payout)!= 0) {
+    
     sim_map <- 
       sim_map |>
       addAwesomeMarkers(lng = individual_sim_data$Longitude,
                         lat = individual_sim_data$Latitude,
-                        label = individual_sim_data$Label,
+                        label = 
+                          lapply(
+                            individual_sim_data$Label,
+                            htmltools::HTML),
                         icon = makeAwesomeIcon("cloud",
                                                iconColor="white",
                                                markerColor ="#D41F29"))

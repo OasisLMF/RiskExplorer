@@ -29,26 +29,28 @@ v_trigger_choices_UI <- function(id) {
                          selected = "km/h"))),
     conditionalPanel(condition = "output.drought_peril",
                      ns = ns,
-                     helpText("Please select an appropriate growing season for 
-                              your modelling location. This slider will 
-                              auto-populate with placeholder values for each 
-                              hazard region."),
-                       column(width = 6,
-                              sliderInput(ns("growing_season"),
-                                          label = "Input Growing Season",
-                                          min = as.Date("2024-01-01","%Y-%m-%d"),
-                                          max = as.Date("2025-04-30","%Y-%m-%d"),
-                                          value = c(as.Date("2024-01-01",
-                                                            format = "%Y-%m-%d"),
-                                                    as.Date("2024-04-29",
-                                                            format = "%Y-%m-%d")),
-                                          timeFormat = "%Y-%m-%d")),
+                     helpText(strong("Please select an appropriate growing season for 
+                                your modelling location. This slider will 
+                                auto-populate with placeholder values for each 
+                                hazard region. See help section above for more 
+                                info on intensity measures.")),
+                     column(width = 6,
+                            sliderInput(ns("growing_season"),
+                                        label = "Input Growing Season",
+                                        min = as.Date("2024-01-01","%Y-%m-%d"),
+                                        max = as.Date("2025-04-30","%Y-%m-%d"),
+                                        value = c(as.Date("2024-01-01",
+                                                          format = "%Y-%m-%d"),
+                                                  as.Date("2024-04-29",
+                                                          format = "%Y-%m-%d")),
+                                        timeFormat = "%Y-%m-%d")),
                        htmltools::span(
                          shiny::uiOutput(ns("growing_season_warning"), 
                                          style = "color:red;font-size:16px")),
                        htmltools::span(
                          shiny::uiOutput(ns("growing_season_info"), 
                                          style = "color:red;font-size:16px"))),
+                       br(),
                        conditionalPanel(
                          ns = ns,
                          condition = "input.intensity == 'Number of Dry Spell Days'",
@@ -70,13 +72,26 @@ v_trigger_choices_UI <- function(id) {
                                                    "30 Days"),
                                        selected = "15 Days")
                         )
+                       ),
+                       helpText(
+                        strong("For drought, all dry-spell index  calculations are 
+                        based off 5 day periods or 'pentads'. Calculations are 
+                        based on each individual 5-day period, so '10 dry days' 
+                        here actually represents two consecutive five-day 
+                        periods where the total rainfall was below the given 
+                        threshold")
                        )
-                     ),
+                      ),
     h4("Step 2: Choose your vulnerability curve"),
+    helpText("This determines whether your payouts scale gradually with the 
+             intensity metric (Linear) or increase in discrete jumps (Step). 
+             Consult the chart below to get a better sense of what this option 
+             is doing"),
     selectInput(ns("curve_type"),
                 label = "Select Curve Type",
                 choices = c("Step", "Linear"),
-                selected = "Step")
+                selected = "Step"),
+    br()
   )
 }
 
@@ -121,10 +136,8 @@ v_trigger_choices_Server <- function(id, selected_hazard_mappings, v_mappings) {
         req(selected_hazard_mappings())
         
         intensity <-
-          v_mappings |>
-          dplyr::filter(peril == selected_hazard_mappings()[["peril"]]) |>
-          dplyr::select(measure) |>
-          extract_choices_vec()
+          selected_hazard_mappings()[["suggested_measure"]] |> 
+          split_string()
         
         season_start <- 
           as.Date(selected_hazard_mappings()[["season_start"]], 
@@ -224,19 +237,34 @@ v_trigger_choices_Server <- function(id, selected_hazard_mappings, v_mappings) {
             trigger_choices$intensity_unit,
             trigger_choices$curve_type)
             
-            if (selected_hazard_mappings()["peril"] == "Drought") {
-              req(trigger_choices$growing_season)
-              
-              if (trigger_choices$intensity == "Number of Dry Days") {
-                req(trigger_choices$dry_days_threshold,
-                    trigger_choices$dry_days_qualify)
-                section_ok(TRUE)
+            measures <-
+              selected_hazard_mappings()[["suggested_measure"]] |> 
+              split_string()
+            
+            intensity_units <-
+              v_mappings |>
+              dplyr::filter(peril == selected_hazard_mappings()[["peril"]]&
+                              measure == trigger_choices$intensity) |>
+              dplyr::select(unit) |>
+              extract_choices_vec()
+            
+            if( any(grepl(trigger_choices$intensity, measures)) &
+                any(grepl(trigger_choices$intensity_unit, intensity_units)))  {
+                
+              if (selected_hazard_mappings()["peril"] == "Drought") {
+                req(trigger_choices$growing_season)
+                
+                if (trigger_choices$intensity == "Number of Dry Spell Days") {
+                  req(trigger_choices$dry_days_threshold,
+                      trigger_choices$dry_days_qualify)
+                  section_ok(TRUE)
+                } else {
+                  section_ok(TRUE)
+                }
               } else {
                 section_ok(TRUE)
               }
-            } else {
-              section_ok(TRUE)
-            }
+           }
       })
       
       return(list(trigger_choices = trigger_choices,

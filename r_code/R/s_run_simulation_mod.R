@@ -89,25 +89,17 @@ s_run_simulation_Server <- function(id,
               vulnerability_mappings = vulnerability_mappings,
               sims_n = input$sims_n)
             
-          }else if (peril == "Winstorm" &
-                    dataset == "Stochastic"){
+          } else if (dataset == "Stochastic") {
             
             run_TC_stochastic_simulation_script(
               hazard_data = hazard_data,
               exposure_data = exposure_data,
               vulnerability_data = vulnerability_data,
-              sims_n = input$sims_n)
-            
-          }else if (peril == "Earthquake" &
-                    dataset == "Stochastic") {
-            
-            run_EQ_stochastic_simulation_script(
-              hazard_data = hazard_data,
-              exposure_data = exposure_data,
-              vulnerability_data = vulnerability_data,
+              vulnerability_mappings = vulnerability_mappings,
               sims_n = input$sims_n)
             
           }
+          
         })
       
       return(sim_output)

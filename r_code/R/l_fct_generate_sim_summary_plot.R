@@ -1,6 +1,10 @@
-l_generate_sim_summary_plot <- function(plot_data, hline_data, peril, dataset, 
-                                        display_var, display_fun){
-  browser()
+l_generate_sim_summary_plot <- function(plot_data, 
+                                        hline_data, 
+                                        peril, 
+                                        dataset, 
+                                        display_var, 
+                                        display_fun) {
+  
   sim_count <- nrow(plot_data)
   
   display_var <-
@@ -22,6 +26,11 @@ l_generate_sim_summary_plot <- function(plot_data, hline_data, peril, dataset,
       hline_data |>
       dplyr::select(Measure, `Weighted Simulation Payout`)
     
+  } else if (dataset == "Stochastic") {
+    
+    hline_data_simulated <- 
+      hline_data |>
+      dplyr::select(Measure, `Simulated Payout`)
   }
   
   plot_data <-
@@ -30,7 +39,7 @@ l_generate_sim_summary_plot <- function(plot_data, hline_data, peril, dataset,
         plot_label = 
           paste(
           "<b>",
-          "Loss Percentile:",
+          "Payout Percentile:",
           "</b>",
           scales::label_percent(accuracy = 0.01)(Percentile),
           "<br>",
@@ -72,7 +81,7 @@ l_generate_sim_summary_plot <- function(plot_data, hline_data, peril, dataset,
         plotly::add_lines(
           y = rep(hline_data_hist$`Historical Payout`[1], sim_count),
           x = seq(0, 1, by = 0.001),
-          name = "Historic Loss",
+          name = "Historic Payout",
           text =  ~ display_fun(hline_data_hist$`Historical Payout`[1]),
           hovertemplate = '%{text}'
         ) |>
@@ -81,14 +90,27 @@ l_generate_sim_summary_plot <- function(plot_data, hline_data, peril, dataset,
           x = seq(0, 1, by = 0.001),
           text =  ~ display_fun(hline_data_unweighted$`Unweighted Simulation Payout`[1]),
           hovertemplate = '%{text}',
-          name = "Unweighted Simulation Loss"
+          name = "Unweighted Simulation Payout"
         ) |>
         plotly::add_lines(
           y = rep(hline_data_weighted$`Weighted Simulation Payout`[1], sim_count),
           x = seq(0, 1, by = 0.001),
           text =  ~ display_fun(hline_data_weighted$`Weighted Simulation Payout`[1]),
           hovertemplate = '%{text}',
-          name = "Weighted Simulation Loss"
+          name = "Weighted Simulation Payout"
+        ) |>
+        layout(showlegend = TRUE)
+      
+    } else if (dataset == "Stochastic") {
+      
+      g <- 
+        plotly::ggplotly(g, tooltip = c('plot_label')) |>
+        plotly::add_lines(
+          y = rep(hline_data_simulated$`Simulated Payout`[1], sim_count),
+          x = seq(0, 1, by = 0.001),
+          text =  ~ display_fun(hline_data_simulated$`Simulated Payout`[1]),
+          hovertemplate = '%{text}',
+          name = "Simulation Payout"
         ) |>
         layout(showlegend = TRUE)
     } else {
@@ -101,8 +123,8 @@ l_generate_sim_summary_plot <- function(plot_data, hline_data, peril, dataset,
         plotly::add_lines(
           y = rep(hline_data[[hline_var]][1], sim_count),
           x = seq(0, 1, by = 0.001),
-          name = "Simulation Loss",
-          text =  ~ hline_data[[hline_var]][1],
+          name = "Simulation Payout",
+          text =  ~ display_fun(hline_data[[hline_var]][1]),
           hovertemplate = '%{text}'
         )
     }

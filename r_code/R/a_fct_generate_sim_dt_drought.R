@@ -9,21 +9,28 @@ generate_sim_dt_drought <- function(table_data,
     table_data |>
     dplyr::filter(Sim == sim,
                   Year == year) |> 
-    dplyr::select(Location, Longitude, Latitude, Index, !!sym(display_var)) |> 
-    dplyr::mutate(Longitude = label_currency(accuracy = 0.0001, 
-                                             prefix = "")(Longitude),
-                  Latitude = label_currency(accuracy = 0.0001, 
-                                            prefix = "")(Latitude),
-                  Index = 
-                    if(index_var == 
-                       "Percentage of Climatology") {
-                        label_currency(accuracy = 0.1, 
-                                             prefix = "")(Index)
-                    } else {
-                      label_currency(accuracy = 1, prefix = "")(Index)
-                    },
-                  !!sym(display_var) := display_fun(!!sym(display_var))
-                  )
+    dplyr::select(Location, Longitude, Latitude, Index, !!sym(display_var)) 
+  
+  
+    if(index_var == "Number of Dry Spell Days") {
+      dt_format_fun <- 
+        purrr::partial(
+          DT::formatCurrency, 
+          currency = "",
+          digits = 0
+        )
+    } else {
+      dt_format_fun <- 
+        purrr::partial(
+          DT::formatPercentage, 
+          digits = 1
+        )
+      
+      table_data <-
+        table_data |> 
+        dplyr::mutate(Index = Index / 100)
+      
+    }
   
   DT::datatable(table_data, 
                 rownames = FALSE, 
@@ -31,7 +38,20 @@ generate_sim_dt_drought <- function(table_data,
                   list(
                     dom = 'Bfrtip',
                     buttons = list('csv')
-                  )) 
-  
+                  )) |> 
+    DT::formatCurrency(
+      columns = c("Longitude", "Latitude"),
+      currency = "",
+      digits = 4
+    ) |> 
+    dt_format_fun(
+      columns = "Index"
+    ) |> 
+    DT::formatCurrency(
+      columns = display_var,
+      currency = "",
+      digits = 0
+    )
   
 }
+

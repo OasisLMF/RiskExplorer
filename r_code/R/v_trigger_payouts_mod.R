@@ -3,28 +3,35 @@ vulnerability_payout_text <-
     strong(
       "The values for the intensity measure  or damage percentage in the table 
       below are editable by double-clicking on the table. After making your 
-      edits, press Ctrl + Enter to save these and exit the table's edit mode.",
-      style = "color:red"),
-    strong("Make sure the intensity measures and damage percentages are entered 
-    in ascending order (except for pressure, where damage values should only be 
-    entered in descending order)."),
+      edits, press Ctrl + Enter to save these and exit the table's edit mode.
+    Make sure the intensity measures and damage percentages are entered 
+    in ascending order (except for pressure or % of Climatology, where damage 
+    values should only be entered in descending order).",
+    style = "color:red"),
     "Note that you do not need to use all six rows here if you wish to specify 
-    a simpler curve, and can leave any rows at the bottom blank.",
-    br(), br(),
-    "The default values in the table reflect the Saffir-Simpson Hurricane 
-    categories ranging from Tropical Storm to Category 5 Hurricane. You can also 
-    experiment with different intensity measure values and damage percentages 
-    here. You may want to edit the damage percentages to reflect what you know 
-    about the cost of previous events for your area of exposure. The graph below 
-    illustrates how much damage will be sustained for different intensity 
-    measure values based on the figures you have entered in the table and the 
-    curve selected in Step 2.",br(),br())
-
+    a simpler curve, and can leave any rows at the bottom blank."
+    ,
+    br(), 
+    br(),
+    "The default values in the table for Windstorm reflect the Saffir-Simpson 
+    Hurricane categories ranging from Tropical Storm to Category 5 Hurricane and  
+    are loosely based on realistic assumptions for a parametric cover for the 
+    other perils. 
+    You can also experiment with different intensity measure values and damage 
+    percentages here. You may want to edit the damage percentages to reflect 
+    what you know about the cost of previous events for your area of exposure. 
+    The graph below illustrates how much damage will be sustained for different 
+    intensity measure values based on the figures you have entered in the table 
+    and the curve selected in Step 2.",
+    br(),
+    br()
+    )
 
 v_trigger_payouts_UI <- function(id) {
   ns <- NS(id)
   tagList(
-    # vulnerability_payout_text,
+    h4("Step 3: Specify your vulnerability function"),
+    vulnerability_payout_text,
     DTOutput(ns("structure_DT"))
   )
 }

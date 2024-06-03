@@ -32,7 +32,7 @@ library(tidync)
 library(RColorBrewer)
 
 # options(shiny.trace=TRUE)
-options(shiny.sanitize.errors = FALSE,scipen = 999)
+options(shiny.sanitize.errors = FALSE, scipen = 999)
 
 # Read in mapping csvs
 
@@ -53,17 +53,12 @@ theme <- bslib::bs_theme(bg = "#FFFFFF", fg = "black", primary = "#D41F29",
 # Set up page HTML,toolbar and pull in individual tabs from UI script.
 ui <- fluidPage(
   title = "Oasis Risk Explorer",
-  list(
-    tags$head(HTML("<link rel=\"icon\", href=\"MyIcon.png\",
-                                       type=\"image/png\" />"))),
-  tags$style(type = "text/css", 
-             "body {padding-top: 20px;}.navbar{max-height:55px;}"),
-  div(style = "padding: 1px 0px;",
-      titlePanel(title = "", 
-                 windowTitle = "My Window Title")), 
-  tags$script(
-    '$(".sidebar-toggle").on("click", function() { $(this).trigger("shown"); });'
-  ),
+  tags$style(type = "text/css",
+             " 
+             .navbar {position: sticky; top:0;}
+             .container-fluid { --bs-gutter-x: 0rem}
+             .tab-content {padding-left: 20px; padding-right: 20px }
+             .nav-underline{--bs-nav-underline-gap: 0.5rem}"),
   navbarPage(title = div(img(src = "OasisIcon.png",
                              height = 40, 
                              width = 141.03, 
@@ -79,9 +74,6 @@ ui <- fluidPage(
              position = "fixed-top", 
              id = "tabset",
              theme = theme,
-             useShinyjs(), 
-             extendShinyjs(text = "shinyjs.button = function() {window.scrollTo(0, 0);}",
-                           functions = c("button")),
              shiny::tabPanel(title = "Intro",
                              icon = icon("door-open"),
                              value = "intro",
@@ -106,7 +98,7 @@ ui <- fluidPage(
                              icon = shiny::icon("poll"),
                              value = "events",
                              tab_events_UI('events1')),
-             shiny::tabPanel("6.Losses",
+             shiny::tabPanel("6.Payouts",
                              icon = shiny::icon("bullseye"),
                              value = "losses",
                              tab_payouts_UI('losses1'))

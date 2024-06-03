@@ -11,44 +11,52 @@ intro_text <-
          you navigate through these tabs going from left to right,"),
          "as this is the order in which they are intended to be completed.",
          br(),
+         br(),
          h4("What do I need to run the model?"),
          strong("All you need to run this model is some idea of the location 
          and value of an asset or property in a region prone to tropical 
-         cyclones."),
+         cyclones, droughts or earthquakes."),
          " If you do not know this but still wish to run the tool, simply enter
-         some made-up values e.g., select a location in the Caribbean gulf or 
-         NW Pacific and just enter an arbitrary USD 100,000 asset value.",
+         some made-up values e.g., select tropical cyclone and a location in 
+         the Caribbean gulf or NW Pacific before entering an arbitrary 
+         USD 100,000 asset value.",
          br(),
          br(),
-         strong("You do not need access to your own hazard/event sets to run the model 
-                      as these are all contained in the tool."),
+         strong("You do not need access to your own hazard/event sets to run the 
+         model as these are all contained in the tool."),
+         br(),
          br(),
          h4("Tab Guide: Inputs"), 
          "The first three tabs require you to enter inputs specific to the 
          risk you are modelling.",
-         strong("These are exposure, hazard and vulnerability and make up the 
+         strong("These are hazard, exposure and vulnerability and make up the 
          basic building blocks of virtually any catastrophe model."),
-         " These are each described in more detail below:", br(), br(),
+         " These are each described in more detail below:", 
+         br(), 
+         br(),
          tags$ul(
-           tags$li(strong("Exposure: What are the assets you want to insure?"),
-           " In this tab you will specify the location and total asset 
-           value that you want your insurance to cover."),
-           br(), 
-           tags$li(strong("Hazard: Which types of natural perils are you 
-           interested in modelling (e.g. windstorm, 
-           earthquake)?"),
+           tags$li(strong("Hazard: What types of natural perils are you 
+           interested in modelling (e.g. windstorm, earthquake, drought)?"), 
            "What data sources will you be using to model these? 
            These data sources could be taken from the history or 
            generated based on scientific knowledge or statistical 
            techniques."),
+           br(),
+           tags$li(strong("Exposure: What are the asset(s) you want to insure?"),
+           "For non-drought perils, in this tab you will specify the location 
+           and total asset value that you want your insurance to cover. 
+           For drought, the assumption is you are insuring a scheme over a 
+           specific area, so you will additionally need to enter the insured 
+           value per policyholder and the total number of policyholders."),
            br(), 
            tags$li(strong("Vulnerability: How do physical events lead to 
            damage to your asset and financial loss?"),
            "What intensity measure will be used to calculate damage sustained 
-           (e.g., wind speed/pressure etc.)? How much damage is caused for each 
-           value of the intensity measure? For example, if you have 100km/h 
-           winds vs 200km/h winds how much extra damage will you expect to 
-           sustain?")),
+           (e.g., wind speed/pressure etc.) or payout? How much damage is 
+           caused for each value of the intensity measure? For example, if you 
+           have 100km/h winds vs 200km/h winds how much extra damage will you 
+           expect to sustain?")),
+         br(), 
          h4("Tab Guide: Simulation and Outputs"), "Once inputs have been entered 
          in the previous tabs, you have everything required to run the model. 
          The following three tabs allow you to run the model and look at its 
@@ -58,28 +66,27 @@ intro_text <-
          tags$ul(
            tags$li(strong("Simulation: This tab is where you run modelling and 
            generate simulation output."),"Based on your entries in the previous 
-           sections, the model will generate a large number of simulated years 
+           sections, the model will generate a number of simulated years 
            by statistically sampling from the hazard data. This may take a short 
            while to run."),
            br(), 
            tags$li(strong("Event Analysis: This tab allows you to examine the 
            model's output in more detail and get a better sense of the type of 
            events that occur in the simulations."),"This tab provides a range of
-           exhibits that aim to answer questions you may have the output. E.g., 
-           how often do different events and losses occur? What does a 
+           exhibits that aim to answer questions you may have about the output. 
+           E.g., how often do different events and losses occur? What does a 
            simulation actually look like?"),
            br(), 
-           tags$li(strong("Losses: This tab analyses the financial loss and 
-           damage generated in your modelling.")," The Loss Analysis tab will 
-           show you the financial loss you would expect to see on average for 
+           tags$li(strong("Payouts: This tab analyses the payouts generated in 
+           your modelling.")," The Loss Analysis tab will 
+           show you the payout you would expect to see on average for 
            your risk under different calculation methods. It will also show you 
-           the full range of simulation losses and other interesting metrics 
+           the full range of simulation payouts and other interesting metrics 
            that will help you better understand the risk. This tab also allows 
            you to export modelling results into Microsoft Excel should you wish 
            to do further analysis.")
-          ),
-      br(),
-      br())
+          )
+         )
 
 tab_intro_UI <- function(id) {
   ns <- NS(id)
@@ -92,8 +99,15 @@ tab_intro_UI <- function(id) {
              tags$a("Please see legal disclaimer before running",
                     href = "https://oasislmf.github.io/RiskExplorer/components/index_Disclaimer.html",
                     target = "_blank"),
+             br(),
+             br(),
              column(width = 9, 
                     intro_text),
+             tags$a("For more detail see the Help page's Introduction section",
+                    href = "https://oasislmf.github.io/RiskExplorer/components/index_UserGuide.html",
+                    target = "_blank"),
+             br(),
+             br(),
              page_nav_UI(ns("intro"))
             )
 }

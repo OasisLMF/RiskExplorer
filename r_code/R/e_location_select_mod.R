@@ -2,25 +2,25 @@
 e_location_select_UI <- function(id) {
   ns <- NS(id)
   tagList(
-    h4("Step 1: Choose Location to Model"),
+    h4("Step 1: Choose Location or Centre of Area to Model"),
+    conditionalPanel(condition = paste0("input[\'",
+                                        ns("ll_known"),"\'] == 'Yes'"),
+                     column(width = 6,
+                            helpText("Enter lat-long co-ordinates manually to display 
+                       on map. Note that these are entered on a plus minus scale. 
+                       E.g. -130 longitude is 130 degrees west and 45 latitude 
+                       is 45 degrees north."))),
+    conditionalPanel(condition = paste0("input[\'",
+                                        ns("ll_known"),"\'] == 'No'"),
+                     column(width = 6,
+                            helpText("Drop a pin on the map by clicking on the relevant
+                       location. You may also look up the address using the 
+                       magnifying glass icon in the top left."))),
     selectInput(ns("ll_known"),
       label = "Do you know the latitude and longitude co-ordinates of the 
       location you are modelling?",
       choices = c("Yes", "No"),
       selected = "No"),
-    conditionalPanel(condition = paste0("input[\'",
-                                        ns("ll_known"),"\'] == 'No'"),
-                     column(width = 6,
-                       helpText("Drop a pin on the map by clicking on the relevant
-                       location. You may also look up the address using the 
-                       magnifying glass icon in the top left."))),
-    conditionalPanel(condition = paste0("input[\'",
-                                        ns("ll_known"),"\'] == 'Yes'"),
-                     column(width = 6,
-                       helpText("Enter lat-long co-ordinates manually to display 
-                       on map. Note that these are entered on a plus minus scale. 
-                       E.g. -130 longitude is 130 degrees west and 45 latitude 
-                       is 45 degrees north."))),
     tags$script(
       HTML('$input_mapContainer.on(\'map-container-resize\', function () {
            input_map.invalidateSize();')),
@@ -99,34 +99,22 @@ e_location_select_Server <- function(id, selected_hazard_mappings) {
           leaflet::setView(lat = 0,
                            lng = 0,
                            zoom = 2) |> 
-          leaflet::addTiles()
+          leaflet::addTiles() |> 
+          leaflet.extras::addSearchOSM(
+              options = leaflet.extras::searchOptions(
+                autoCollapse = TRUE,
+                hideMarkerOnCollapse = TRUE,
+                zoom = 4,
+                position = "topleft",
+                minLength = 4
+              ))
         })
       
       proxy_input_map <- 
         reactive({ 
           leaflet::leafletProxy(mapId = "input_map")
-          })
-      
-      observe({
-        req(input$ll_known, proxy_input_map(), map_render())
-        
-        # This will not display again if you toggle multiple times 
-        if(input$ll_known == "No") {
-          proxy_input_map() |> 
-                    leaflet.extras::addSearchOSM(
-                      options = leaflet.extras::searchOptions(
-                        autoCollapse = TRUE,
-                        hideMarkerOnCollapse = TRUE,
-                        zoom = 4,
-                        position = "topleft",
-                        minLength = 4
-                      ))
-        } else {
-          runjs('$(".leaflet-control-search").remove()')
-        }
-              
-      })
-    
+        })
+
       observe({
         
         req(map_render())
@@ -145,7 +133,7 @@ e_location_select_Server <- function(id, selected_hazard_mappings) {
       
       observeEvent(input$input_map_search_location_found,{
         
-        shiny::req(input$ll_known =='No', map_poly_data())
+        shiny::req(map_poly_data())
         
         loc_found <-
           add_loc_search_found(leaflet_proxy = proxy_input_map(),
@@ -160,7 +148,7 @@ e_location_select_Server <- function(id, selected_hazard_mappings) {
       
       shiny::observeEvent(input$input_map_click,{
         
-        shiny::req(input$ll_known=='No', map_poly_data())
+        shiny::req(input$ll_known == 'No', map_poly_data())
         
         loc_map_click <-
           add_loc_map_click(leaflet_proxy = proxy_input_map(), 

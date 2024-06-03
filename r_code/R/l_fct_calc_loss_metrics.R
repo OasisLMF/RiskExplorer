@@ -6,12 +6,12 @@ calc_loss_metrics <- function(metrics_data, peril, methods, total_value, display
     metrics_data |>
       dplyr::summarise(`Expected Payout` = mean(`Payout`),
                        `Standard Deviation Payout` = stats::sd(`Payout`),
-                       `Expected Insured Impacted` = mean(`Localities Paid`),
-                       `Standard Deviation Insured Impacted` = 
+                       `Expected Policyholders Impacted` = mean(`Localities Paid`),
+                       `Standard Deviation Policyholders Impacted` = 
                          stats::sd(`Localities Paid`))  
     
     metrics_data |>  
-      dplyr::mutate(Method = methods[1])
+      dplyr::mutate(Measure = methods[1])
     
   }
    

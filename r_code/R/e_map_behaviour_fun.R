@@ -26,7 +26,7 @@ add_loc_map_click <- function(leaflet_proxy, map_click, poly){
   
   vals <- 
     data.frame(lat = map_click$lat,
-               lng=ifelse(map_click$lng[1] > 180,
+               lng=ifelse(map_click$lng[1] > 270,
                           map_click$lng[1] - 360,
                           ifelse(
                             map_click$lng[1] < (-180),
@@ -45,7 +45,7 @@ add_loc_map_click <- function(leaflet_proxy, map_click, poly){
   
   # setView is called here as the marker will appear in a different place to 
   # where the user has clicked
-  if(map_click$lng[1] > 180 | 
+  if(map_click$lng[1] > 270 | 
      map_click$lng[1] < (-180)){
     
     leaflet_proxy  |> 
@@ -65,6 +65,8 @@ add_loc_map_click <- function(leaflet_proxy, map_click, poly){
 add_loc_manual_ll <- function(leaflet_proxy, lat_input,
                               lng_input, poly){
   
+  
+  
   if(-90 > lat_input | 90 < lat_input|
      -180 > lng_input | 180 < lng_input){
     
@@ -75,13 +77,13 @@ add_loc_manual_ll <- function(leaflet_proxy, lat_input,
     vals <- data.frame(NULL)
     
     leaflet_proxy |> 
-      leaflet::clearMarkers() |> 
-      leaflet::clearShapes()
+      leaflet::clearMarkers() 
+    # |> 
+    #   leaflet::clearShapes()
     
   }else{
     leaflet_proxy |> 
       leaflet::clearMarkers() |> 
-      leaflet::clearShapes() |> 
       leaflet::addMarkers(lat = lat_input,
                           lng = lng_input,
                           popup = 
@@ -222,17 +224,24 @@ pull_sf_mapping_data <- function(h_mappings){
   
 }
 
+
 marker_in_poly <- function(point_coords, poly) {
+  
+  
+  # 3857 is more accurate for certain regions but need to use 4326 for 
+  # South Pacific due to issues introduced from crossing the dateline
+  
+  transform_code <- ifelse(poly$region_name == "South Pacific", 4326, 3857)
   
   marker <-
     sf::st_point(point_coords) |> 
-    sf::st_sfc(crs = 4326)|> 
-    sf::st_transform(3857)
+    sf::st_sfc(crs = 4326)|>
+    sf::st_transform(transform_code)
   
   poly <-
-    poly |>  
-    sf::st_transform(3857)
-
+    poly |>
+    sf::st_transform(transform_code)
+  
   in_poly <- st_contains(poly, marker, sparse = FALSE)[[1]]
   
   if(in_poly == 1){

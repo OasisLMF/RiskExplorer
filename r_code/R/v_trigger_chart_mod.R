@@ -117,11 +117,9 @@ v_graph_generate <- function(data, var, intensity,intensity_unit, curve_type) {
 
 v_trigger_chart_UI <- function(id) {
   ns <- NS(id)
-  tagList(
-    column(width = 9, 
-           plotlyOutput(ns("structure_plot"))
-    )
-  )
+  
+  uiOutput(ns("chart_ui"))
+  
 }
 
 v_trigger_chart_Server <- function(id, trigger_payouts, trigger_choices, 
@@ -132,18 +130,55 @@ v_trigger_chart_Server <- function(id, trigger_payouts, trigger_choices,
       
       
       observe({
-        req(table_ok$section_ok(), trigger_payouts(), 
-            trigger_choices$intensity, trigger_choices$intensity_unit)
         
-        output$structure_plot <- 
-          renderPlotly({
-            
-            v_graph_generate(data = trigger_payouts(), 
-                             var = "Damage_Percentage", 
-                             intensity = trigger_choices$intensity,
-                             intensity_unit = trigger_choices$intensity_unit,
-                             curve_type = trigger_choices$curve_type)  
-          })
+        
+        ns <- session$ns
+        
+        if(isTruthy(table_ok$section_ok()) & 
+           isTruthy(trigger_payouts()) & 
+           isTruthy(trigger_choices$intensity) & 
+           isTruthy(trigger_choices$intensity_unit)) {
+          
+          output$chart_ui <-
+            renderUI({
+              tagList(
+                column(width = 9, 
+                       plotlyOutput(ns("structure_plot"))
+                )
+              )
+            })
+          
+          output$structure_plot <- 
+            renderPlotly({
+              
+              v_graph_generate(data = trigger_payouts(), 
+                               var = "Damage_Percentage", 
+                               intensity = trigger_choices$intensity,
+                               intensity_unit = trigger_choices$intensity_unit,
+                               curve_type = trigger_choices$curve_type)  
+            })
+        
+        } else {
+          
+          output$chart_ui <-
+            renderUI({
+              tagList(
+                br(),
+                column(width = 9, 
+                       uiOutput(ns("structure_text"))
+                ),
+                br()
+              )
+            })
+          
+          output$structure_text <-
+            renderText({
+              paste("<span style=\"color:red;font-size:16px; font-weight:bold\">",
+                    "Please enter Valid payout and intensity values to display 
+                    chart here")
+            })
+          
+        }
         
       })
       

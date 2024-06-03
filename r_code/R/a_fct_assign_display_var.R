@@ -5,7 +5,7 @@ assign_display_var <- function(display_type) {
   } else if (display_type == "% of Asset Value") {
     "Payout as % of Asset Value"
   } else if (display_type == "Policyholders Impacted") {
-    "Insured Impacted"
+    "Policyholders Impacted"
   } else {
     NULL
   }

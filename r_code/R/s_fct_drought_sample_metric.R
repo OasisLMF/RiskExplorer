@@ -68,6 +68,14 @@ sample_metric_seasonal_total_index <- function(file_intermediate,
            window_start = window_start,
            window_end = window_end) |> 
     lapply(as.array)
+  
+  if(length(lons) == 1) {
+    precip_index_oneyear <-
+      lapply(precip_index_oneyear, array, dim = c(1,length(lats)))
+  } else if (length(lats) == 1) {
+    precip_index_oneyear <-
+      lapply(precip_index_oneyear, array, dim = c(length(lons), 1))
+  }
     
   if(vul_measure == "Number of Dry Spell Days") {
     
@@ -85,7 +93,7 @@ sample_metric_seasonal_total_index <- function(file_intermediate,
   
   if(all(is.na(precip_index_oneyear[[1]])) == TRUE){
     return()
-  }
+  } 
   
   valid_locs <-
     which(!is.na(precip_index_oneyear[[1]]), arr.ind = TRUE)
@@ -119,7 +127,13 @@ sample_metric_seasonal_total_index <- function(file_intermediate,
                               replace = TRUE)
     
     sample_locs <- 
-      valid_locs[sample_loc_rows, ]
+      valid_locs[sample_loc_rows, ] 
+    
+    
+    
+    if(class(sample_locs)[1] != "matrix") {
+      sample_locs <- matrix(sample_locs, nrow = 1)
+    }
     
     lon_output[i, , ] <- 
       t(
@@ -155,17 +169,38 @@ sample_metric_seasonal_total_index <- function(file_intermediate,
         },
         x = lon_output[i, j, ],
         y = lat_output[i, j, ],
-        z = j)
+        z = j) 
     }
     
+    # if(is.null(dim(index_output[i, , ]))) {
+    #   index_output[i, , ] <- matrix(index_output[i, , ], nrow = 1)  
+    # }
+    
+    
+    
+    # Put this into function
+    
+    if(is.null(dim(index_output[i, , ]))) {
+      
     payout_output[i, ,] <- 
-      apply(index_output[i, ,], 
-            MARGIN= c(1, 2), 
-            FUN = intensity_to_loss_calc,
-            vul_table = vul_table,
-            vul_measure = vul_measure,
-            vul_curve_type = vul_curve_type) *
-      no_people_output[i, , ] 
+      intensity_to_loss_calc(index_output[i,, ],
+                             vul_table = vul_table,
+                             vul_measure = vul_measure,
+                             vul_curve_type = vul_curve_type) * no_people_output[i, , ] 
+    
+    } else {
+      
+      payout_output[i, ,] <- 
+        apply(index_output[i, ,], 
+              MARGIN= c(1, 2), 
+              FUN = intensity_to_loss_calc,
+              vul_table = vul_table,
+              vul_measure = vul_measure,
+              vul_curve_type = vul_curve_type) *
+        no_people_output[i, , ]  
+      
+    }
+     
   }
   
   payout_by_year <-
@@ -216,7 +251,7 @@ sample_metric_seasonal_total_index <- function(file_intermediate,
       Latitude = lat_by_locality,
       Index = index_by_locality,
       Payout = payout_by_locality * value_per_insured,
-      `Insured Impacted` = 
+      `Policyholders Impacted` = 
         as.numeric(payout_by_locality * value_per_insured > 0)
       )
   
@@ -239,14 +274,14 @@ sample_metric_seasonal_total_index <- function(file_intermediate,
                      `Year` = year_list,
                      `Payout` = unlist(payout_by_year),
                      `Localities Paid` = unlist(localities_paid_by_year),
-                     `Insured Impacted` = unlist(insured_impacted_by_year))
+                     `Policyholders Impacted` = unlist(insured_impacted_by_year))
   
   sim_df <- 
     sim_year_df |> 
     dplyr::group_by(Sim) |> 
     dplyr::summarise(`Average Simulated Payout` = mean(Payout),
                      `Average Simulated Policyholders Paid` = mean(`Localities Paid`),
-                     `Average Simulated Insured Impacted` = mean(`Insured Impacted`)) |> 
+                     `Average Simulated Policyholders Impacted` = mean(`Policyholders Impacted`)) |> 
     dplyr::ungroup()
   
   progress_bar$set(message = "Running Simulations", value = 0.99)
@@ -264,10 +299,10 @@ sample_metric_seasonal_total_index <- function(file_intermediate,
         mean(sim_year_df$Payout),
         sd(sim_year_df$Payout)
       ),
-      `Simulated Insured Impacted`= 
+      `Simulated Policyholders Impacted`= 
         c(
-          mean(sim_year_df$`Insured Impacted`),
-          sd(sim_year_df$`Insured Impacted`)
+          mean(sim_year_df$`Policyholders Impacted`),
+          sd(sim_year_df$`Policyholders Impacted`)
         ),
       check.names = FALSE
     )

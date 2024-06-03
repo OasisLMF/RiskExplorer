@@ -1,16 +1,41 @@
-drought_text <-
+drought_hist_plot_text <-
   helpText(
-    "This plot displays the distribution of payouts received in each calendar 
-    year across all simulated policyholder locations within the exposure area",
+    strong("Exhibit 1 aims to answer the question of which years of  
+          historical observational data would have led to payouts in your area 
+          of exposure, and the range of uncertainty around them introduced by 
+          the simulation process."),
+    "This plot displays the distribution of total payouts to all policyholders  
+    across all calendar years and simulations.",
     br(),
-    "The red dot represents the average total payout across all policyholders for
-    a given calendar year's rainfall. The red lines show the minimum and maximum 
-    across all simulations and the range within which the closest to the median 
-    fall"
+    "The red dot represents the average total payout to all policyholders for
+    a given calendar year's rainfall. The light grey line shows the full range 
+    of simulated values across a given year (i.e. the lowest and highest payouts 
+    across all simulations for a calendar year). The black line shows the range 
+    within which the 50% of simulations closest to the average fall."
   )
 
-tc_ibtracs_text <-
-  helpText("test")
+tc_hist_plot_text <-
+  helpText(
+    strong("Exhibit 1 aims to answer the question of which events in the 
+          historical data would have led to losses in your area of exposure,
+          leaving aside the simulation modelling."),"The map displays historical 
+          tracks for any events that would have led to losses based on the 
+          model's assumptions (i.e. would have fallen within the exposure loss 
+          radius,",
+    tags$a("see help page for more information on this",
+           href = "https://oasislmf.github.io/RiskExplorer/components/index_SimMethod.html",
+           target = "_blank"),
+    "). The table below provides a summary of each event that would have led to losses. Averaging the losses from these events across the number of years should give the 
+          Historic Loss shown on the Loss Analysis tab.",strong("This is also sometimes referred to as the \"cat-in-a-box\" or \"cat-in-a-circle\" 
+          loss in the insurance industry."),
+    br(),
+    br(),
+    "Note that in many cases tracks are not precise as data is only available 
+        at 3-6 hour intervals which requires estimates to be made via 
+        interpolation between those points. As such, tracks may not exactly 
+        match what you see on the hazard tab map as the storm track data used in 
+        this exhibit comes directly from the tool and is more precise."
+  )
 
 a_historical_plot_UI <- function(id) {
   ns <- NS(id)
@@ -32,12 +57,11 @@ a_historical_plot_Server <- function(id, sim_output, display_var, display_fun) {
         
         if(sim_output()$peril == "Drought") {
           
-          
           output$historical_plot_ui <-
             renderUI({
                 tagList(
                   h4("Exhibit 1: Historical Years Payout Summary"),
-                  drought_text,
+                  drought_hist_plot_text,
                   tableOutput(ns("drought_hist_summary_table")),
                   plotlyOutput(ns("drought_hist_plot")),
                   DTOutput(ns("drought_hist_DT"))
@@ -81,7 +105,7 @@ a_historical_plot_Server <- function(id, sim_output, display_var, display_fun) {
             renderUI({
               tagList(
                 h4("Exhibit 1: Historical Years Payout Summary"),
-                tc_ibtracs_text,
+                tc_hist_plot_text,
                 tableOutput(ns("tc_hist_summary_table")),
                 leafletOutput(ns("tc_hist_map")),
                 DTOutput(ns("tc_hist_DT"))
@@ -118,30 +142,71 @@ a_historical_plot_Server <- function(id, sim_output, display_var, display_fun) {
           
           output$tc_hist_DT <-
             renderDT({
+              
+              # Turn this into function
+              dt_data_hist <-
               sim_output()$data_hist |>
                 dplyr::select(
                   Longitude, Latitude, !!sym(sim_output()$intensity_measure), 
                   `Storm Name`, Year, `Storm ID`,Payout 
-                )|>
-                dplyr::mutate(
-                  Payout = display_fun(Payout),
-                   Longitude = label_comma(accuracy = 0.0001)(Longitude), 
-                   Latitude = label_comma(accuracy = 0.0001)(Latitude),
-                  !!sym(sim_output()$intensity_measure) :=
-                    label_comma(accuracy = 0.1)(!!sym(sim_output()$intensity_measure))
-                )|>
-                DT::datatable(rownames = FALSE)
+                )
+              
+              scaling_factor <-
+                ifelse(
+                  display_var == "Payout as % of Asset Value",
+                  1,
+                  sim_output()$expo_value 
+                )
+              
+              dt_format_fun <- 
+                if(display_var == "Payout as % of Asset Value") {
+                  purrr::partial(
+                    formatPercentage, 
+                    digits = 2
+                  )
+                } else {
+                  purrr::partial(
+                    formatCurrency, 
+                    currency = "",
+                    digits = 0
+                  )
+                }
+              
+                dt_data_hist |> 
+                dplyr::arrange(Year) |> 
+                dplyr::mutate(Payout = Payout * scaling_factor) |> 
+                datatable(rownames = FALSE) |> 
+                DT::formatCurrency(
+                  columns = c("Longitude", "Latitude"),
+                  currency = "",
+                  digits = 4
+                ) |> 
+                DT::formatCurrency(
+                  columns = grep("Speed|Pressure", colnames(dt_data_hist)),
+                  currency = "",
+                  digits = 1
+                ) |> 
+                dt_format_fun(
+                  columns = c("Payout")
+                )
+              
             })
           
         } else if(sim_output()$dataset == "Stochastic") {
-          
-          tagList(
-            h4("Exhibit 1: Historical Loss Summary")
-          )
-          
+        
+          output$historical_plot_ui <-
+            renderUI({
+              tagList(
+                h4("Exhibit 1: Historical Loss Summary"),
+                helpText(
+                  "There is no historical data available for stochastic sets. To 
+                  see a summary of historical events, re-run with IBTrACS data"
+                )
+              )
+            })
         }
       
-      }) 
+      })
     }
   )
 }

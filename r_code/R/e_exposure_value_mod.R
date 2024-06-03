@@ -24,8 +24,9 @@ e_exposure_value_UI <- function(id) {
       ns = ns,
       h4("Step 3: Enter your Policy Currency, Policy Value and the Number of 
          Policies issued"),
-      helpText("Enter an asset value and a policy count greater than zero and select the 
-               appropriate currency."),
+      helpText("Enter an individual maximum policy payout in an appropriate 
+      currency and a policy count between 1 and 100. The total maximum payout 
+      from all individual policies will calculate automatically"),
       fluidRow(
         column(4,
                autonumericInput(ns("drought_policy_value"), 

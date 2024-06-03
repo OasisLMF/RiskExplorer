@@ -1,10 +1,26 @@
+
+events_text <-
+  helpText(
+    strong(
+    "The Event Analysis tab displays outputs once hazard, exposure and 
+    vulnerability have been completed and simulations have been run.
+    This tab aims to provide more detailed information on the model's 
+    output and to show the type of events that occur in the simulations. 
+    The toggle allows you to view payout or policyholders impacted information 
+    in different formats where appropriate."
+    )
+  )
+
 tab_events_UI <- function(id) {
   ns <- NS(id)
    tagList(
     shiny::titlePanel("5.Event Analysis"),
     conditionalPanel(condition = "output.sim_run_success",
                      ns = ns,
+                     events_text,
+                     br(),
                      a_select_display_UI(ns('display1')),
+                     br(),
                      a_historical_plot_UI(ns('plot1')),
                      a_individual_sim_UI(ns('sim_summary1')),
                      a_rp_view_UI(ns('rp_view1'))),

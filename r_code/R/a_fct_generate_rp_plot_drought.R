@@ -7,7 +7,7 @@ generate_rp_plot_drought <- function(plot_data,
        geom_line(aes(x = rp, y = !!sym(display_var)), color = "red2") + 
         scale_y_continuous(label = display_fun(),
                            limits = c(0, max_var)) +
-        scale_x_log10(limits = c(1, 50)) +
+        scale_x_log10(name = "Return Period", limits = c(1, 35)) +
         theme(
           panel.background = element_rect(fill = "cornsilk1",
                                           colour = "cornsilk1"),

@@ -109,7 +109,8 @@ SID_correct_list <- unique(ibtracs_data_ll_correction$SID)
 `%!in%` <- Negate(`%in%`)
 
 
-ibtracs_data <- ibtracs_data %>%
+ibtracs_data <- 
+  ibtracs_data %>%
   mutate(AGENCY1_LON = ifelse(AGENCY1_LON < (-180), AGENCY1_LON + 360,AGENCY1_LON),
          AGENCY2_LON = ifelse(AGENCY2_LON < (-180), AGENCY2_LON + 360,AGENCY2_LON),
          AGENCY3_LON = ifelse(AGENCY3_LON < (-180), AGENCY3_LON + 360,AGENCY3_LON)) %>%

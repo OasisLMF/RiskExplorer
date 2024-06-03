@@ -21,9 +21,7 @@ run_drought_simulation_script <- function(hazard_data,
   vul_curve_type <- vulnerability_data$trigger_choices$curve_type
   intensity_measure <- vulnerability_data$trigger_choices$intensity
   growing_season <- vulnerability_data$trigger_choices$growing_season
-  
-  dry_days_threshold <- 80
-    
+
   if(intensity_measure == "Number of Dry Spell Days") {
     dry_days_threshold <- vulnerability_data$trigger_choices$dry_days_threshold
     dry_days_qualify <- 
@@ -134,7 +132,7 @@ run_drought_simulation_script <- function(hazard_data,
     
     shiny::showNotification( 
       "
-      Simulation Complete. Please navigate to the Event and Loss tabs to 
+      Simulation Complete. Please navigate to the Events and Payouts tabs to 
       examine outputs.
       "
     )

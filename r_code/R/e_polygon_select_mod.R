@@ -6,8 +6,9 @@ e_polygon_select_UI <- function(id) {
       ns = ns,
       h4("Step 2: Specify the size of the area around the chosen 
       location that you wish to be covered."),
-      helpText("This may be entered in km or miles. If you are only interested 
-      in a single location then just select zero here."),
+      helpText("This can be entered as a circle with the radius specified in 
+      km or miles. If you are only interested in a single location then just 
+      select zero here."),
       br(),
       radioButtons(ns("circle_units"),
                    label = "Select units",
@@ -21,9 +22,9 @@ e_polygon_select_UI <- function(id) {
     conditionalPanel(
       condition = "output.rectangle_shape",
       ns = ns,
-      h4("Step 2: Specify a box around the centre of the area you wish to cover"),
-      helpText("This may be entered in km or miles. If you are only interested 
-        in a single location then just select zero here."),
+      h4("Step 2: Specify the area you wish to cover"),
+      helpText("This may be entered as a box with each side length specified in 
+      km or miles."),
       br(),
       radioButtons(ns("rectangle_units"),
                    label = "Select units",
@@ -178,15 +179,15 @@ e_polygon_select_Server <- function(id,
         length_km <- input$rectangle_length * unit_correction()
         width_km <- input$rectangle_width * unit_correction()
         
-        if(length_km < 6 | 
-           width_km < 6) {
+        if(length_km < 8 | 
+           width_km < 8) {
           
           proxy_input_map() |> 
             leaflet::removeShape(layerId = "circles") |>
             leaflet::removeShape(layerId = "rectangles")
           
-          rectangle_error_rv("Length and Width must be at least 6km or 
-                             3.72823 miles")
+          rectangle_error_rv("Length and Width must be at least 8km or 
+                             4.97 miles")
           
         } else {
           

@@ -22,6 +22,7 @@ run_TC_ibtracs_simulation_script <- function(hazard_data,
 
   display_type <-
     split_string(hazard_data$selected_hazard_mappings()[["display_type"]])
+  
   file <-
     hazard_data$selected_hazard_mappings()[["file"]]
 
@@ -363,7 +364,7 @@ run_TC_ibtracs_simulation_script <- function(hazard_data,
   rp_stats_table <-
     cbind.data.frame(
       rp_stats_table,
-      Loss = 
+      Payout = 
           intensity_to_loss_calc(rp_stats_table[[stats_col]], 
                                 vul_table, 
                                 intensity_measure, 
@@ -392,7 +393,14 @@ run_TC_ibtracs_simulation_script <- function(hazard_data,
   
   colnames(loss_by_sim_year) <-  
     c("Sim No","Season", "Payout", "Event Count", "Weight")
-      
+  
+  shiny::showNotification( 
+    "
+    Simulation Complete. Please navigate to the Events and Payouts tabs to 
+    examine outputs.
+    "
+  )
+  
   return(list(
     data_sim = loss_by_sim,
     data_sim_year = loss_by_sim_year,

@@ -10,15 +10,16 @@ hazard_text2 <-
     "before moving to the next step.",
     br(),
     br(),
-    'Worldwide tropical cyclone can be modelled using IBTrACS data. Stochastic 
-    hazard sets are also available for a limited range of regions.',
-    strong(
-      "Note that at present stochastic datasets are only available for Bangladesh 
-       and the Ginoza region in Japan for tropical cyclone. There is also a 
-       stochastic event set available for Karachi in Pakistan"
-    ),
-    'Future versions of this tool will look to cover additional perils and 
-    datasets.',
+    strong("Worldwide tropical cyclone can be modelled using IBTrACS data and 
+    worldwide drought using the CHIRPs data"), 
+    "(more info on these data sources can be found on the help page)", 
+    strong("Stochastic hazard sets are also available for a limited range of 
+    regions."), 
+    "These are Bangladesh (Oasis) and the Ginoza region of 
+    Japan (Aon IF) for tropical cyclone. There is also a  stochastic event set 
+    available for Karachi in Pakistan (Aon IF)",
+    "Future versions of this tool will look to cover additional perils and 
+    datasets.",
     br(),
     br()
   )
@@ -26,7 +27,7 @@ hazard_text2 <-
 h_select_peril_data_UI <- function(id) {
   ns <- NS(id)
   tagList(
-    h4('Step 1: Choose your peril, region and selected data'),
+    h4(' Choose your peril, region and selected data'),
     hazard_text2,
     selectInput(
       ns("peril_select"),
@@ -53,7 +54,6 @@ h_select_peril_data_Server <- function(id, h_mappings) {
                         selected = "",
                         choices = unique(h_mappings$peril))
 
-      
       observe({
         req(input$peril_select)
         
@@ -87,7 +87,7 @@ h_select_peril_data_Server <- function(id, h_mappings) {
         if(nrow(filtered_mappings)!= 0){
           pull_sf_mapping_data(filtered_mappings)
         }else{
-          NULL  
+            
         }
         
       })

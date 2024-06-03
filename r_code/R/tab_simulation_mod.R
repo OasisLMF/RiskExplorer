@@ -1,4 +1,4 @@
-simulation_text <-
+drought_simulation_text <-
   helpText(
     strong(
       "The Simulation tab is where you run your modelling. This process involves 
@@ -15,11 +15,98 @@ simulation_text <-
     larger exposures and more active locations will also increase simulation 
     runtime.",
     strong(
-      " For stochastic datasets, it is recommended that you run 10,000 simulations, 
+      "For stochastic datasets, it is recommended that you run 10,000 simulations, 
       with this data each simulation represents a given year. However for IBTrACS 
       Historical data, 2,000 sims should be enough to get reliable output as each 
       simulation introduces more variation on account of it representing a full 20+ 
-      years of historical data."
+      years of historical data. 
+      Drought also includes a large number of historical years as part of a 
+      'simulation. Most of the variability here will come from the historical 
+      year with a high degree of spatial correlation within a region, as such a 
+      much smaller number of sims is needed for convergence. "
+    ),
+    br(),
+    br(),
+    tags$a(
+      "A more detailed description of the simulation method can be found on the 
+      help page",
+      href = "https://oasislmf.github.io/RiskExplorer/components/index_SimMethod.html",
+      target = "_blank"
+    ),
+    "however the below bullets give a simple explanation of what is happening during the calculation:",
+    br(),
+    br(),
+    tags$ul(
+      tags$li(
+        strong(
+          "Step 1: Subset CHIRPs data for exposure area and calculate intensity 
+          metric values."
+        ),
+        " The CHIRPs dataset used contains high-resolution prcepitation readings 
+        across 5-day time periods for many years at a fine resolution.
+        This makes it a large dataset. The first step is to subset the data for 
+        the area we are interested in and calculate the relevant intensity values
+        for any potential location in the exposure area for each year during the 
+        growing season specified"
+      ),
+      br(),
+      tags$li(
+        strong(
+          "Step 2: Simulate individual policyholders at random locations within 
+          the exposure area."
+        ),
+        " Allocate the number of policyholders specified in the exposure tab to 
+        random locations within the exposure for each simulation. This introduces 
+        additional variability and in practice these types of schemes will likely 
+        not know exactly where policyholders are located. "
+      ),
+      br(),
+      tags$li(
+        strong("Step 3: Calculate the payouts for each simulated location and 
+               historical year."),
+        " Examine the intensity metric and vulnerability curve at each simulation 
+        location and use this to derive a payout for each simulation-historic 
+        year. This gives a complete simulated history for each location."
+      ),
+      br(),
+      tags$li(
+        strong(
+          "Step 4: Average across all simulated locations and historic years to 
+          calculate expected payout and standard deviation. "
+        ),
+        " Other calculations will also be performed at this stage to feed the 
+        Events and Payouts tabs."
+      ),
+      br()
+    )
+  )
+  
+tc_simulation_text <-
+  helpText(
+    strong(
+      "The Simulation tab is where you run your modelling. This process involves 
+      \"simulating\" a large number of years of events and losses based on the 
+      hazard data you have loaded.",
+      "Only run simulations once the exposure, hazard and vulnerability sections 
+      are complete. Check you are happy with your inputs, then specify the number 
+      of simulations you wish to run before pressing \"Run Simulation\"."
+    ),
+    br(),
+    br(),
+    "The more simulations you run, the more stable and reliable your output will 
+    be, however a higher number of simulations will take longer to run. Note that 
+    larger exposures and more active locations will also increase simulation 
+    runtime.",
+    strong(
+      "For stochastic datasets, it is recommended that you run 10,000 simulations, 
+      with this data each simulation represents a given year. However for IBTrACS 
+      Historical data, 2,000 sims should be enough to get reliable output as each 
+      simulation introduces more variation on account of it representing a full 20+ 
+      years of historical data. 
+      Drought also includes a number of historical years as part of a 'simulation',
+      most of the variability here will come from the historical year with a high 
+      degree of spatial correlation within a region, as such a much smaller 
+      number of sims is needed for convergence. "
     ),
     br(),
     br(),
@@ -97,11 +184,13 @@ simulation_text <-
     br()
   )
 
+
+
 tab_simulation_UI <- function(id) {
   ns <- NS(id)
   tagList(
     titlePanel("4.Simulation"),
-    simulation_text,
+    display_help_text_UI(ns("help_text_simulation")),
     section_complete_sims_UI(ns("hazard")),
     section_complete_sims_UI(ns("exposure")),
     section_complete_sims_UI(ns("vulnerability")),
@@ -120,6 +209,30 @@ tab_simulation_Server <- function(id,
   moduleServer(
     id,
     function(input, output, session) {
+      
+      simulation_text <- 
+        reactive({
+          
+          req(hazard_data$selected_hazard_mappings())
+          
+          if(hazard_data$selected_hazard_mappings()[["peril"]] == "Drought") {
+            drought_simulation_text
+          } else {
+            tc_simulation_text
+          }
+        
+      })
+      
+      observe({
+        
+        req(simulation_text())
+        
+        display_help_text_Server(
+          "help_text_simulation",
+          text = simulation_text()  
+        )
+        
+      })
       
       section_complete_sims_Server("hazard", 
                                    check_ok = hazard_data$tab_check_ok, 

@@ -1,6 +1,9 @@
 page_nav_UI <- function(id) {
   ns <- shiny::NS(id)
   tagList(
+    useShinyjs(), 
+    extendShinyjs(text = "shinyjs.button = function() {window.scrollTo(0, 0);}",
+                  functions = c("button")),
     fluidRow(
       column(width = 3, shiny::uiOutput(ns("prev_page_ui"))),
       column(width = 3, shiny::uiOutput(ns("next_page_ui")))

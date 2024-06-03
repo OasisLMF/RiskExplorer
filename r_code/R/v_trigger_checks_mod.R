@@ -64,10 +64,11 @@ v_trigger_checks_Server <- function(id, trigger_payouts, trigger_choices) {
         } else {
           output$table_warning_text <- 
             renderText({
+              
               paste("Check table values. Note that all damage percentages must be 
                 between 0 and 100%. Damage percentages must",
-              ifelse(trigger_choices$measure == "Pressure" |
-                     trigger_choices$measure == "Percentage of Climatology", 
+              ifelse(trigger_choices$intensity == "Pressure" |
+                     trigger_choices$intensity == "Percentage of Climatology", 
                      "decrease", 
                      "increase"),
               "for higher values of the intensity metric. 

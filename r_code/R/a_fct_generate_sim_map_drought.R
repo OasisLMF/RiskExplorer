@@ -29,7 +29,6 @@ generate_sim_map_drought <- function(one_year_hazard_data,
       reverse_val <- FALSE
     }
     
-
   index_palette_colors <- brewer.pal(9, "Spectral")
 
   map_palette <-
@@ -119,7 +118,12 @@ generate_sim_map_drought <- function(one_year_hazard_data,
                                     individual_sim_data[[display_var]]
                                 ),
                                 fillOpacity = 1,
-                                label = lapply(labels, htmltools::HTML))
+                                label = lapply(labels, htmltools::HTML)) |> 
+      leaflet::addLegend(pal = marker_palette,
+                         title = display_var,
+                         values = payout_bins,
+                         position = "bottomleft",
+                         opacity = 1)
   }
   
 }
