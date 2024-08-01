@@ -37,10 +37,10 @@ options(shiny.sanitize.errors = FALSE, scipen = 999)
 # Read in mapping csvs
 
 mappings <- list(
-  curr_mappings = read.csv("./data/mappings/curr_codes.csv"),
-  hazard_mappings = read.csv("./data/mappings/hazard_mappings.csv"),
-  vulnerability_mappings = read.csv("./data/mappings/vulnerability_mappings.csv"),
-  pentad_mappings = read.csv("./data/mappings/pentad_mappings.csv")
+  curr_mappings = read.csv("/srv/shiny-server/r_code/data/mappings/curr_codes.csv"),
+  hazard_mappings = read.csv("/srv/shiny-server/r_code/data/mappings/hazard_mappings.csv"),
+  vulnerability_mappings = read.csv("/srv/shiny-server/r_code/data/mappings/vulnerability_mappings.csv"),
+  pentad_mappings = read.csv("/srv/shiny-server/r_code/data/mappings/pentad_mappings.csv")
 )
 
 # Source UI functions
