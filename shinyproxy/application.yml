@@ -1,0 +1,21 @@
+proxy:
+  port: 8081
+  authentication: none
+  docker:
+    internal-networking: true
+  specs:
+  - id: RiskExplorer
+    title: Oasis Risk Explorer
+    display-name: RiskExplorer
+    landing-page: /
+    heartbeat-rate: 10000
+    heartbeat-timeout: 60000
+    container-cmd: ["R", "-e", "options('shiny.host'='0.0.0.0', 'shiny.port'=3838); shiny::runApp()"]
+    container-image: riskexplorer
+    container-volumes: ["/home/ubuntu/RiskExplorer_version_2_data/data:/srv/shiny-server/r_code/data"]
+    container-network-connections: shiny-net
+    health-check:
+      path: /health
+      interval: 10s
+      retries: 3
+
