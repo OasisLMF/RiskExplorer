@@ -13,7 +13,7 @@ There are a number of extra features and functionality that will be included in 
 
 * **Years of Selection:** Ability to vary the timeframe of historical data that feeds the tool. E.g., if the user feels there is a climate impact and would be comfortable using a more recent window, they could select a subset of the available track data, such as the most recent 15 years.
 
-* **Greater Peril Coverage:** Additional :ref:`perils<g_peril_reference-label>` to be included such as flood, wildfire and convective storm. There are potential development plans for 2023 to look at including flood/excess rainfall in the model.
+* **Greater Peril Coverage:** Additional :ref:`perils<g_peril_reference-label>` to be included such as flood, wildfire and convective storm. 
 
 * **Greater Data Source Coverage:** Additional data sources for both :ref:`stochastic<g_stochastic_reference-label>` :ref:`event sets<g_eventset_reference-label>` and historical data.
 

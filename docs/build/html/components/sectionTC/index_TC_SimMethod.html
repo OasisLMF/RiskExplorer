@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tropical Cyclone - How does the Simulation Methodology Work? &mdash; Risk Explorer</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css" />
+      <link rel="stylesheet" type="text/css" href="../../_static/c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/u" />
+      <link rel="stylesheet" type="text/css" href="../../_static/s" />
+      <link rel="stylesheet" type="text/css" href="../../_static/t" />
+      <link rel="stylesheet" type="text/css" href="../../_static/o" />
+      <link rel="stylesheet" type="text/css" href="../../_static/m" />
+      <link rel="stylesheet" type="text/css" href="../../_static/." />
+      <link rel="stylesheet" type="text/css" href="../../_static/c" />
+      <link rel="stylesheet" type="text/css" href="../../_static/s" />
+      <link rel="stylesheet" type="text/css" href="../../_static/s" />
+
+  
+    <link rel="shortcut icon" href="../../_static/idf_square.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tropical Cyclone - Assumptions and Limitations – IBTrACS Hazard Data" href="index_TC_AssumpLimits.html" />
+    <link rel="prev" title="Tropical Cyclone - Navigating Through the Tool - User Instructions" href="index_TC_Walkthrough.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Risk Explorer
+              <img src="../../_static/IDF_Original.jpg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index_Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_WhatParametric.html">What is parametric insurance?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_HowToUse.html">How should this model be used?</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index_TC.html">Tropical Cyclone</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index_TC_Walkthrough.html">Tropical Cyclone - Navigating Through the Tool - User Instructions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tropical Cyclone - How does the Simulation Methodology Work?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-description-ibtracs-hazard-data">Basic Description – IBTrACS Hazard Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detailed-steps-ibtracs-hazard-data">Detailed Steps– IBTrACS Hazard Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-description-stochastic-hazard-data">Basic Description – Stochastic Hazard Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detailed-description-stochastic-hazard-data">Detailed Description – Stochastic Hazard Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index_TC_AssumpLimits.html">Tropical Cyclone - Assumptions and Limitations – IBTrACS Hazard Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sectionDR/index_DR.html">Drought Weather Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sectionEQ/index_EQ.html">Earthquake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_Glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index_Disclaimer.html">Disclaimer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Risk Explorer</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index_TC.html">Tropical Cyclone</a></li>
+      <li class="breadcrumb-item active">Tropical Cyclone - How does the Simulation Methodology Work?</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/components/sectionTC/index_TC_SimMethod.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tropical-cyclone-how-does-the-simulation-methodology-work">
+<span id="sim-workings-reference-label"></span><h1>Tropical Cyclone - How does the Simulation Methodology Work?<a class="headerlink" href="#tropical-cyclone-how-does-the-simulation-methodology-work" title="Permalink to this heading"></a></h1>
+<section id="basic-description-ibtracs-hazard-data">
+<h2>Basic Description – IBTrACS Hazard Data<a class="headerlink" href="#basic-description-ibtracs-hazard-data" title="Permalink to this heading"></a></h2>
+<p>This section provides a basic overview of how the simulation method works for <span class="xref std std-ref">IBTrACS</span> hazard data.
+The simulation method can be broken down into a few distinct steps:</p>
+<ul class="simple">
+<li><p><strong>Step 1: Randomly select a number of different latitude-longitudes near the area of exposure.</strong> The user defines the number of locations to be randomly sampled (or number of <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a>), in the simulation tab. Each random selection of a <a class="reference internal" href="../index_Glossary.html#g-latlong-reference-label"><span class="std std-ref">latitude-longitude</span></a> is known as a <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">“simulation”</span></a>.</p></li>
+<li><p><strong>Step 2: Record the losses generated for each simulation in each year of the historical data.</strong> This step involves looking at the <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> in the <a class="reference internal" href="../index_Glossary.html#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> data  and seeing which storms would have led to at least some <a class="reference internal" href="../index_Glossary.html#g-damage-reference-label"><span class="std std-ref">damage</span></a> by checking against the relevant <a class="reference internal" href="../index_Glossary.html#g-intensityvalue-reference-label"><span class="std std-ref">intensity values</span></a> set in the <a class="reference internal" href="../index_Glossary.html#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a> tab. The <span class="xref std std-ref">losses</span> for each <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> are then recorded by checking against your <a class="reference internal" href="../index_Glossary.html#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a> curve. The years 1978-2021 are used for all basins here except the North Atlantic.</p></li>
+<li><p><strong>Step 3: Average the losses across all years in the historical data for each simulation.</strong> This gives us an average over all the <a class="reference internal" href="../index_Glossary.html#g-simyear-reference-label"><span class="std std-ref">simulation-years</span></a> for each <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> in the history. Each observation of a particular year in the history for a given simulated location is known as a <a class="reference internal" href="../index_Glossary.html#g-simyear-reference-label"><span class="std std-ref">“simulation-year”</span></a>.</p></li>
+<li><p><strong>Step 4: Apply a weighting between 0 and 1 to the average loss for each simulation.</strong> The <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting</span></a> is based on how far away the simulated location is to the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> (e.g., a <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> that was very close might get a <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting</span></a> of 0.9, one that was far away might get a <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting</span></a> of 0.1).</p></li>
+<li><p><strong>Step 5: Calculate the weighted average of the simulated average losses for each location calculated in the earlier steps.</strong> This is the <a class="reference internal" href="../index_Glossary.html#g-weightedsimloss-reference-label"><span class="std std-ref">“weighted simulation loss “</span></a>.</p></li>
+</ul>
+</section>
+<section id="detailed-steps-ibtracs-hazard-data">
+<h2>Detailed Steps– IBTrACS Hazard Data<a class="headerlink" href="#detailed-steps-ibtracs-hazard-data" title="Permalink to this heading"></a></h2>
+<p>The next section goes through each of these steps in more detail and attempts to explain why each step is necessary to the approach.</p>
+<p><strong>Step 1: How and why do we sample different locations?</strong></p>
+<p>It may seem odd to randomly select locations that are different to your <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>, however this is an important step which prevents over-generalising from a limited history and is the founding principle of all catastrophe models. For example, if your <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> is within a very small area or is a single location, you could have been relatively lucky and not had any significant wind <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> despite some <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> having just missed that location in the recorded history. If we just used the history at the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> point, we would assume there is zero risk when this is clearly not the case. It is important to capture some element of variability in our <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">loss</span></a> estimate.</p>
+<p>When randomly sampling these points, what sort of limits should we apply on the types of locations we sample? Clearly it wouldn’t make sense to randomly select points anywhere in the world, as most of these would have very different weather patterns to our <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> and may not even be located in the same tropical cyclone <a class="reference internal" href="../index_Glossary.html#g-basin-reference-label"><span class="std std-ref">basin</span></a>.</p>
+<p>The method used here only looks at locations that are within 5 times the average <a class="reference internal" href="../index_Glossary.html#g-rmw-reference-label"><span class="std std-ref">radius of maximum wind speed</span></a> (also known as RMW) from a tropical cyclone. If you’re modelling an area, then the radius of this is added on to the RMW before multiplying (so zero for a single location). It is assumed in this model that the <a class="reference internal" href="../index_Glossary.html#g-rmw-reference-label"><span class="std std-ref">radius of maximum wind speed</span></a> figure is 87.6km (see RMW in the glossary for more detail on why this figure was chosen).
+Written as a formula, the sampling area looks like this:</p>
+<p><em>Distance from exposure to sample from = 5 x (Radius of Maximum Wind Speed of a Tropical Cyclone + Radius of Exposure)</em></p>
+<p>As an example, if we were modelling a single location, we would look to sample any locations that are within 5 x (87.6 + 0) = 438km of the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>. By contrast if we were looking to model an area with a radius of 50km, we would draw sample locations from points within 5 x (87.6 + 50) = 688km of the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>.</p>
+<p>Five times the RMW is selected as this gives a good spread of locations over the area with which to capture variability in nearby weather patterns. The area is also not so large that we are sampling from observations that are not at all relevant.</p>
+<p>Random numbers are selected for each simulation for <a class="reference internal" href="../index_Glossary.html#g-latlong-reference-label"><span class="std std-ref">latitudes and longitudes</span></a> that lie within the distance calculated above. These are then used in the subsequent calculations and represent our simulated locations.</p>
+<p>The average <a class="reference internal" href="../index_Glossary.html#g-rmw-reference-label"><span class="std std-ref">radius of maximum wind speed</span></a> is an important figure for another reason, as it is assumed if a location sits within this radius then the location is “hit” by the storm. This will be covered in more detail in Step 2.</p>
+<p><strong>Step 2: How do we calculate losses for each simulated location?</strong></p>
+<p>Now that we have our simulated locations, we need to check these against the storm tracks from the <a class="reference internal" href="../index_Glossary.html#g-ibtracs-reference-label"><span class="std std-ref">IBTrACS</span></a> <a class="reference internal" href="../index_Glossary.html#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> data. We will then be able to work out which <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> would have historically led to <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">losses</span></a>. This is done by drawing a 87.6km radius around each sampled location/area and checking which storms in the history would have passed through this circle. If a storm’s track has taken it within 87.6km of the location/area, then it is assumed that this would have affected the location and potentially led to a <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">loss</span></a>. As mentioned in the section above, 87.6km represents the RMW and it is assumed if a location sits within this radius then the location is “hit” by the storm.</p>
+<p>Maximum wind speeds for each <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> from the <a class="reference internal" href="../index_Glossary.html#g-eventset-reference-label"><span class="std std-ref">event set</span></a> that are recorded as falling within this circle are checked against the <a class="reference internal" href="../index_Glossary.html#g-vulnerability-reference-label"><span class="std std-ref">vulnerability</span></a> curve you have defined. This is then used to calculate the appropriate <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">losses</span></a> for each <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a>. The <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">losses</span></a> generated by each storm are then recorded, giving us a complete history of all storms impacting each simulated location over the years.</p>
+<p>Consider an example where we run two <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> using a cyclone <a class="reference internal" href="../index_Glossary.html#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> dataset that covers three years of data (2019-2021). The asset is a single location with a value of 100,000 USD and has one intensity value set at 178km/h at which 100% <a class="reference internal" href="../index_Glossary.html#g-damage-reference-label"><span class="std std-ref">damage</span></a> occurs. No <a class="reference internal" href="../index_Glossary.html#g-damage-reference-label"><span class="std std-ref">damage</span></a> occurs below this, so this is effectively a “stepped” vulnerability curve with just one step.
+The table below gives an idea of how the approach described above would work in practice, each row is an <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> in the <a class="reference internal" href="../index_Glossary.html#g-hazard-reference-label"><span class="std std-ref">hazard</span></a> dataset that lies within a reasonable distance of the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">List of Hazard Data Events and Losses</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Row Number</p></th>
+<th class="head"><p>Simulation Location Number</p></th>
+<th class="head"><p>Simulation-Year</p></th>
+<th class="head"><p>Max Wind Speed</p></th>
+<th class="head"><p>Distance from Location</p></th>
+<th class="head"><p>Loss (USD)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2019</p></td>
+<td><p>185km/h</p></td>
+<td><p>50km</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2019</p></td>
+<td><p>200 km/h</p></td>
+<td><p>25km</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>2020</p></td>
+<td><p>220km/h</p></td>
+<td><p>90km</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>2021</p></td>
+<td><p>190km/h</p></td>
+<td><p>45km</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>2</p></td>
+<td><p>2019</p></td>
+<td><p>185km/h</p></td>
+<td><p>40km</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>2021</p></td>
+<td><p>140km/h</p></td>
+<td><p>35km</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>The <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> in row 3 doesn’t generate a <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">loss</span></a> despite exceeding the intensity value, as it lies further than 87.6km away from location 1 and is therefore deemed to have not affected it. The <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> in row 6 doesn’t generate a <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">loss</span></a> either as the wind speed is below 178km/h at which <a class="reference internal" href="../index_Glossary.html#g-damage-reference-label"><span class="std std-ref">damage</span></a> starts to occur.</p>
+<p><strong>Step 3: How do we get an expected loss for each simulation?</strong></p>
+<p>The individual <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">losses</span></a> calculated in Step 2 are then added up by <a class="reference internal" href="../index_Glossary.html#g-simyear-reference-label"><span class="std std-ref">simulation-year</span></a>, giving a picture of the total <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">loss</span></a> generated across each year of the history for each location. Losses are capped here at the total value of the asset. The reason this is done is that it is assumed if your asset is completely destroyed, it would take longer than the time between two (or more) storms to fully rebuild it.
+Once we have the <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">losses</span></a> for each year of this history, it is simply a case of averaging across these to get an <a class="reference internal" href="../index_Glossary.html#g-expectedloss-reference-label"><span class="std std-ref">average loss</span></a> for each simulation. This is all we need to give us one view of the <a class="reference internal" href="../index_Glossary.html#g-expectedloss-reference-label"><span class="std std-ref">expected loss</span></a>, the <a class="reference internal" href="../index_Glossary.html#g-unweightedsimloss-reference-label"><span class="std std-ref">unweighted expected loss</span></a>, which is a simple average of the <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">loss</span></a> from each simulation.
+Going back to the example in step 2, the table below shows how we get from the <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> data to a table of <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">losses</span></a> by <a class="reference internal" href="../index_Glossary.html#g-simyear-reference-label"><span class="std std-ref">simulation-year</span></a>.</p>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Losses by Simulation-Year</span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Row Number</p></th>
+<th class="head"><p>Simulation Location Number</p></th>
+<th class="head"><p>Simulation-Year</p></th>
+<th class="head"><p>Loss (USD) Before Capping at Asset Value</p></th>
+<th class="head"><p>Loss (USD) After Capping at Asset Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2019</p></td>
+<td><p>200,000</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2020</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>2021</p></td>
+<td><p>100,000</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>2019</p></td>
+<td><p>100,000</p></td>
+<td><p>100,000</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>2</p></td>
+<td><p>2020</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>2021</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Notice that all years are listed here including those with no relevant <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">events</span></a> or <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">losses</span></a>. The impact of the capping at the <a class="reference internal" href="../index_Glossary.html#g-assetvalue-reference-label"><span class="std std-ref">asset value</span></a> is shown in row 1. 100,000 is the <a class="reference internal" href="../index_Glossary.html#g-assetvalue-reference-label"><span class="std std-ref">asset value</span></a>, and because this has already been breached by the first <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a> in the year, the total <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">loss</span></a> is capped at this level and no further <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">loss</span></a> is generated by the second <a class="reference internal" href="../index_Glossary.html#g-event-reference-label"><span class="std std-ref">event</span></a>.
+The next step is then to calculate a historical average loss across all years for each <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a>.</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Losses by Simulation</span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Row Number</p></th>
+<th class="head"><p>Simulation Location Number</p></th>
+<th class="head"><p>Average Loss (USD) After Capping</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>(100,000 + 0 + 100,000) / 3 = <strong>66,666.7</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>(100,000 + 0 + 0) / 3 = <strong>33,333.3</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Unweighted Simulated Loss</strong></p></td>
+<td></td>
+<td><p>(33,333.33 + 66,666.7) / 2 = <strong>50,000</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>For each <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> we are taking the total capped <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">losses</span></a> from the previous table and dividing these by the number of years of data to get an average. 2019-2021 is three years of data, hence the denominator of 3 above. This now gives us an <a class="reference internal" href="../index_Glossary.html#g-expectedloss-reference-label"><span class="std std-ref">average loss</span></a> for each <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a>, taking a straight average across the two <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> gives us the <a class="reference internal" href="../index_Glossary.html#g-unweightedsimloss-reference-label"><span class="std std-ref">unweighted expected loss</span></a> which is displayed in the bottom row. This assumes all <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> are given identical <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weight</span></a> regardless of how far they are from the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>. The <a class="reference internal" href="../index_Glossary.html#g-unweightedsimloss-reference-label"><span class="std std-ref">unweighted expected loss</span></a> forms one of the measures of <a class="reference internal" href="../index_Glossary.html#g-expectedloss-reference-label"><span class="std std-ref">expected loss</span></a> in the Risk Explorer’s Loss Analysis tab.</p>
+<p><strong>Step 4: How do we weight each simulation?</strong></p>
+<p>To get a view that takes into account the distance of the <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> from the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>, we need to work out how to appropriately <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weight</span></a> each <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a>. Simulations nearer the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> are likely to be more relevant and generalisable than those further away. As such, closer locations should be given higher <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weights</span></a> in the <a class="reference internal" href="../index_Glossary.html#g-expectedloss-reference-label"><span class="std std-ref">expected loss</span></a> calculation.</p>
+<p><a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">Weightings</span></a> for each <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> will all be between 0 and 1 and are generally expressed as percentages. The most intuitive way to think of the <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> themselves is in relative terms. A <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting</span></a> of 0.8 can be thought of as 80% of the potential maximum weighting, but it can also be interpreted as being given 8 times more weight in the final calculation than an observation weighted at 10%.</p>
+<p>There are a number of potential weighting methods that could be used here so it’s worth bearing in mind that there is a certain degree of judgement in this step. An exponential <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting function</span></a> with a lambda parameter of 3.2 has been selected for calculating the weightings in this model based on scientific and actuarial expert judgement. The table below shows the different weightings for a single location at intervals of 50km away from the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> to give some idea of how the weighting changes in practice:</p>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Weighting Examples</span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Row Number</p></th>
+<th class="head"><p>Distance from Exposure</p></th>
+<th class="head"><p>Exponential Weighting</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>100%</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>50</p></td>
+<td><p>69%</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>100</p></td>
+<td><p>48%</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>150</p></td>
+<td><p>33%</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>200</p></td>
+<td><p>23%</p></td>
+</tr>
+</tbody>
+</table>
+<p>There are a few desirable properties to this function and parameterisation that make the exponential a good choice. These are highlighted below:</p>
+<ul class="simple">
+<li><p>The <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting</span></a> decreases at a constant rate as we move away from the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>. For a single location, the weighting decreases by 30% in relative terms for every 50km we move away from the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>. E.g., the weighting at 100km from the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> is 48%, which is 30% less than the 69% weighting for a location 200km from the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>.</p></li>
+<li><p>The <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting function</span></a> drops off quickly initially but the absolute decrease in <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weights</span></a> slows as we get further away.    The reason for this is there is intuitively a bigger gap in usefulness of an observation 0km vs 50km away compared to an observation being 200km vs 250km away.</p></li>
+<li><p>The <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weighting</span></a> approaches zero as we get towards the edge of the potential sampling area.</p></li>
+</ul>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/Weighting.png"><img alt="Weighting Graph" src="../../_images/Weighting.png" style="width: 235.5px; height: 138.0px;" /></a>
+</figure>
+<p>Exhibit demonstrating relationship between distance from exposure and weight for a single location.</p>
+<p>Returning to our example in the earlier steps, these are the weightings that would be applied to each location:</p>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">Weightings by Simulation</span><a class="headerlink" href="#id5" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Simulation Location Number</p></th>
+<th class="head"><p>Distance from Exposure</p></th>
+<th class="head"><p>Weighting</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>125km</p></td>
+<td><p>40%</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>200km</p></td>
+<td><p>23%</p></td>
+</tr>
+</tbody>
+</table>
+<p>A detailed understanding of how the exponential function is calculated is not necessary to use the tool, however if you are interested in learning more about this, you can consult the appendix section at the bottom of the page.</p>
+<p><strong>Step 5: How do we calculate the Simulated Weighted Loss?</strong></p>
+<p>The last step in getting our <a class="reference internal" href="../index_Glossary.html#g-weightedsimloss-reference-label"><span class="std std-ref">simulated weighted loss</span></a> is calculating a weighted average. The <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">losses</span></a> for each <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> are scaled by their <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> and then divided by the sum of all <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a>.</p>
+<p>Returning to the earlier example, we can now calculate the simulated weighted loss:</p>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text">Weightings by Simulation</span><a class="headerlink" href="#id6" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Simulation Location Number</p></th>
+<th class="head"><p>Distance from Exposure</p></th>
+<th class="head"><p>Weighting</p></th>
+<th class="head"><p>Average Loss (USD) After Asset Value Capping</p></th>
+<th class="head"><p>Weighting x Average Loss</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>125km</p></td>
+<td><p>40%</p></td>
+<td><p>66,666.7</p></td>
+<td><p>0.4 x 66,666.7 = 26,733.35</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>200km</p></td>
+<td><p>23%</p></td>
+<td><p>33,333.3</p></td>
+<td><p>0.23 x 33,333.3 = 7,733.33</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Simulated Weighted Loss</strong></p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>(26,733.35+ 7,733.33) / (4%+23%) = <strong>54,449.73</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>In this case the expected weighted loss is 54,449.73. Note that this is higher than the <a class="reference internal" href="../index_Glossary.html#g-unweightedsimloss-reference-label"><span class="std std-ref">expected unweighted loss</span></a> of 50,000 which was calculated in step 3. The reason for this difference is that
+<a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> 1 which had a higher average loss was given a higher <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weight</span></a> in the calculation than <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulation</span></a> 2 which was lower. The reason for weighting location 1 higher is that it is closer to the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> than location 2.
+In the unweighted calculation we implicitly assume all <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> have identical weighting so this generates a lower figure relative to the weighted loss.</p>
+<p>The Weighting x Average Loss column doesn’t really have a practical interpretation but is shown to illustrate the different steps. The reason we need to divide by the sum of the <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> in the final calculation
+is to ensure we aren’t understating the total <a class="reference internal" href="../index_Glossary.html#g-loss-reference-label"><span class="std std-ref">loss</span></a>. If we just added together the Weighting x Loss column, this number wouldn’t account for the potential for a number of different <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> to emerge from the simulation process. This comes back again to the idea that the <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> themselves have more meaning when considered relative to one another, the sum of all <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> will differ each time a set of <a class="reference internal" href="../index_Glossary.html#g-simulation-reference-label"><span class="std std-ref">simulations</span></a> is run so they need to be scaled accordingly.
+Note that if you are trying to recreate these figures, you may find small differences due to rounding.</p>
+<p><strong>Appendix: Step 4: How do we weight each simulation?</strong></p>
+<p>This section gives a brief demonstration of how we would go about calculating the exponential <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> described earlier. The calculation of these <a class="reference internal" href="../index_Glossary.html#g-weighting-reference-label"><span class="std std-ref">weightings</span></a> relies on the mathematical constant “e” which is equal to  2.71828… .The formula for calculating the weighing is:</p>
+<p><em>Weighting = e ^ ( (sim distance / max distance) x – (exponential parameter) )</em></p>
+<p>Let’s assume we simulate a location that lies 150km from our <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> which is a single point. We also use the exponential parameter of 3.2 in the model. The weighting for this particular observation would be:</p>
+<p><em>Weighting = e ^ ( (150/( 5 x 87.6)) x -3.2 )</em></p>
+<p><em>Weighting = e^(-1.09589)</em></p>
+<p><em>Weighting = 33.4%</em></p>
+<p>This is the same weighting given in row 3 in the first table of step 4 (where it is rounded to one decimal place).</p>
+</section>
+<section id="basic-description-stochastic-hazard-data">
+<h2>Basic Description – Stochastic Hazard Data<a class="headerlink" href="#basic-description-stochastic-hazard-data" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Step 1: Filter the events in the stochastic dataset that are relevant to your exposure.</strong> The <a class="reference internal" href="../index_Glossary.html#g-stochastic-reference-label"><span class="std std-ref">stochastic</span></a> dataset is made up of a large number of simulated years, each with their own specific events. The first step of the calculation excludes events that are too far away to impact your <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> area. Only events that occur within your exposure area are used in the subsequent calculations.</p></li>
+<li><p><strong>Step 2: Randomly select years from the dataset for each simulation.</strong> The selected years from the stochastic data and their corresponding events will then be used to calculate losses in later steps. Note that as the years in the <a class="reference internal" href="../index_Glossary.html#g-stochastic-reference-label"><span class="std std-ref">stochastic</span></a> data are selected at random, it is possible that certain years may repeat when a large number of simulations are run.</p></li>
+<li><p><strong>Step 3: Identify the events in each simulation that would lead to losses.</strong> This step looks at which events in your simulations would have led to losses based on values of the specified <a class="reference internal" href="../index_Glossary.html#g-intensitymeasure-reference-label"><span class="std std-ref">intensity measure</span></a> in the vulnerability section. These losses are then summed up across each simulation-year and capped at your total <a class="reference internal" href="../index_Glossary.html#g-assetvalue-reference-label"><span class="std std-ref">asset value</span></a>.</p></li>
+<li><p><strong>Step 4: Average across losses by simulation to give an overall expected loss.</strong> Each simulation should have a total loss associated with it calculated in step 3. This step averages across all of these simulation losses to give an overall expected loss.</p></li>
+</ul>
+</section>
+<section id="detailed-description-stochastic-hazard-data">
+<h2>Detailed Description – Stochastic Hazard Data<a class="headerlink" href="#detailed-description-stochastic-hazard-data" title="Permalink to this heading"></a></h2>
+<p><strong>Step 1: How and why do we filter events relevant to the exposure?</strong>
+Unlike in the IBTrACS case where there are only a few tens of years of history to choose from, <a class="reference internal" href="../index_Glossary.html#g-stochastic-reference-label"><span class="std std-ref">stochastic</span></a> hazard data gives us thousands of simulated years to use. We therefore are able to focus on our <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> location/area exclusively and just look across the many years in the hazard data to generate variability in our modelling, rather than looking to different locations as we do with the <span class="xref std std-ref">IBTrACS</span> historical sampling method.
+The hazard data for stochastic sets is split across four key files that sit behind the model:</p>
+<ul class="simple">
+<li><p>areaperil_dict: This contains a list of all the lat-longs defining a particular “areaperil”. Areaperils are used to specify areas or locations that have the same intensity value in a given event</p></li>
+<li><p>footprint: The footprint file lists all the events and the intensities for each areaperil.</p></li>
+<li><p>intensity_bin_dict: This file contains the different values the <a class="reference internal" href="../index_Glossary.html#g-intensitymeasure-reference-label"><span class="std std-ref">intensity measure</span></a> can take.</p></li>
+<li><p>occurrence_lt: This file contains a list of the simulated years in the model and which events from the footprint file happened in those years</p></li>
+</ul>
+<p>The footprint file is typically very large. Based on the values entered for your <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a>, only the rows of the footprint file that relate to your exposure will be pulled in.
+A basic example of some of the key files is shown below to give an idea of the data that sits behind these stochastic sets.
+In this example there are 4 separate areas in our exposure all specified by a single latitude and longitude.</p>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text">Areaperil Table Example</span><a class="headerlink" href="#id7" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Areaperil</p></th>
+<th class="head"><p>Latitude</p></th>
+<th class="head"><p>Longitude</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>The footprint file in this example contains two separate events that impact multiple different areas to varying degrees. For example event 101 impacts areaperils 1,2 and 4.</p>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text">Footprint table example</span><a class="headerlink" href="#id8" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Event ID</p></th>
+<th class="head"><p>Areaperil ID</p></th>
+<th class="head"><p>Intensity bin ID</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>100</p></td>
+<td><p>1</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>100</p></td>
+<td><p>2</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>101</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>101</p></td>
+<td><p>4</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>101</p></td>
+<td><p>2</p></td>
+<td><p>4</p></td>
+</tr>
+</tbody>
+</table>
+<p>The intensity bin table links the intensity bin id field in the footprint file to an actual <a class="reference internal" href="../index_Glossary.html#g-intensitymeasure-reference-label"><span class="std std-ref">intensity measure</span></a>. In this example, wind speed is used. An intensity bin value of 3 corresponds to wind speeds of 120 km/h, a value of 4 to 130km/h and so on. To go back to the first row of the footprint file, we are saying that event 100 leads to wind speeds of 130km/h being recorded in area 1 and winds of 140km/h being recorded in area 2.</p>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text">Intensity Table example</span><a class="headerlink" href="#id9" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Intensity Bin ID</p></th>
+<th class="head"><p>Wind Speed</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>100 km/h</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>110km/h</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>120 km/h</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>130km/h</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>140 km/h</p></td>
+</tr>
+</tbody>
+</table>
+<p>This file details which events occur in which simulated years. For year 3, both events 100 and 103 occur in the year. Note that some years have no events and consequently are not listed in the table (e.g. year 2)</p>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-text">Occurrence Table example</span><a class="headerlink" href="#id10" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Occurrence Number</p></th>
+<th class="head"><p>Event ID</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>101</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>101</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>100</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 2: Why are years randomly selected from the hazard data and how is this done?</strong>
+In many cases, the number of simulations you wish to model may be materially different than the number of simulated years in the occurrence_lt file. Randomly choosing years from the hazard data ensures that you have the correct number of simulations for your model run.
+This step is also where the different sub-files are joined together to create a full simulated <a class="reference internal" href="../index_Glossary.html#g-eventset-reference-label"><span class="std std-ref">event set</span></a>, as they each store different types of information relating to intensity, location and frequency. This full <a class="reference internal" href="../index_Glossary.html#g-eventset-reference-label"><span class="std std-ref">event set</span></a> for the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> area can then be used to generate losses. Note that as the years in the <a class="reference internal" href="../index_Glossary.html#g-stochastic-reference-label"><span class="std std-ref">stochastic</span></a> data are selected at random, it is possible that certain years may repeat where a large number of simulations are being run.
+We run two simulations in the example, with occurrences 3 and 1 being chosen at random as can be seen in the table in step 3</p>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-text">Occurrence Simulation example</span><a class="headerlink" href="#id11" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Simulation Number</p></th>
+<th class="head"><p>Hazard Dataset Occurrence Number</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 3: How are losses generated?</strong>
+The next step is to generate losses for each individual event in the simulation data. This part of the process is very similar to the process for <span class="xref std std-ref">IBTrACS</span> data. Given that the example in the IBTrACS section demonstrated how losses were generated for a step vulnerability curve, this example will look at a linear curve.
+Consider a linear vulnerability curve with 0% <a class="reference internal" href="../index_Glossary.html#g-damage-reference-label"><span class="std std-ref">damage</span></a> at 100 km/h and a 100% <a class="reference internal" href="../index_Glossary.html#g-damage-reference-label"><span class="std std-ref">damage</span></a> at 200km/h for an asset valued at USD 100,000.  The table below shows the losses for the years selected in step 2:</p>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-text">Loss by event</span><a class="headerlink" href="#id12" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Simulation Number</p></th>
+<th class="head"><p>Occurrence Number</p></th>
+<th class="head"><p>Event ID</p></th>
+<th class="head"><p>Intensity Measure (Wind Speed)</p></th>
+<th class="head"><p>Loss</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>100</p></td>
+<td><p>140km/h</p></td>
+<td><p>(140 – 100)/(200 – 100) = 40% damage x 100,000 = USD 40,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>101</p></td>
+<td><p>130km/h</p></td>
+<td><p>(130 – 100)/(200 – 100) = 30% damage x 100,000 = USD 30,000</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>101</p></td>
+<td><p>130km/h</p></td>
+<td><p>(130 – 100)/(200 – 100) = 30% damage x 100,000 = USD 30,000</p></td>
+</tr>
+</tbody>
+</table>
+<p>The linear losses are calculated by looking at how far the <a class="reference internal" href="../index_Glossary.html#g-intensitymeasure-reference-label"><span class="std std-ref">intensity measure</span></a> lies between the specified <a class="reference internal" href="../index_Glossary.html#g-intensityvalue-reference-label"><span class="std std-ref">intensity measure values</span></a>. As 140 km/h is 40% of the way between 100km/h and 200 km/h, this means a 40% loss is sustained for this wind speed.
+Now we just add all the losses across each simulation number to get losses by simulation.</p>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text">Loss by simulation</span><a class="headerlink" href="#id13" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Simulation Number</p></th>
+<th class="head"><p>Occurrence Number</p></th>
+<th class="head"><p>Total Loss</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>USD 40,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>USD 60,000</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 4: How is the expected simulation loss generated?</strong>
+The final step here is to average across all our simulations to give an expected annual simulation loss. The losses for all years are summed together and divided by the number of simulations to give the average as below.</p>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text">Loss by simulation calculation</span><a class="headerlink" href="#id14" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Simulation Number</p></th>
+<th class="head"><p>Occurrence Number</p></th>
+<th class="head"><p>Total Loss</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>USD 40,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>USD 60,000</p></td>
+</tr>
+<tr class="row-even"><td><p>Simulated Loss</p></td>
+<td></td>
+<td><p>(40,000+60,000)/2 = USD 50,000</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note there is only one simulation method here, this is because the concept of weightings is not used as all simulations relate to the <a class="reference internal" href="../index_Glossary.html#g-exposure-reference-label"><span class="std std-ref">exposure</span></a> area. There is also no historical data available to give the historic simulation, although this could be calculated in principle with the right data available.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index_TC_Walkthrough.html" class="btn btn-neutral float-left" title="Tropical Cyclone - Navigating Through the Tool - User Instructions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index_TC_AssumpLimits.html" class="btn btn-neutral float-right" title="Tropical Cyclone - Assumptions and Limitations – IBTrACS Hazard Data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 .. _sim_workings_reference-label:
 
-How does the Simulation Methodology Work?
+Tropical Cyclone - How does the Simulation Methodology Work?
 ====================================================
 
 Basic Description – IBTrACS Hazard Data
@@ -208,7 +208,7 @@ There are a few desirable properties to this function and parameterisation that 
 
 * The :ref:`weighting<g_weighting_reference-label>` approaches zero as we get towards the edge of the potential sampling area. 
 
-.. figure:: ../docs_img/Weighting.png  
+.. figure:: ../../docs_img/Weighting.png  
   :scale: 50%
   :alt: Weighting Graph
 

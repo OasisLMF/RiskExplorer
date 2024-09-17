@@ -19,6 +19,7 @@
       <link rel="stylesheet" type="text/css" href="_static/s" />
 
   
+    <link rel="shortcut icon" href="_static/idf_square.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -31,7 +32,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Risk Explorer - User Guide and Introductory FAQs" href="components/index_UserGuide.html" /> 
+    <link rel="next" title="Introduction" href="components/index_Intro.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,6 +45,7 @@
           
           <a href="#" class="icon icon-home">
             Risk Explorer
+              <img src="_static/IDF_Original.jpg" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -55,11 +57,12 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="components/index_UserGuide.html">Risk Explorer - User Guide and Introductory FAQs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_Walkthrough.html">Navigating Through the Tool - User Instructions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_SimMethod.html">How does the Simulation Methodology Work?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_AssumpLimits.html">Assumptions and Limitations – IBTrACS Hazard Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_Future.html">What is going to be included in the model in the future?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_Intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_WhatParametric.html">What is parametric insurance?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_HowToUse.html">How should this model be used?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/sectionTC/index_TC.html">Tropical Cyclone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/sectionDR/index_DR.html">Drought Weather Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/sectionEQ/index_EQ.html">Earthquake</a></li>
 <li class="toctree-l1"><a class="reference internal" href="components/index_Glossary.html">Glossary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="components/index_Disclaimer.html">Disclaimer</a></li>
 </ul>
@@ -91,49 +94,97 @@
   <section id="the-risk-explorer-tool">
 <h1>The Risk Explorer Tool<a class="headerlink" href="#the-risk-explorer-tool" title="Permalink to this heading"></a></h1>
 <p>Welcome to the homepage of the Oasis Risk Explorer.</p>
-<p>Access the Risk Explorer at <a class="reference external" href="https://idf-rmsg.shinyapps.io/oasisriskexplorer/">idf-rmsg.shinyapps.io/oasisriskexplorer</a>.</p>
+<p>Access the Risk Explorer at <a class="reference external" href="http://54.154.28.86:3838/">temporary URL</a>.</p>
 <p>The Oasis Risk Explorer is an educational tool developed by the <a class="reference external" href="https://www.insdevforum.org/">Insurance Development Forum</a>  in partnership with <a class="reference external" href="https://oasislmf.org">Oasis</a> and <a class="reference external" href="https://www.maxinfo.io/">Maximum Information</a>.</p>
-<p>The team would also like to thank Aon Impact Forecasting for providing hazard data and AXA XL for helping with model validation.</p>
-<p>The Risk Explorer provides an introduction to the different considerations that that go into modelling catastrophe risk with specific applications to parametric insurance. It is designed to be transparent, easily accessible and quick to run.</p>
-<p>The tool has been built by a team with extensive experience of catastrophe modelling and insurance pricing. It has deliberately been designed to be as simple as possible, while still capturing the key features that determine catastrophe risk. This document is designed to give full transparency into the chosen methodology and its limitations, as well as providing the user with a guide on how to run the tool.</p>
-<p>This is an open-source tool, and the code is available at <a class="reference external" href="https://github.com/OasisLMF/RiskExplorer">GitHub</a> , should you wish to review it.</p>
+<p>The Risk Explorer is designed to help people understand some of the data, processes, and concepts of catastrophe risk modelling with a focus on designing parametric insurance. The tool has been built by a team with extensive experience of catastrophe modelling and insurance pricing.</p>
+<p>The step-by-step guided workflow contains options to customise inputs, to help people who are new to this topic learn the effects of different data choices and assumptions on estimated parametric payouts. For example, users can see the effect of using only historical cyclone track data compared with a statistical simulation approach.</p>
+<p>This is a free and open-source tool, available under a <a class="reference external" href="https://github.com/OasisLMF/RiskExplorer#BSD-3-Clause-1-ov-file">BSD-3-Clause license</a>. The code is available on <a class="reference external" href="https://github.com/OasisLMF/RiskExplorer">the OasisLMF RiskExplorer GitHub repository</a>.</p>
+<p>The tool provides data and workflows for three hazards: tropical cyclone and drought weather index (both with global coverage), and earthquake (selected locations).</p>
+<p>The following sections of this user guide provide more general information, while the hazard-specific sections provide detailed methodology specific to those hazards.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="components/index_UserGuide.html">Risk Explorer - User Guide and Introductory FAQs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="components/index_UserGuide.html#what-is-the-oasis-risk-explorer">What is the Oasis Risk Explorer?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_UserGuide.html#what-regions-and-perils-can-the-tool-model">What regions and perils can the tool model?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_UserGuide.html#what-is-parametric-insurance">What is parametric insurance?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_UserGuide.html#how-should-this-model-be-used">How should this model be used?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_Intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Intro.html#what-is-the-oasis-risk-explorer">What is the Oasis Risk Explorer?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Intro.html#what-regions-and-perils-can-the-tool-model">What regions and perils can the tool model?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Intro.html#tropical-cyclone">Tropical Cyclone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Intro.html#drought-weather-index">Drought Weather Index</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Intro.html#earthquake">Earthquake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Intro.html#next-steps">Next steps</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_Walkthrough.html">Navigating Through the Tool - User Instructions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#introduction">0. Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#exposure">1. Exposure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#hazard">2. Hazard</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#vulnerability">3. Vulnerability</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#simulation">4. Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#event-analysis">5. Event Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_Walkthrough.html#loss-analysis">6. Loss Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_WhatParametric.html">What is parametric insurance?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/index_HowToUse.html">How should this model be used?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components/index_HowToUse.html#step-1-get-familiar-with-each-tab-s-purpose-and-try-to-produce-outputs-any-outputs">Step 1: Get familiar with each tab’s purpose and try to produce outputs (any outputs!).</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_HowToUse.html#step-2-experiment-with-certain-inputs-to-see-the-impact-on-expected-payout-and-other-outputs">Step 2: Experiment with certain inputs to see the impact on expected payout and other outputs.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_HowToUse.html#step-3-speculative-cover-design-and-loss-modelling">Step 3: Speculative cover design and loss modelling.</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_SimMethod.html">How does the Simulation Methodology Work?</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="components/index_SimMethod.html#basic-description-ibtracs-hazard-data">Basic Description – IBTrACS Hazard Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_SimMethod.html#detailed-steps-ibtracs-hazard-data">Detailed Steps– IBTrACS Hazard Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_SimMethod.html#basic-description-stochastic-hazard-data">Basic Description – Stochastic Hazard Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_SimMethod.html#detailed-description-stochastic-hazard-data">Detailed Description – Stochastic Hazard Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components/sectionTC/index_TC.html">Tropical Cyclone</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components/sectionTC/index_TC_Walkthrough.html">Tropical Cyclone - Navigating Through the Tool - User Instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionTC/index_TC_Walkthrough.html#introduction">0. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionTC/index_TC_Walkthrough.html#hazard">1. Hazard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionTC/index_TC_Walkthrough.html#exposure">2. Exposure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionTC/index_TC_Walkthrough.html#vulnerability">3. Vulnerability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionTC/index_TC_Walkthrough.html#simulation">4. Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionTC/index_TC_Walkthrough.html#event-analysis">5. Event Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionTC/index_TC_Walkthrough.html#loss-analysis">6. Loss Analysis</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_AssumpLimits.html">Assumptions and Limitations – IBTrACS Hazard Data</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="components/index_AssumpLimits.html#assumptions-and-limitations-ibtracs">Assumptions and Limitations - IBTrACS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="components/index_AssumpLimits.html#assumptions-and-limitations-stochastic-sets">Assumptions and Limitations – Stochastic Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/sectionTC/index_TC_SimMethod.html">Tropical Cyclone - How does the Simulation Methodology Work?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionTC/index_TC_SimMethod.html#basic-description-ibtracs-hazard-data">Basic Description – IBTrACS Hazard Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionTC/index_TC_SimMethod.html#detailed-steps-ibtracs-hazard-data">Detailed Steps– IBTrACS Hazard Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionTC/index_TC_SimMethod.html#basic-description-stochastic-hazard-data">Basic Description – Stochastic Hazard Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionTC/index_TC_SimMethod.html#detailed-description-stochastic-hazard-data">Detailed Description – Stochastic Hazard Data</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="components/index_Future.html">What is going to be included in the model in the future?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/sectionTC/index_TC_AssumpLimits.html">Tropical Cyclone - Assumptions and Limitations – IBTrACS Hazard Data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionTC/index_TC_AssumpLimits.html#assumptions-and-limitations-ibtracs">Assumptions and Limitations - IBTrACS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionTC/index_TC_AssumpLimits.html#assumptions-and-limitations-stochastic-sets">Assumptions and Limitations – Stochastic Sets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="components/sectionDR/index_DR.html">Drought Weather Index</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components/sectionDR/index_DR_Walkthrough.html">Weather Index - Navigating through the tool - User Instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionDR/index_DR_Walkthrough.html#introduction">0. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionDR/index_DR_Walkthrough.html#hazard">1. Hazard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionDR/index_DR_Walkthrough.html#exposure">2. Exposure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionDR/index_DR_Walkthrough.html#vulnerability">3. Vulnerability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionDR/index_DR_Walkthrough.html#simulation">4. Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionDR/index_DR_Walkthrough.html#event-analysis">5. Event Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionDR/index_DR_Walkthrough.html#loss-analysis">6. Loss Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="components/sectionDR/index_DR_SimMethod.html">Weather Index - How does the simulation methodology Work?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionDR/index_DR_SimMethod.html#basic-description-weather-index-with-chirps-data">Basic Description – Weather Index with CHIRPS Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionDR/index_DR_SimMethod.html#detailed-steps-weather-index-with-chirps-data">Detailed Steps – Weather Index with CHIRPS Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionDR/index_DR_SimMethod.html#seasonality">Seasonality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="components/sectionDR/index_DR_AssumpLimits.html">Weather index - Assumptions and Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="components/sectionEQ/index_EQ.html">Earthquake</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components/sectionEQ/index_EQ_Walkthrough.html">Earthquake - Navigating Through the Tool - User Instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionEQ/index_EQ_Walkthrough.html#introduction">0. Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionEQ/index_EQ_Walkthrough.html#hazard">1. Hazard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionEQ/index_EQ_Walkthrough.html#exposure">2. Exposure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionEQ/index_EQ_Walkthrough.html#vulnerability">3. Vulnerability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionEQ/index_EQ_Walkthrough.html#simulation">4. Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionEQ/index_EQ_Walkthrough.html#event-analysis">5. Event Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="components/sectionEQ/index_EQ_Walkthrough.html#loss-analysis">6. Loss Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="components/sectionEQ/index_EQ_SimMethod.html">Earthquake - How does the simulation methodology work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/sectionEQ/index_EQ_AssumpLimits.html">Earthquake - Assumptions and Limitations</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="components/index_Glossary.html">Glossary</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#asset">Asset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#asset-value">Asset Value</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#basin-tropical-cyclone-basin">Basin (Tropical Cyclone Basin)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#chirps-data">CHIRPS data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#convergence">Convergence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#damage">Damage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="components/index_Glossary.html#event">Event</a></li>
@@ -186,7 +237,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="components/index_UserGuide.html" class="btn btn-neutral float-right" title="Risk Explorer - User Guide and Introductory FAQs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="components/index_Intro.html" class="btn btn-neutral float-right" title="Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
