@@ -29,15 +29,18 @@ This will help you to understand potential variability in the output. This proce
 * **Intensity Measure (Vulnerability)** E.g., using a pressure intensity measure rather than wind speed? For drought, using a dry spell index compared to a % of climatology trigger? 
 
 * **Number of Steps in your Vulnerability (Vulnerability)** E.g., looking at a curve with increases in :ref:`damage<g_damage_reference-label>` for cat 1,3 and 5 wind speeds rather than for all categories? 
+
+
 For drought, you may also want to look at increasing the number of payout steps, e.g, if your sole stepped payout is currently at 80% of climatology, how differently does the cover respond with two steps at 70% and 80%?
 
-* **Intensity Measure Values at each Level in your Vulnerability Curve (Vulnerability)** E.g., adding 10km/h to the wind speed for each of your :ref:`intensity values<g_intensityvalue_reference-label>`, or subtracting 5% from each percentage of climatology :ref:`intensity value<g_intensityvalue_reference-label>`
+* **Intensity Measure Values at each Level in your Vulnerability Curve (Vulnerability)** E.g., adding 10km/h to the wind speed for each of your :ref:`intensity values<g_intensityvalue_reference-label>`, or subtracting 5% from each percentage of climatology :ref:`intensity value<g_intensityvalue_reference-label>`.
 
 * **Damage Percentages at each Intensity Level (Vulnerability)** E.g., increasing or decreasing your :ref:`damage<g_damage_reference-label>` at lower or higher intensity measures.
 
 * **Shape of your Vulnerability Curve (Vulnerability)** E.g., Using a linear vulnerability curve compared to a stepped curve?
 
 * **Number of Simulations (Simulation)** E.g., Running twice as many :ref:`simulations<g_simulation_reference-label>` in the Simulation tab.
+
 
 There are a few further options that may be of interest specifically when looking at drought:
 
@@ -46,6 +49,7 @@ There are a few further options that may be of interest specifically when lookin
 * **Growing Season Start and End Date (Vulnerability)** Growing seasons are defaults taken from Dunning et al. 2016 (https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JD025428), which may not be suitable in all cases. 
 
 * **Dry Days Threshold (Vulnerability)** E.g., changing the threshold of what percentage of climatological rainfall over a 5-day period counts as "dry"
+
 
 When you change each of these aspects, examine the outputs and think about whether the difference is what you would expect it to be. Also consider the reasons why it is likely to be different. Some examples of outputs to look at would be:
 
@@ -58,6 +62,7 @@ When you change each of these aspects, examine the outputs and think about wheth
 * **Return Periods of each Category of Storm or Amount of Loss:** How common is each :ref:`category<g_sscategory_reference-label>` of storm or earthquake or total loss for drought? How big is the gap between the simulated output and the history?
 
 * **Simulation Output** Do some basic analysis on the csv files using spreadsheet software. Do you notice any trends or patterns?
+
 
 Additionally for drought you will want to consider:
 

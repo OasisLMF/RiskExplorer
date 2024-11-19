@@ -1,7 +1,7 @@
 .. _sim_workings_reference-label:
 
 Tropical Cyclone - How does the Simulation Methodology Work?
-====================================================
+==============================================================
 
 Basic Description – IBTrACS Hazard Data
 -------------------------------------------------------

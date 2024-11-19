@@ -108,23 +108,20 @@
 <section id="basic-description-weather-index-with-chirps-data">
 <h2>Basic Description – Weather Index with CHIRPS Data<a class="headerlink" href="#basic-description-weather-index-with-chirps-data" title="Permalink to this heading"></a></h2>
 <p>This section provides a basic overview of how the simulation method works for <span class="xref std std-ref">IBTrACS</span> hazard data.</p>
-<p>For the drought parametric insurance, to understand potential size of payouts and year to year variability, the number and value of payouts resulting from drought occurrence are simulated for each year in the timeseries of CHIRPS data.</p>
+<p>For drought parametric insurance, to understand potential size of payouts and year to year variability, the number and value of payouts resulting from drought occurrence are simulated for each year in the timeseries of CHIRPS data.</p>
 <p>The simulation method can be broken down into a few distinct steps:</p>
 <p><strong>Step 1: Randomly select a number of different latitude-longitudes within the area in which the scheme will be implemented:</strong>
-The user selects the number of policies and the number of locations to model within a defined area. The Risk Explorer allocates a set of random locations within the area of exposure and allocates a number of insured households to each locality. The locality allocations are altered for each year in the simulation.</p>
-<p><strong>Step 2: Record the financial value of the payouts at each location and for each simulation year:</strong> This step involves looking at the events in the hazard data. The events are based on the user designed index, set up in the vulnerability tab. The losses for each event are then recorded by checking the drought index for the simulation year against your vulnerability curve. The years used are 1984-2020.</p>
-<p><strong>Step 3: Average the payouts for each year and for each simulation across the historical time series:</strong> This gives us an average total payouts for each year and for each simulation - illustrating the variability in payouts to which the insurer is exposed.</p>
-<p><strong>Step 4: Apply a weighting between 0 and 1 to the average loss for each simulation.</strong>
-Under development</p>
-<p><strong>Step 5: Calculate the weighted average of the simulated average losses for each location calculated in the earlier steps.</strong>
-Under development</p>
+The user selects the number of policies and the number of locations to model within a defined area. The Risk Explorer allocates a set of random locations (these can also be thought of as individual policyholders) within the area of exposure. The locations of the individual poliycyholders change randomly with each simulation, this may seem a strange assumption but reflects the reality that drought insurance schemes often do not know exactly where each of their policyholders is located.</p>
+<p><strong>Step 2: Record the financial value of the payouts at each location and for each simulation year:</strong> This step involves looking at the events in the hazard data. The events are based on the user designed index, set up in the vulnerability tab. The losses for each event are then recorded by checking the drought index for the simulation year against your vulnerability curve. The years used are 1983-2019.</p>
+<p><strong>Step 3: Average the total payouts for each year and for each simulation across the historical time series:</strong> This gives us an average total payouts for each year and for each simulation - illustrating the variability in payouts to which the insurer is exposed.</p>
+<p><strong>Step 4: Calculate the total average payout across all simulations.</strong> This gives an overall expected payout for the cover as a whole.</p>
 </section>
 <section id="detailed-steps-weather-index-with-chirps-data">
 <h2>Detailed Steps – Weather Index with CHIRPS Data<a class="headerlink" href="#detailed-steps-weather-index-with-chirps-data" title="Permalink to this heading"></a></h2>
 <p>The next section goes through each of these steps in more detail and attempts to explain why each step is necessary to the approach.</p>
 <p><strong>Step 1: How and why do we sample different locations?</strong></p>
 <p>When setting up Weather Index Insurance, the insurer cannot know in advance where, within the area for which the scheme is operated, individual policies will be held. Particularly over large regions, there is considerable variability in precipitation, even within a single growing season. It is important, when calculating potential losses, to account for this variability.</p>
-<p>In the Risk Explore, to sample the points included in a simulation:</p>
+<p>In the Risk Explorer, to sample the points included in a simulation:</p>
 <ul class="simple">
 <li><p>the user specifies:
 * a rectangular region over which the insurance scheme will be run
@@ -146,9 +143,9 @@ Under development</p>
 * Calculate the index value for every simulation locality and year, by counting the number of pentads that are included in the dry spells during the season of interest</p>
 <p>At each simulation locality (determined in Step 1) and for each simulation year, once the indices have been calculated, the payout is determined by checking the weather index value against the user specified vulnerability curve. For drought insurance, the vulnerability curve determines the upper and lower bounds of the trigger threshold for each index, and the percentage of maximum payout is calculated by linearly interpolating between these bounds.</p>
 <p><strong>Step 3: How do we get an expected loss for each simulation?</strong>
-The total payout across the region for each simulation and each simulation year are the sum of the payouts at each locality (derived in Step 2), multiplied by the number of people living at the locality</p>
-<p><strong>Step 4: How do we weight each simulation?</strong>
-Under development</p>
+The total payout across the region for each simulation and each simulation year are the sum of the payouts at each locality (derived in Step 2), multiplied by the number of people living at the locality.</p>
+<p><strong>Step 4: How do we get an overall expected loss?</strong>
+This is just the toal expected loss over all the different years and all the different simulated locations. I.e. each individual historical year and random sample of policyholder locations is weighted equally.</p>
 </section>
 <section id="seasonality">
 <h2>Seasonality<a class="headerlink" href="#seasonality" title="Permalink to this heading"></a></h2>
