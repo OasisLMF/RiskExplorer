@@ -52,14 +52,10 @@ Measurements can differ between :ref:`agencies<g_agency_reference-label>`, so th
 
 **Step 1.5: Load the data:** Once you are happy with your selections in the drop-downs above, select the "Load Hazard Data" button at the bottom of the page. The application should display a notification when the hazard data has loaded and confirm your selection on the page.
 
-.. figure:: ../../docs_img/Hazard_1.png
+.. figure:: ../../docs_img/EQ_Hazard_1.png
   :scale: 50%
   :alt: Hazard tab
   
-  Hazard Step 1: Note the suggested basin displayed below the region dropdown.   
-
-
-
 
 
 2. Exposure
@@ -131,7 +127,6 @@ It is worth bearing in mind that for :ref:`exposure<g_exposure_reference-label>`
 The :ref:`vulnerability<g_vulnerability_reference-label>` tab defines how physical :ref:`events<g_event_reference-label>` translate into :ref:`damage<g_damage_reference-label>`/financial loss. You will define this as a relationship between your :ref:`intensity measure<g_intensitymeasure_reference-label>` (e.g., wind speed) and a :ref:`damage<g_damage_reference-label>` percentage. This is done by specifying the main input on this tab which is the vulnerability curve. This curve will assign a given :ref:`damage<g_damage_reference-label>` percentage to each value of the :ref:`intensity measure<g_intensitymeasure_reference-label>`. 
 In the Risk Explorer, :ref:`damage<g_damage_reference-label>` is measured as a :ref:`percentage of the total asset value<g_percentasset_reference-label>`. It is assumed this directly corresponds to the financial cost of repairing any damage. The shape of your curve will vary based on what you know about your exposure and what you’re using the model for.
 
-
 Note that although there is currently no explicit tab in the model for structuring insurance, the :ref:`vulnerability<g_vulnerability_reference-label>` and the insurance structure are essentially the same thing for parametric insurance covers. 
 The financial loss is solely defined by your :ref:`trigger measure<g_triggermeasure_reference-label>` and :ref:`payouts<g_payout_reference-label>` which are essentially equivalent to the :ref:`intensity measure<g_intensitymeasure_reference-label>` and :ref:`damage<g_damage_reference-label>` percentages in the vulnerability tab. As such, you can also allow for simple parametric structures through this tab, however the terminology used throughout would differ slightly (e.g., rather than :ref:`asset value<g_assetvalue_reference-label>`, you would be talking about maximum insured). See the :ref:`parametric_reference-label` for more detail on parametric insurance.
 
@@ -141,7 +136,7 @@ The financial loss is solely defined by your :ref:`trigger measure<g_triggermeas
 Guidance should appear at this step to advise you which :ref:`intensity measures<g_intensitymeasure_reference-label>` are likely to be appropriate based on your selections on the Hazard tab.
 Once you have selected your :ref:`intensity measure<g_intensitymeasure_reference-label>`, you then choose which units to specify it in - though current data only allows percent of gravity (g%). 
 
-.. figure:: ../../docs_img/Vulnerability_1.png
+.. figure:: ../../docs_img/EQ_Vulnerability_1.png
   :scale: 50%
   :alt: Vulnerability Tab: Steps 1 and 2
   
@@ -150,7 +145,6 @@ Once you have selected your :ref:`intensity measure<g_intensitymeasure_reference
 **Step 2: Choose your vulnerability curve type.** The curve type you enter determines how the :ref:`damage<g_damage_reference-label>` percentages you enter change as the :ref:`intensity measure<g_intensitymeasure_reference-label>` increases/decreases. You can choose from a stepped or linear vulnerability curve. It is worth trying both options and consulting the graph below to see how this works in practice. 
 
 * **Step:** This curve replicates how most parametric covers work. The :ref:`damage<g_damage_reference-label>` generated increases in "steps" corresponding to the highest specified :ref:`intensity measure<g_intensitymeasure_reference-label>` exceeded. For example, with the default values in the grid below (these will appear once you've completed the first step), it would be assumed that you would sustain :ref:`damage<g_damage_reference-label>` amounting to 20% of your asset's value if wind speeds greater than 119km/h are recorded at your chosen exposure. However, if winds exceeding 154km/h were recorded you would sustain :ref:`damage<g_damage_reference-label>` amounting to 40% of your asset's value.
-
 
 * **Linear:** This curve is closer to the approach used in catastrophe modelling, where a more detailed approach is used to specify the :ref:`damage<g_damage_reference-label>` generated at each value of the :ref:`intensity measure<g_intensitymeasure_reference-label>`. The :ref:`damage<g_damage_reference-label>` generated increases linearly for the values you enter in the grid. For example, with the default values below, it would be assumed that you would sustain :ref:`damage<g_damage_reference-label>` amounting to 20% of your asset's value if wind speeds of 119km/h are recorded and 40% of your asset's value if winds of 154km/h were recorded. For wind speeds between these two points, it is assumed :ref:`damage<g_damage_reference-label>` increases linearly with wind speed. For example, winds of 136.5km/h would lead to 30% :ref:`damage<g_damage_reference-label>` whereas in the step function example, this would still be 20%.
 
@@ -178,7 +172,6 @@ Note that the :ref:`damage percentage<g_damage_reference-label>` must be entered
 For earthquake, the default values in the table correspond to :ref:`Modified Mercalli Intensity Index<g_mmi_reference-label>` (MMI) intensities from V to X. Different bandings by :ref:`PGA<g_pga_reference-label>` are assumed to reflect different MMI intensities based off a standard USGS conversion.
 
 You may want to edit the :ref:`damage percentages<g_damage_reference-label>` to reflect what you know about the cost of previous :ref:`events<g_event_reference-label>` for your area of :ref:`exposure<g_exposure_reference-label>`. The graph at the bottom will also update based on the values you enter in the table. This should act as a visual aid to see what :ref:`damage<g_loss_reference-label>` would occur for each value of the :ref:`intensity measure<g_intensitymeasure_reference-label>`/:ref:`trigger measure<g_triggermeasure_reference-label>`.
-
 
 Notes for specifying points on your vulnerability curve:
 
@@ -241,7 +234,7 @@ A loading bar will appear during the simulation run and a notification will disp
 
 * **The region you have selected in the hazard section.** Some areas are more active or contain more years of data than others.
 
-* **The location of your exposure.** More storm-prone areas will take longer to run because a :ref:`loss<g_loss_reference-label>` must be calculated on a greater number of :ref:`events<g_event_reference-label>`.
+* **The location of your exposure.** More high hazard areas will take longer to run because a :ref:`loss<g_loss_reference-label>` must be calculated on a greater number of :ref:`events<g_event_reference-label>`.
 
 .. figure:: ../../docs_img/Simulation.png
   :scale: 50%
@@ -272,17 +265,8 @@ These are all covered in more detail below. There are also further exhibits more
 **User Instructions**
 
 **Exhibit 1: Historical Loss Summary**
-Note this exhibit only displays for :ref:`IBTrACS<g_ibtracs_reference-label>` Historical Hazard data. There is no historical information available for the :ref:`stochastic<g_stochastic_reference-label>` :ref:`event sets<g_eventset_reference-label>` so this cannot be displayed.
 
-Exhibit 1 aims to answer the question of which :ref:`events<g_event_reference-label>` in the historical data would have led to losses in your area of exposure, leaving aside the simulation modelling. The map displays the historical tracks for any relevant :ref:`events<g_event_reference-label>` and the table gives a summary of the events' key characteristics. Note that in many cases tracks are not precise as data is only available at 3–6-hour intervals requiring estimates to be made via :ref:`interpolation<g_interpolation_reference-label>` between available points.
-
-The circle displayed on the map is the area within which a storm is deemed to cause a :ref:`loss<g_loss_reference-label>` to the :ref:`exposure<g_exposure_reference-label>`, this is referred to as the :ref:`exposure loss radius<g_lossradius_reference-label>`. The wind speeds displayed are the maximum speeds recorded within the :ref:`exposure<g_exposure_reference-label>` circle. SID displays a unique ID for the storm and ISO time gives the time of the storm measurement/:ref:`interpolation<g_interpolation_reference-label>` using international standard time. 
-
-.. figure:: ../../docs_img/analysis_1.png    
-  :scale: 50%
-  :alt: Analysis Tab: Exhibit 1
-  
-  Event Analysis Tab: Exhibit 1
+This exhibit is only relevant where historical hazard data is being used, as the earthquake modelling portion of the Risk Explorer is purely based on vendor stochastic sets, this exhibit is left blank.
   
 **Exhibit 2: Individual Simulation Summary**
 
@@ -291,7 +275,7 @@ The main purpose of this exhibit is to give more transparency on the simulation 
 
 In some cases, you may find that you have very few years with any losses at all. This means the exhibit might not be very informative for the majority of individual simulations. To get around this, it may be worth going to the “Loss Analysis” tab and downloading the csv file with individual simulation results in. This way you will know which simulations actually contain losses and can focus on those. Note that if you enter an invalid number (e.g., a decimal figure or a number larger than the total amount of :ref:`simulations<g_simulation_reference-label>`), nothing will display in this exhibit.
 
-.. figure:: ../../docs_img/analysis_2.png    
+.. figure:: ../../docs_img/EQ_analysis_2.png    
   :scale: 50%
   :alt: Analysis Tab: Exhibit 2
   
@@ -302,21 +286,21 @@ In some cases, you may find that you have very few years with any losses at all.
 
 Exhibit 3 gives an estimate of how often earthquakes of each :ref:`MMI<g_mmi_reference-label>` intensity occur in the history and in the simulation output: 
 
-* **Frequency** refers to the number of events of this category or above you would expect to see in a year. A :ref:`frequency<g_frequency_reference-label>` of 1 means that an event would occur on average once a year. 
+* **Frequency** refers to the number of events of this band or above you would expect to see in a year. A :ref:`frequency<g_frequency_reference-label>` of 1 means that an event would occur on average once a year. 
 
-* **Return Period** refers to the average time you would have to wait before observing an event of that category or above, e.g a :ref:`return period<g_returnperiod_reference-label>` of 5 years for a *cat 2 storm* means you would expect to have one storm at cat 2 or above every 5 years on average. Bear in mind these represent averages, and it is possible to have two 100-year :ref:`events<g_event_reference-label>` occur in subsequent years. Another way to think about :ref:`return periods<g_returnperiod_reference-label>` is the probability of occurrence in any given year. A 10-year :ref:`return period<g_returnperiod_reference-label>` means there is a 1 in 10 (10%) chance of an :ref:`event<g_event_reference-label>` happening in any given year. Note that you will see three separate estimates of return periods by category when using :ref:`IBTrACS<g_ibtracs_reference-label>` hazard data as there are several calculation methods. By contrast for :ref:`stochastic<g_stochastic_reference-label>` hazard datasets, you should only see one set of return periods/frequencies for the simulated loss.
+* **Return Period** refers to the average time you would have to wait before observing an event of that band or above, e.g a :ref:`return period<g_returnperiod_reference-label>` of 5 years for a *cat 2 storm* means you would expect to have one storm at cat 2 or above every 5 years on average. Bear in mind these represent averages, and it is possible to have two 100-year :ref:`events<g_event_reference-label>` occur in subsequent years. Another way to think about :ref:`return periods<g_returnperiod_reference-label>` is the probability of occurrence in any given year. A 10-year :ref:`return period<g_returnperiod_reference-label>` means there is a 1 in 10 (10%) chance of an :ref:`event<g_event_reference-label>` happening in any given year. Note that you will see three separate estimates of return periods by category when using :ref:`IBTrACS<g_ibtracs_reference-label>` hazard data as there are several calculation methods. By contrast for :ref:`stochastic<g_stochastic_reference-label>` hazard datasets, you should only see one set of return periods/frequencies for the simulated loss.
 
-For :ref:`IBTrACS<g_ibtracs_reference-label>` hazard data, this exhibit can be useful for examining why you might have a different result for your simulation method than you have from the history at your :ref:`exposure<g_exposure_reference-label>`. It should also be useful for getting an idea of how common storms of each category are around your area of :ref:`exposure<g_exposure_reference-label>`.
-Note that the wind speed/pressure denotes where the category "starts" so represents a minimum for wind speed/:ref:`pga<g_pga_reference-label>` and a maximum for pressure.
+This section should be useful for getting an idea of how common earthquakes of each category are around your area of :ref:`exposure<g_exposure_reference-label>`.
+Note that the relevant value denotes where each band "starts" so represents a minimum for :ref:`pga<g_pga_reference-label>`.
 
 
-.. figure:: ../../docs_img/analysis_3.png  
+.. figure:: ../../docs_img/EQ_analysis_3.png  
   :scale: 50%
   :alt: Analysis Tab: Exhibit 3
   
   Event Analysis Tab: Exhibit 3
   
-**In some cases you may see NA displayed here. This means there are no storms of this category in the data.** Be careful using model output where no :ref:`events<g_event_reference-label>` are present in the data for higher severity storms or earthquakes. This should occur more frequently in the historical loss method than in the :ref:`simulations<g_simulation_reference-label>`, where there is a smaller number of observations to draw upon.
+**In some cases you may see NA displayed here. This means there are no earthquakes of this magnitude in the stochastic event.
 
 
 6. Loss Analysis
@@ -368,24 +352,9 @@ This exhibit shows estimates of the :ref:`expected loss<g_expectedloss_reference
 The distribution shown on the graph by the solid red line orders the :ref:`simulations<g_simulation_reference-label>` from the highest to lowest :ref:`loss<g_loss_reference-label>`, so you can see the range of outcomes you might expect across the simulated history. The x-axis gives the :ref:`loss rank<g_lossrank_reference-label>` of the simulation in the overall output (e.g. :ref:`rank<g_lossrank_reference-label>` 300 of 500 simulations is the simulation that generated the 300th highest average loss). The :ref:`expected loss<g_expectedloss_reference-label>` using different methods is also displayed by horizontal lines on the graph. 
 The bullets below describe what each method means and how it works. 
 
-* **Historical Loss (IBTrACS Hazard Data):** :ref:`This<g_historicalloss_reference-label>` method takes an average over the history for your :ref:`exposure<g_exposure_reference-label>` point or area. Simulations don't factor in to this method at all and it can simply be thought of as an average of the :ref:`losses<g_loss_reference-label>` sustained over the period. For example, let's assume the :ref:`hazard<g_hazard_reference-label>` data includes storms from 1978-2021. The data shows that over this period, your :ref:`exposure<g_exposure_reference-label>` area experienced 2 storms that would have each generated USD 100k :ref:`losses<g_loss_reference-label>`. The total :ref:`loss<g_loss_reference-label>` is 200k averaged over the 44 years of data, so the :ref:`historical loss<g_historicalloss_reference-label>` for a one-year period of cover in this example would be USD 4,545. 
-
-
-* **Unweighted Simulation Loss (IBTrACS Hazard Data):** :ref:`This<g_unweightedsimloss_reference-label>` is the average annual loss across all your :ref:`simulations<g_simulation_reference-label>` with no :ref:`weighting<g_weighting_reference-label>` for proximity to the :ref:`exposure<g_exposure_reference-label>` applied. More detail on the simulation approach can be found in the :ref:`sim_workings_reference-label` section.
-
-
-* **Weighted Simulation Loss (IBTrACS Hazard Data):** :ref:`This<g_weightedsimloss_reference-label>` is the average annual loss across all your :ref:`simulations<g_simulation_reference-label>` with a :ref:`weighting<g_weighting_reference-label>` for proximity to the :ref:`exposure<g_exposure_reference-label>` applied. This is one of the main outputs of the modelling exercise.
-
-
-* **Simulation Loss (IBTrACS Hazard Data):** This is the only method of calculating the expected loss when using stochastic hazard sets. It simply represents the average annual loss across all simulations. In principle it is very similar to the unweighted or weighted simulation loss under IBTrACS, the only difference is it is purely for the exposure rather than being sampled from other locations, thus negating the need to apply any weightings.
+* **Simulation Loss:** This is the only method of calculating the expected loss when using stochastic hazard sets. It simply represents the average annual loss across all simulations. In principle it is very similar to the unweighted or weighted simulation loss under IBTrACS, the only difference is it is purely for the exposure rather than being sampled from other locations, thus negating the need to apply any weightings.
 
 The table also shows the :ref:`standard deviations<g_stdev_reference-label>` which give an estimate of the variability of the :ref:`loss<g_loss_reference-label>`. The higher the :ref:`standard deviation<g_stdev_reference-label>`, the more variability there is in :ref:`losses<g_loss_reference-label>` across :ref:`simulations<g_simulation_reference-label>`. This variability is often equated with uncertainty and is one of the additional factors considered when structuring and pricing insurance contracts.
-
-It is also worth considering why different methods might show different :ref:`losses<g_loss_reference-label>` under the IBTrACS hazard methodology. The below gives a few examples of how you might interpret these outputs but is by no means an exhaustive list:
-
-* The :ref:`historical loss<g_historicalloss_reference-label>` is a lot lower than the :ref:`weighted<g_weightedsimloss_reference-label>` and :ref:`unweighted simulation loss<g_unweightedsimloss_reference-label>`: This could tell you that the :ref:`exposure<g_exposure_reference-label>` area has been relatively fortunate with how tracks have turned out as the surrounding area has been more heavily impacted.
-
-* :ref:`Weighted simulation loss<g_weightedsimloss_reference-label>` is a lot lower than the :ref:`unweighted simulation loss<g_unweightedsimloss_reference-label>`: Areas further away from the :ref:`exposure<g_exposure_reference-label>` have markedly lower cyclone activity so the :ref:`weighted simulation loss<g_weightedsimloss_reference-label>` may be more reliable.
 
 .. figure:: ../../docs_img/loss_3.png  
   :scale: 50%
@@ -397,41 +366,31 @@ It is also worth considering why different methods might show different :ref:`lo
 
 Raw model outputs can be downloaded as CSVs, two are available for :ref:`IBTrACS<g_ibtracs_reference-label>` hazard data and one for :ref:`stochastic<g_stochastic_reference-label>` hazard data. This is due to the fact that each simulation is an individual year for :ref:`stochastic<g_stochastic_reference-label>` data so only one file is needed for the output. By contrast for :ref:`IBTrACS<g_ibtracs_reference-label>` historical data, each simulation represents a number of years at one location. As such there are two files available here, one by simulation(location) and another by simulation-year.
 
-**Download output for each simulation:** Each row in this file represents an individual :ref:`simulation<g_simulation_reference-label>` on the map. The variables displayed in the file are as follows:
+**Download output for each simulation:** Each row in this file represents an individual year in the simulated set. The variables displayed in the file are as follows:
 
       * Unmarked first column: Row identifier
-
-      * SIM NUMBER: Simulation number. Each value represents a different simulated location
-
-      * LONGITUDE (IBTrACS only): Simulated :ref:`longitude<g_latlong_reference-label>` for the :ref:`simulation<g_simulation_reference-label>`.
-
-      * LATITUDE (IBTrACS only): Simulated :ref:`latitude<g_latlong_reference-label>` for the :ref:`simulation<g_simulation_reference-label>`.
-
-      * DISTANCE TO EXPOSURE (IBTrACS only): Distance from the :ref:`exposure<g_exposure_reference-label>`. Note if this is an area then this is the distance from the centre of the area, not the edge.
-
-      * WEIGHT (IBTrACS only): :ref:`Weighting<g_weighting_reference-label>` applied to each :ref:`simulation<g_simulation_reference-label>` in the final calculation.
-
-      * SIMULATION AVERAGE LOSS: The :ref:`average loss<g_expectedloss_reference-label>` as a :ref:`percentage of asset value<g_percentasset_reference-label>` for the given :ref:`simulation<g_simulation_reference-label>` across all :ref:`simulation-years<g_simyear_reference-label>`. Note capping is applied here for :ref:`total asset value<g_assetvalue_reference-label>`.
-
-      * SIMULATION AVERAGE LOSS UNCAPPED: SIMULATION AVERAGE LOSS with no capping applied for :ref:`total asset value<g_assetvalue_reference-label>`.
-
-      * WEIGHTED EL (IBTrACS only): This column is the :ref:`weight<g_weighting_reference-label>` multiplied by the average capped loss. Summing this column and dividing by the sum of the total weights should give the weighted simulation loss.
       
-      * EVENT COUNT/AVERAGE EVENT COUNT: This column shows the total number of loss-generating events in each simulation.
+      * Sim No: Simulation number. Each value represents a simulated year
 
-**Output by Simulation/Data Year** Each row in this file represents the loss for a given year of the history for each :ref:`simulation<g_simulation_reference-label>`. The variables displayed in the file are as follows:
+      * Payout: Simulated total payout for the year
 
-      * Unmarked first column: Row identifier.
+      * Event count: The number of simulated events in a given simulation
 
-      * sim_no: Simulation number. Each value of i represents a different simulated location.
+**Output by Simulation/Data Year** Each row in this file represents an individual event in the simulated set that generated a loss/payout. The variables displayed in the file are as follows:
 
-      * season: The relevant tropical cyclone season/year .
+      * Unmarked first column: Row identifier
+      
+      * Longitude: Simulated :ref:`longitude<g_latlong_reference-label>` for the event in question
 
-      * annual_loss: The total :ref:`loss<g_loss_reference-label>` as a :ref:`percentage of asset value<g_percentasset_reference-label>` for the given :ref:`simulation<g_simulation_reference-label>` and :ref:`simulation-year<g_simyear_reference-label>`. Note there is no capping here for :ref:`asset value<g_assetvalue_reference-label>`.
+      * Latitude: Simulated :ref:`latitude<g_latlong_reference-label>` for the event in question
 
-      * anuual_loss_capped: annual_losss capped for total :ref:`asset value<g_assetvalue_reference-label>`.
+      * Peak Ground Acceleration: Intensity measure reading for earthquake, denoted in terms of the earth’s standard acceleration due to gravity (denoted %g)
+      
+      * Event ID: Code denoting a particular simulated event from the vendor's stochastic catalog 
 
-      * weight: :ref:`Weighting<g_weighting_reference-label>` applied to each :ref:`simulation<g_simulation_reference-label>` in the final calculation. Note this is not the same as the :ref:`weighting<g_weighting_reference-label>` that would be given to each :ref:`simulation-year<g_simyear_reference-label>`
+      * Sim No: Simulation number. Each value represents a simulated year
+            
+      * Payout: The payout from the relevant event
 
 Note that any :ref:`losses<g_loss_reference-label>` will always be displayed in terms of :ref:`percentage of asset value<g_percentasset_reference-label>`. To convert these to financial amounts in spreadsheet software, multiply them by the :ref:`asset value<g_assetvalue_reference-label>`.
 

@@ -1,5 +1,5 @@
 Tropical Cyclone - Navigating Through the Tool - User Instructions
-============================================================
+===================================================================
 
 This section describes the use of each tab in the user interface and aims to guide the user through running the model from start to finish. Each tab has its own section and it is suggested you move through each of these in sequence.
 
@@ -32,7 +32,7 @@ In this tab you will load an appropriate :ref:`hazard<g_hazard_reference-label>`
 The :ref:`hazard<g_hazard_reference-label>` tab is where you specify the nature of the :ref:`events<g_event_reference-label>` you are interested in modelling as well as what source you will be using to model these. There are a few input boxes to complete before loading the data. The selectable values in each box will differ depending on the selections you make in the boxes above. Make sure you enter these in the order they are listed on the page. 
 The subsequent steps will guide you through appropriate selections for each of the dropdown boxes pictured in the screenshot below.
 
-**Step 1.1: Select the peril you want to model:** A :ref:`peril<g_peril_reference-label>` is a specific type of :ref:`event<g_event_reference-label>`. You can select either tropical cyclone or earthquake here, however note that earthquake hazard data is only available for Karachi in Pakistan whereas cyclone data is available worldwide. See the :ref:`regionperilscope_reference-label` section for more information on peril coverage.
+**Step 1.1: Select the peril you want to model:** A :ref:`peril<g_peril_reference-label>` is a specific type of :ref:`event<g_event_reference-label>`. 
 
 **Step 1.2: Select the hazard data type used to model your chosen peril:** Data can be either historical observation data or simulated data developed by catastrophe modelling experts. The two distinct types of hazard datasets that can be selected here are:
 
@@ -46,8 +46,6 @@ Note that the content of the later analysis tabs will differ based on your selec
 For :ref:`IBTrACS<g_ibtracs_reference-label>` data, the regions available to select here are the different tropical cyclone :ref:`"basins"<g_basin_reference-label>` located around the world. Based on your inputs in the :ref:`exposure<g_exposure_reference-label>` tab, the model should provide a suitable recommendation for which basin to select. The model may in some circumstances suggest that there is no relevant basin to select. This is likely to mean that your :ref:`exposure<g_exposure_reference-label>` is not in a tropical cyclone impacted area and would therefore not lead to any :ref:`losses<g_loss_reference-label>`.
 
 For :ref:`stochastic<g_stochastic_reference-label>` datasets, the following options are available to select: 
-
-*  Earthquake Pakistan (Karachi) – Aon Impact Forecasting
 
 *  Tropical Cylone Japan (Ginoza Region) – Aon Impact Forecasting
 
@@ -192,8 +190,6 @@ Note that the :ref:`damage percentage<g_damage_reference-label>` must be entered
 
 For wind, the default values in the table reflect the :ref:`Saffir-Simpson hurricane categories<g_sscategory_reference-label>` but you can experiment with different :ref:`intensity values<g_intensityvalue_reference-label>` and :ref:`damage percentages<g_damage_reference-label>` here too. 
 
-For earthquake, the default values in the table correspond to :ref:`Modified Mercalli Intensity Index<g_mmi_reference-label>` (MMI) intensities from V to X. Different bandings by :ref:`PGA<g_pga_reference-label>` are assumed to reflect different MMI intensities based off a standard USGS conversion.
-
 You may want to edit the :ref:`damage percentages<g_damage_reference-label>` to reflect what you know about the cost of previous :ref:`events<g_event_reference-label>` for your area of :ref:`exposure<g_exposure_reference-label>`. The graph at the bottom will also update based on the values you enter in the table. This should act as a visual aid to see what :ref:`damage<g_loss_reference-label>` would occur for each value of the :ref:`intensity measure<g_intensitymeasure_reference-label>`/:ref:`trigger measure<g_triggermeasure_reference-label>`.
 A few points to bear in mind when specifying points on your vulnerability curve:
 
@@ -329,7 +325,7 @@ Note that for :ref:`IBTrACS<g_ibtracs_reference-label>` hazard data, loss-genera
   
 **Exhibit 3: Event Frequency and Return Periods**
 
-Exhibit 3 gives an estimate of how often storms of each :ref:`Saffir-Simpson category<g_sscategory_reference-label>` or earthquakes of each :ref:`MMI<g_mmi_reference-label>` intensity occur in the history and in the simulation output: 
+Exhibit 3 gives an estimate of how often storms of each :ref:`Saffir-Simpson category<g_sscategory_reference-label>` occur in the history and in the simulation output: 
 
 * **Frequency** refers to the number of storms of this category or above you would expect to see in a year. A :ref:`frequency<g_frequency_reference-label>` of 1 means that a storm would occur on average once a year. 
 
@@ -346,7 +342,7 @@ Note that the wind speed/pressure denotes where the category "starts" so represe
   
   Event Analysis Tab: Exhibit 3
   
-**In some cases you may see NA displayed here. This means there are no storms of this category in the data.** Be careful using model output where no :ref:`events<g_event_reference-label>` are present in the data for higher severity storms or earthquakes. This should occur more frequently in the historical loss method than in the :ref:`simulations<g_simulation_reference-label>`, where there is a smaller number of observations to draw upon.
+**In some cases you may see NA displayed here. This means there are no storms of this category in the data.** Be careful using model output where no :ref:`events<g_event_reference-label>` are present in the data for higher severity storms. This should occur more frequently in the historical loss method than in the :ref:`simulations<g_simulation_reference-label>`, where there is a smaller number of observations to draw upon.
 
 
 6. Loss Analysis
