@@ -1,7 +1,8 @@
-Tropical Cyclone - Navigating Through the Tool - User Instructions
-============================================================
+Earthquake - Navigating Through the Tool - User Instructions
+==============================================================
 
 This section describes the use of each tab in the user interface and aims to guide the user through running the model from start to finish. Each tab has its own section and it is suggested you move through each of these in sequence.
+
 
 0. Introduction
 -----------------------------
@@ -33,24 +34,18 @@ The :ref:`hazard<g_hazard_reference-label>` tab is where you specify the nature 
 The subsequent steps will guide you through appropriate selections for each of the dropdown boxes pictured in the screenshot below.
 
 **Step 1.1: Select the peril you want to model:** A :ref:`peril<g_peril_reference-label>` is a specific type of :ref:`event<g_event_reference-label>`. 
+**Select earthquake** (currently only available in Risk Explorer for Karachi in Pakistan).
 
-**Step 1.2: Select the hazard data type used to model your chosen peril:** Data can be either historical observation data or simulated data developed by catastrophe modelling experts. The two distinct types of hazard datasets that can be selected here are:
-
-* :ref:`IBTrACS<g_ibtracs_reference-label>` historical data. This is historical observation data collected for tropical cyclones worldwide. This dataset can only be used for tropical cyclone.
-
-* Stochastic :ref:`event sets<g_eventset_reference-label>` from vendors. This is simulated data derived from stochastic :ref:`event sets<g_eventset_reference-label>` put together by catastrophe modelling experts (e.g. Oasis, Aon). Event sets are presently only available for certain regions and perils. 
+**Step 1.2: Select the hazard data type used to model your chosen peril:** 
+For earthquake, stochastic :ref:`event sets<g_eventset_reference-label>` is available. This is simulated data derived from stochastic :ref:`event sets<g_eventset_reference-label>` put together by catastrophe modelling experts. Event sets are presently only available for certain regions and perils. 
 
 Note that the content of the later analysis tabs will differ based on your selection here. This is because the approach used to simulate losses differs substantially between each data type. 
 
 **Step 1.3: Select the specific region you are interested in modelling:** Note that the region groupings available differ depending on the :ref:`peril<g_peril_reference-label>`  and hazard data type you select. This is due to different :ref:`perils<g_peril_reference-label>` having their roots in different natural phenomena and relying on data sources that may approach these groupings slightly differently.
-For :ref:`IBTrACS<g_ibtracs_reference-label>` data, the regions available to select here are the different tropical cyclone :ref:`"basins"<g_basin_reference-label>` located around the world. Based on your inputs in the :ref:`exposure<g_exposure_reference-label>` tab, the model should provide a suitable recommendation for which basin to select. The model may in some circumstances suggest that there is no relevant basin to select. This is likely to mean that your :ref:`exposure<g_exposure_reference-label>` is not in a tropical cyclone impacted area and would therefore not lead to any :ref:`losses<g_loss_reference-label>`.
 
 For :ref:`stochastic<g_stochastic_reference-label>` datasets, the following options are available to select: 
 
-*  Tropical Cylone Japan (Ginoza Region) – Aon Impact Forecasting
-
-*  Tropical Cylone Bangladesh – Oasis
-
+*  Earthquake Pakistan (Karachi) – Aon Impact Forecasting
 
 **Step 1.4: Select which meteorological agency to use as the data source:** This is a concern where you are using an IBTrACS historical dataset, for stochastic hazard data, simply select N/A here. For each :ref:`basin<g_basin_reference-label>`, :ref:`IBTrACS<g_ibtracs_reference-label>` data contains wind/track measurements from several :ref:`agencies<g_agency_reference-label>`. Most of these relate to national :ref:`meteorological agencies<g_agency_reference-label>` e.g., TOKYO is the Japanese :ref:`agency<g_agency_reference-label>` and CMA is the Chinese :ref:`agency<g_agency_reference-label>`. 
 Measurements can differ between :ref:`agencies<g_agency_reference-label>`, so this is an important step. For some basins, the prompt below the input box may recommend that you choose a particular :ref:`agency<g_agency_reference-label>`. For more information on the different :ref:`meteorological agencies<g_agency_reference-label>`, please see the :ref:`glossary_reference-label`.
@@ -63,14 +58,6 @@ Measurements can differ between :ref:`agencies<g_agency_reference-label>`, so th
   
   Hazard Step 1: Note the suggested basin displayed below the region dropdown.   
 
-**Step 2 (Optional): Display tracks on map:** Clicking the “Display Tracks” button will show the historic tracks of cyclones or the overall area covered for your :ref:`hazard<g_hazard_reference-label>` set. The :ref:`exposure<g_exposure_reference-label>` and the area within which observations will be sampled from for :ref:`simulations<g_simulation_reference-label>` (IBTrACS data only) will also be shown here. The main purpose of this step is to allow you to check you have selected the right region in the steps above. 
-For :ref:`IBTrACS<g_ibtracs_reference-label>` hazard data, this step will also allow you to easily visualise recent cyclone activity around your :ref:`exposure<g_exposure_reference-label>`. Note that due to data limitations, only 6 hourly storm tracks and category 1 or above winds for storms in the last 10 years are displayed here. Tracks displayed will differ slightly from the more precise and extensive tracks used in the tool's calculation engine.
-
-.. figure:: ../../docs_img/Hazard_2.png
-  :scale: 50%
-  :alt: Hazard tab
-  
-  Hazard Step 2: Historical storm tracks and simulation sampling area displayed on map.
 
 
 
@@ -127,7 +114,7 @@ Screenshot here
 **Appendix: Step 2: Why can only circles be entered here?**
 At present, circles are the only :ref:`exposure<g_exposure_reference-label>` shapes that can be specified within the tool. There are a few benefits to using circles rather than squares/rectangles to mark out the :ref:`exposure<g_exposure_reference-label>` area:
 
-* **Tropical cyclones are circular.** Using circles means the :ref:`exposure<g_exposure_reference-label>` area and simulation methodology tie in more closely with the :ref:`hazard<g_hazard_reference-label>` itself. This should also typically lead to less :ref:`losses<g_loss_reference-label>` in cases where cyclones skirt the edge of an :ref:`exposure<g_exposure_reference-label>` area. This helps increase the likelihood of :ref:`losses<g_loss_reference-label>` being generated in response to :ref:`events<g_event_reference-label>` are actually causing actual losses.
+* **Tropical cyclones (the original peril in this tool) are circular.** Using circles means the :ref:`exposure<g_exposure_reference-label>` area and simulation methodology tie in more closely with the :ref:`hazard<g_hazard_reference-label>` itself. This should also typically lead to less :ref:`losses<g_loss_reference-label>` in cases where cyclones skirt the edge of an :ref:`exposure<g_exposure_reference-label>` area. This helps increase the likelihood of :ref:`losses<g_loss_reference-label>` being generated in response to :ref:`events<g_event_reference-label>` are actually causing actual losses.
 * **Straightforward to specify.** Only one location and one radius parameter need to be entered.
 
 It is worth bearing in mind that for :ref:`exposure<g_exposure_reference-label>` areas that are long and thin (e.g., a long line of locations along a coastline), the circle approach may not be optimal. While this is recognised as a limitation of the tool, only circles can be specified here to ensure the tool retains its simplicity.
@@ -152,7 +139,7 @@ The financial loss is solely defined by your :ref:`trigger measure<g_triggermeas
 
 **Step 1: Specify the intensity measure.** The :ref:`intensity measure<g_intensitymeasure_reference-label>` is a hazard intensity parameter that should be closely related to the likely damage caused by an event. For example, wind speed or pressure would be suitable measures for a storm, as they closely relate to the amount of damage likely to be caused. Recordings of the :ref:`intensity measure<g_intensitymeasure_reference-label>` within your defined exposure area will determine the damage sustained in an event. 
 Guidance should appear at this step to advise you which :ref:`intensity measures<g_intensitymeasure_reference-label>` are likely to be appropriate based on your selections on the Hazard tab.
-Once you have selected your :ref:`intensity measure<g_intensitymeasure_reference-label>`, you then choose which units to specify it in. For wind speed, km/h and mph are available, however pressure and :ref:`peak ground acceleration<g_pga_reference-label>` only have one choice here (mb and g% respectively). 
+Once you have selected your :ref:`intensity measure<g_intensitymeasure_reference-label>`, you then choose which units to specify it in - though current data only allows percent of gravity (g%). 
 
 .. figure:: ../../docs_img/Vulnerability_1.png
   :scale: 50%
@@ -188,12 +175,14 @@ Together with step 2, the values you enter here will determine the overall shape
 **The columns for intensity and damage percentage highlighted in red in the table below are editable by double-clicking on the table. After making your edits, press Ctrl + Enter to save these and exit the table’s edit mode.** 
 Note that the :ref:`damage percentage<g_damage_reference-label>` must be entered as a decimal so 40% of the maximum amount would be entered as 0.4. 
 
-For wind, the default values in the table reflect the :ref:`Saffir-Simpson hurricane categories<g_sscategory_reference-label>` but you can experiment with different :ref:`intensity values<g_intensityvalue_reference-label>` and :ref:`damage percentages<g_damage_reference-label>` here too. 
+For earthquake, the default values in the table correspond to :ref:`Modified Mercalli Intensity Index<g_mmi_reference-label>` (MMI) intensities from V to X. Different bandings by :ref:`PGA<g_pga_reference-label>` are assumed to reflect different MMI intensities based off a standard USGS conversion.
 
 You may want to edit the :ref:`damage percentages<g_damage_reference-label>` to reflect what you know about the cost of previous :ref:`events<g_event_reference-label>` for your area of :ref:`exposure<g_exposure_reference-label>`. The graph at the bottom will also update based on the values you enter in the table. This should act as a visual aid to see what :ref:`damage<g_loss_reference-label>` would occur for each value of the :ref:`intensity measure<g_intensitymeasure_reference-label>`/:ref:`trigger measure<g_triggermeasure_reference-label>`.
-A few points to bear in mind when specifying points on your vulnerability curve:
 
-* If you’ve selected wind speed or :ref:`pga<g_pga_reference-label>` as an :ref:`intensity measure<g_intensitymeasure_reference-label>`, :ref:`damage<g_damage_reference-label>` percentages and :ref:`intensity values<g_intensityvalue_reference-label>` should be entered in ascending order. For pressure, :ref:`intensity values<g_intensityvalue_reference-label>` should be entered in descending order. This is because lower pressure correlates with more serious events.
+
+Notes for specifying points on your vulnerability curve:
+
+* If you’ve selected :ref:`pga<g_pga_reference-label>` as an :ref:`intensity measure<g_intensitymeasure_reference-label>`, :ref:`damage<g_damage_reference-label>` percentages and :ref:`intensity values<g_intensityvalue_reference-label>` should be entered in ascending order. For pressure, :ref:`intensity values<g_intensityvalue_reference-label>` should be entered in descending order. This is because lower pressure correlates with more serious events.
 
 * Note that you do not need to use all six rows if you do not want to and can leave any extra rows at the bottom blank. You need to enter a minimum of one row for a stepped curve and a minimum of two rows for a linear curve.
 
@@ -214,28 +203,11 @@ A few points to bear in mind when specifying points on your vulnerability curve:
 **What does it do?**
 
 The simulation tab is where you run the simulation modelling that feeds the app's main outputs. 
-The simulation engine is based on a simple and transparent methodology. Note that the underlying method differs for :ref:`stochastic<g_stochastic_reference-label>` hazard sets and historical :ref:`IBTrACS<g_ibtracs_reference-label>` hazard data.
-
-For :ref:`IBTrACS<g_ibtracs_reference-label>` hazard data, the primary goal was to create a methodology which is quick to run and provides an entry point to catastrophe modelling, rather than to try and re-create the sophistication of more advanced catastrophe modelling approaches such as detailed windfield modelling over land. Other approaches and methodologies are possible, each with their own advantages, limitations and trade-offs.  
+The simulation engine is based on a simple and transparent methodology. Note that the underlying method differs for :ref:`stochastic<g_stochastic_reference-label>` hazard sets and historical hazard data.
 
 For :ref:`stochastic<g_stochastic_reference-label>` sets, the model providers have already pulled together the :ref:`event set<g_eventset_reference-label>`, so the simulation methodology essentially just randomises across their data and applies the vulnerability function to each event. 
 The background calculations going on in this tab are a lot more involved than the other sections, as such a more detailed description of the simulation method can be found in the :ref:`sim_workings_reference-label` section. 
 A brief and relatively non-technical description is given below for each type of hazard data, however you will need to look at the more detailed explanation to fully grasp the method and its applications.
-
-**IBTrACS Historical Data**
-
-**Step 1: Random sampling of points within a reasonable distance of your exposure.** Each :ref:`simulation<g_simulation_reference-label>` represents one randomly selected area within a reasonable distance of the :ref:`exposure<g_exposure_reference-label>`. It may seem odd to do this when these randomly selected locations are different to your :ref:`exposure<g_exposure_reference-label>`, however this is an important step which prevents over-generalising from a limited history and is the founding principle of all catastrophe models. 
-For example, if your :ref:`exposure<g_exposure_reference-label>` is within a very small area or is a single location, you could have been relatively lucky and not had any significant wind :ref:`events<g_event_reference-label>` despite a number having just missed in the previous 30 years. If we just used the history at the :ref:`exposure<g_exposure_reference-label>` point, we would assume there is zero risk when this is clearly not the case. This random sampling of different points allows us to build this natural variability into our estimate of the :ref:`expected loss<g_expectedloss_reference-label>`.
-
-**Step 2: Identify the events in the hazard data that would lead to losses.** For each :ref:`event<g_event_reference-label>` impacting the randomly selected areas/points in step 1, the method looks at which of these would have exceeded the intensity values you specified in the :ref:`vulnerability<g_vulnerability_reference-label>` section. :ref:`Losses<g_loss_reference-label>` for the relevant events in each :ref:`simulation<g_simulation_reference-label>` will then be calculated for each :ref:`simulation<g_simulation_reference-label>` and :ref:`simulation-year<g_simyear_reference-label>`.
-
-**Step 3: Average the losses for each year of data and simulation.** This will give average losses for each :ref:`simulation<g_simulation_reference-label>`. These are essentially historical averages of the :ref:`losses<g_loss_reference-label>` from your cover at each simulated location/area generated in step 1 across all the years of data. 
-
-**Step 4: Apply weightings to the losses calculated in each simulation.** In reality, areas closer to the :ref:`exposure<g_exposure_reference-label>` are likely to be more similar in their weather patterns and therefore more applicable to the :ref:`exposure<g_exposure_reference-label>`. We therefore give greater :ref:`weighting<g_weighting_reference-label>` to :ref:`simulations<g_simulation_reference-label>` closer to the :ref:`exposure<g_exposure_reference-label>` in the final calculation of the :ref:`expected loss<g_expectedloss_reference-label>`. The :ref:`weighting<g_weighting_reference-label>` applied here is based on the distance of the simulated area to the :ref:`exposure<g_exposure_reference-label>`, so a :ref:`simulation<g_simulation_reference-label>` that falls further away from your :ref:`exposure<g_exposure_reference-label>` gets a lower :ref:`weighting<g_weighting_reference-label>`.
-
-**Step 5: Calculate the total weighted average loss across all simulations.** A weighted average is calculated for the total loss over the :ref:`hazard<g_hazard_reference-label>` data for all :ref:`simulations<g_simulation_reference-label>`. This should give us a view of the :ref:`expected loss<g_expectedloss_reference-label>` for this cover which takes into account the variability of the data. 
-In addition to the weighted simulation methodology, the tool will also output results based purely on history at the :ref:`exposure<g_exposure_reference-label>` location and using a non-weighted simulation method for comparison so you can see the impact of the :ref:`weighting<g_weighting_reference-label>` methodology. This is described in more detail in the subsequent event analysis section.
-
 
 **Stochastic Hazard Data**
 
@@ -277,6 +249,8 @@ A loading bar will appear during the simulation run and a notification will disp
   
   Simulation Tab
 
+
+
 5. Event Analysis
 -----------------------------
 
@@ -293,6 +267,7 @@ Each exhibit attempts to address different learning outcomes:
 * **Exhibit 3: Event Frequency and Return Periods** How often do different types of event occur?
 
 These are all covered in more detail below. There are also further exhibits more focused on the losses generated by the model on the Loss Analysis tab. Note that output will only display on this page once :ref:`simulations<g_simulation_reference-label>` have been run.
+
 
 **User Instructions**
 
@@ -314,8 +289,7 @@ The circle displayed on the map is the area within which a storm is deemed to ca
 Exhibit 2 allows you to look at the results of any individual :ref:`simulation<g_simulation_reference-label>` by selecting the relevant simulation number in the input box. The table immediately below gives a summary of the main outputs of the simulation. The map and corresponding table display the :ref:`events<g_event_reference-label>` in the :ref:`event set<g_eventset_reference-label>` that would have led to :ref:`losses<g_loss_reference-label>` in each individual simulation. 
 The main purpose of this exhibit is to give more transparency on the simulation method and how we arrive at the simulated loss figures in the Loss Analysis tab. The figures displayed here for each :ref:`simulation<g_simulation_reference-label>` should match what is in the exportable csv files on the Loss Summary tab.
 
-In some cases, you may find that you have very few years with any losses at all. This means the exhibit might not be very informative for the majority of individual simulations. To get around this, it may be worth going to the “Loss Analysis” tab and downloading the csv file with individual simulation results in. This way you will know which simulations actually contain losses and can focus on those.
-Note that for :ref:`IBTrACS<g_ibtracs_reference-label>` hazard data, loss-generating :ref:`events<g_event_reference-label>` are displayed as markers rather than tracks as in Exhibit 1. Only the locations where maximum :ref:`loss<g_loss_reference-label>`/:ref:`intensity values<g_intensityvalue_reference-label>` (minimum for pressure) were recorded are displayed due to the memory limitations imposed by loading the tracks for thousands of :ref:`simulations<g_simulation_reference-label>`. Also note that if you enter an invalid number (e.g., a decimal figure or a number larger than the total amount of :ref:`simulations<g_simulation_reference-label>`), nothing will display in this exhibit.
+In some cases, you may find that you have very few years with any losses at all. This means the exhibit might not be very informative for the majority of individual simulations. To get around this, it may be worth going to the “Loss Analysis” tab and downloading the csv file with individual simulation results in. This way you will know which simulations actually contain losses and can focus on those. Note that if you enter an invalid number (e.g., a decimal figure or a number larger than the total amount of :ref:`simulations<g_simulation_reference-label>`), nothing will display in this exhibit.
 
 .. figure:: ../../docs_img/analysis_2.png    
   :scale: 50%
@@ -323,14 +297,14 @@ Note that for :ref:`IBTrACS<g_ibtracs_reference-label>` hazard data, loss-genera
   
   Event Analysis Tab: Exhibit 2
   
+
 **Exhibit 3: Event Frequency and Return Periods**
 
-Exhibit 3 gives an estimate of how often storms of each :ref:`Saffir-Simpson category<g_sscategory_reference-label>` occur in the history and in the simulation output: 
+Exhibit 3 gives an estimate of how often earthquakes of each :ref:`MMI<g_mmi_reference-label>` intensity occur in the history and in the simulation output: 
 
-* **Frequency** refers to the number of storms of this category or above you would expect to see in a year. A :ref:`frequency<g_frequency_reference-label>` of 1 means that a storm would occur on average once a year. 
+* **Frequency** refers to the number of events of this category or above you would expect to see in a year. A :ref:`frequency<g_frequency_reference-label>` of 1 means that an event would occur on average once a year. 
 
-
-* **Return Period** refers to the average time you would have to wait before observing a storm of that category or above, e.g a :ref:`return period<g_returnperiod_reference-label>` of 5 years for a cat 2 storm means you would expect to have one storm at cat 2 or above every 5 years on average. Bear in mind these represent averages, and it is possible to have two 100-year :ref:`events<g_event_reference-label>` occur in subsequent years. Another way to think about :ref:`return periods<g_returnperiod_reference-label>` is the probability of occurrence in any given year. A 10-year :ref:`return period<g_returnperiod_reference-label>` means there is a 1 in 10 (10%) chance of an :ref:`event<g_event_reference-label>` happening in any given year. Note that you will see three separate estimates of return periods by category when using :ref:`IBTrACS<g_ibtracs_reference-label>` hazard data as there are several calculation methods. By contrast for :ref:`stochastic<g_stochastic_reference-label>` hazard datasets, you should only see one set of return periods/frequencies for the simulated loss.
+* **Return Period** refers to the average time you would have to wait before observing an event of that category or above, e.g a :ref:`return period<g_returnperiod_reference-label>` of 5 years for a *cat 2 storm* means you would expect to have one storm at cat 2 or above every 5 years on average. Bear in mind these represent averages, and it is possible to have two 100-year :ref:`events<g_event_reference-label>` occur in subsequent years. Another way to think about :ref:`return periods<g_returnperiod_reference-label>` is the probability of occurrence in any given year. A 10-year :ref:`return period<g_returnperiod_reference-label>` means there is a 1 in 10 (10%) chance of an :ref:`event<g_event_reference-label>` happening in any given year. Note that you will see three separate estimates of return periods by category when using :ref:`IBTrACS<g_ibtracs_reference-label>` hazard data as there are several calculation methods. By contrast for :ref:`stochastic<g_stochastic_reference-label>` hazard datasets, you should only see one set of return periods/frequencies for the simulated loss.
 
 For :ref:`IBTrACS<g_ibtracs_reference-label>` hazard data, this exhibit can be useful for examining why you might have a different result for your simulation method than you have from the history at your :ref:`exposure<g_exposure_reference-label>`. It should also be useful for getting an idea of how common storms of each category are around your area of :ref:`exposure<g_exposure_reference-label>`.
 Note that the wind speed/pressure denotes where the category "starts" so represents a minimum for wind speed/:ref:`pga<g_pga_reference-label>` and a maximum for pressure.
@@ -342,7 +316,7 @@ Note that the wind speed/pressure denotes where the category "starts" so represe
   
   Event Analysis Tab: Exhibit 3
   
-**In some cases you may see NA displayed here. This means there are no storms of this category in the data.** Be careful using model output where no :ref:`events<g_event_reference-label>` are present in the data for higher severity storms. This should occur more frequently in the historical loss method than in the :ref:`simulations<g_simulation_reference-label>`, where there is a smaller number of observations to draw upon.
+**In some cases you may see NA displayed here. This means there are no storms of this category in the data.** Be careful using model output where no :ref:`events<g_event_reference-label>` are present in the data for higher severity storms or earthquakes. This should occur more frequently in the historical loss method than in the :ref:`simulations<g_simulation_reference-label>`, where there is a smaller number of observations to draw upon.
 
 
 6. Loss Analysis
