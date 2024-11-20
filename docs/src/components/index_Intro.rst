@@ -8,7 +8,7 @@ These pages provide a step-by-step guide to running the Risk Explorer tool and g
 
 What is the Oasis Risk Explorer?
 ---------------------------------
-The :ref:`Oasis<g_oasis_reference-label>` Risk Explorer is a tool developed by the :ref:`Insurance Development Forum<g_idf_reference-label>` in partnership with :ref:`Oasis<g_oasis_reference-label>` and `Maximum Information <https://www.maxinfo.io/>`_. The central purpose of this tool is educational, serving as an introduction to the different considerations that go into modelling catastrophe risk with specific applications to parametric insurance.
+The Oasis Risk Explorer is a tool developed by the :ref:`Insurance Development Forum<g_idf_reference-label>` in partnership with :ref:`Oasis<g_oasis_reference-label>` and `Maximum Information <https://www.maxinfo.io/>`_. The central purpose of this tool is educational, serving as an introduction to the different considerations that go into modelling catastrophe risk with specific applications to parametric insurance.
 
 The tool aims to guide users through the different elements that need to be considered when modelling catastrophe risk. Each of these elements is broken out into separate tabs that form the basic building blocks of the model. 
 
@@ -23,7 +23,7 @@ The first three sections (excluding the introduction) require inputs from the us
 
 * **Hazard:** What type of natural hazard :ref:`events<g_event_reference-label>`, or perils, are you interested in modelling (or providing parametric insurance for) and what data should be used to model them?
 * **Exposure:** Which location(s) or area are you interested in providing parametric insurance for?
-* **Vulnerability:** How will the physical :ref:`events<g_event_reference-label>` in the model lead to :ref:`damage<g_damage_reference-label>` and financial :ref:`loss<g_loss_reference-label>`?
+* **Vulnerability:** How will the physical events in the model lead to :ref:`damage<g_damage_reference-label>` and financial :ref:`loss<g_loss_reference-label>`?
 
 The next three sections allow the user to run modelling and view outputs from their modelling:
 

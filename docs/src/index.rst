@@ -1,11 +1,9 @@
 The Risk Explorer Tool
 ====================================================
 
-Welcome to the homepage of the Oasis Risk Explorer. 
-
-Access the Risk Explorer at `temporary URL <http://54.154.28.86:3838/>`_.
-
 The Oasis Risk Explorer is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Oasis <https://oasislmf.org>`_ and `Maximum Information <https://www.maxinfo.io/>`_. 
+
+Access the Risk Explorer at `https://riskexplorer-oasislmf.com <https://riskexplorer-oasislmf.com/app/riskexplorer/>`_.
 
 The Risk Explorer is designed to help people understand some of the data, processes, and concepts of catastrophe risk modelling with a focus on designing parametric insurance. The tool has been built by a team with extensive experience of catastrophe modelling and insurance pricing.  
 
@@ -31,4 +29,4 @@ The following sections of this user guide provide more general information, whil
    ../components/sectionEQ/index_EQ.rst
 
    ../components/index_Glossary.rst
-   ../components/index_Disclaimer.rst
+   ../components/index_License.rst

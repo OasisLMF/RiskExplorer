@@ -3,17 +3,17 @@
 How should this model be used?
 ==========================================================
 
-As mentioned previously, the main use of this model is as an educational tool. The way that you use this app will depend on the background knowledge you already have of risk modelling and parametric insurance. If you have no in-depth prior knowledge of the area, it is suggested that you go through the Risk Explorer in the following steps:
+The main use of this model is as an educational tool. The way that you use this app will depend on the background knowledge you already have of risk modelling and parametric insurance. If you have no in-depth prior knowledge of the area, it is suggested that you go through the Risk Explorer in the following steps:
 
 
-Step 1: Get familiar with each tab's purpose and try to produce outputs (any outputs!).
-------------------------------------------------------------------------------------------------
+Step 1: Familiarise yourself with the purpose of each tab, and try to produce outputs (any outputs!).
+------------------------------------------------------------------------------------------------------
 
-Go through each tab with these help pages open and try to understand the purpose of each section and input. E.g., why do we need to specify an :ref:`exposure<g_exposure_reference-label>`? Why would we want to specify an area rather than a single location? Working your way through each tab, try and get the model to produce results on the event and loss analysis tabs. Examine the outputs and try and get some idea of what they are showing and why they might have been included. You may wish to start by using :ref:`stochastic<g_stochastic_reference-label>` hazard data, as the outputs are a bit easier to understand. Once you have run this, move on to using IBTrACS data.
+Go through each tab with these help pages open and try to understand the purpose of each section and input. E.g., why do we need to specify an :ref:`exposure<g_exposure_reference-label>`? Why would we want to specify an area rather than a single location? Working your way through each tab, try and get the model to produce results on the event and loss analysis tabs. Examine the outputs and try and get some idea of what they are showing and why they might have been included. You may wish to start by using :ref:`stochastic<g_stochastic_reference-label>` hazard data, as the outputs are a bit easier to understand. Once you have run this, move on to using IBTrACS data for tropical cyclone, for example.
 
 
 
-Step 2: Experiment with certain inputs to see the impact on expected payout and other outputs.
+Step 2: Experiment with changing inputs to see the impact on expected payout and other outputs.
 ------------------------------------------------------------------------------------------------
 
 This will help you to understand potential variability in the output. This process should also give you an idea of the careful choices required in modelling risk and structuring insurance covers that will provide cost-effective resilience. Some ideas of inputs you could experiment with changing would be:
@@ -24,20 +24,23 @@ This will help you to understand potential variability in the output. This proce
 
 * **Asset/Policy Value (Exposure)** E.g., doubling your :ref:`asset value<g_assetvalue_reference-label>`?
 
+
+
 * **Meteorological Agency (Hazard)** E.g., For IBTrACS data, using Japanese meteorological data vs Chinese data for the West Pacific :ref:`basin<g_basin_reference-label>`?
+
+
 
 * **Intensity Measure (Vulnerability)** E.g., using a pressure intensity measure rather than wind speed? For drought, using a dry spell index compared to a % of climatology trigger? 
 
-* **Number of Steps in your Vulnerability (Vulnerability)** E.g., looking at a curve with increases in :ref:`damage<g_damage_reference-label>` for cat 1,3 and 5 wind speeds rather than for all categories? 
+* **Number of Steps in your Vulnerability (Vulnerability)** E.g., looking at a curve with increases in :ref:`damage<g_damage_reference-label>` for cat 1, 3 and 5 wind speeds rather than for all categories? Or for drought, increase the number of payout steps, e.g., how does the cover respond with two steps at 70% and 80%, instead of just one at 80%?
 
-
-For drought, you may also want to look at increasing the number of payout steps, e.g, if your sole stepped payout is currently at 80% of climatology, how differently does the cover respond with two steps at 70% and 80%?
-
-* **Intensity Measure Values at each Level in your Vulnerability Curve (Vulnerability)** E.g., adding 10km/h to the wind speed for each of your :ref:`intensity values<g_intensityvalue_reference-label>`, or subtracting 5% from each percentage of climatology :ref:`intensity value<g_intensityvalue_reference-label>`.
+* **Intensity Measure Values at each Level in your Vulnerability Curve (Vulnerability)** E.g., adding 10km/h to the wind speed for each of your :ref:`intensity values<g_intensityvalue_reference-label>`, or subtracting 5% from each percentage of climatology.
 
 * **Damage Percentages at each Intensity Level (Vulnerability)** E.g., increasing or decreasing your :ref:`damage<g_damage_reference-label>` at lower or higher intensity measures.
 
 * **Shape of your Vulnerability Curve (Vulnerability)** E.g., Using a linear vulnerability curve compared to a stepped curve?
+
+
 
 * **Number of Simulations (Simulation)** E.g., Running twice as many :ref:`simulations<g_simulation_reference-label>` in the Simulation tab.
 
@@ -46,7 +49,7 @@ There are a few further options that may be of interest specifically when lookin
 
 * **Number of Policyholders (Exposure)** Increasing or decreasing the number of policyholders covered (this is limited to 100)
 
-* **Growing Season Start and End Date (Vulnerability)** Growing seasons are defaults taken from Dunning et al. 2016 (https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JD025428), which may not be suitable in all cases. 
+* **Growing Season Start and End Date (Vulnerability)** Default growing seasons are taken from `Dunning, et al., 2016 <https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JD025428/>`_, which may not be suitable in all cases.
 
 * **Dry Days Threshold (Vulnerability)** E.g., changing the threshold of what percentage of climatological rainfall over a 5-day period counts as "dry"
 
@@ -61,14 +64,14 @@ When you change each of these aspects, examine the outputs and think about wheth
 
 * **Return Periods of each Category of Storm or Amount of Loss:** How common is each :ref:`category<g_sscategory_reference-label>` of storm or earthquake or total loss for drought? How big is the gap between the simulated output and the history?
 
-* **Simulation Output** Do some basic analysis on the csv files using spreadsheet software. Do you notice any trends or patterns?
+* **Simulation Output:** Do some basic analysis on the csv files using spreadsheet software. Do you notice any trends or patterns?
 
 
 Additionally for drought you will want to consider:
 
-* **The Number of Policyholders Impacted** What number of policyholders receive a payout of any amount
+* **The Number of Policyholders Impacted:** What number of policyholders receive a payout of any amount?
 
-* **Geographic Distribution of Policyholders Impacted/Payouts** For larger areas of exposure, where are the largest or most payouts occurring?
+* **Geographic Distribution of Policyholders Impacted/Payouts:** For larger areas of exposure, where are the largest or most payouts occurring?
 
 
 
