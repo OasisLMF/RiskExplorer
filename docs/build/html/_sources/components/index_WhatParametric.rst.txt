@@ -9,6 +9,10 @@ Parametric insurance pays out a pre-agreed amount of money when a payout is trig
 
 Parametric insurance covers can e set up in various ways - including with a single payout threshold and amount, or multiple thresholds resulting in different amounts. The amount paid to the policyholder will often be specified in "steps" determined by the magnitude or intensity of the :ref:`event<g_event_reference-label>` in question. 
 
+
+Examples
+----------
+
 The example below gives a simplified demonstration of how a cover might work. In a related project, IDF RMSG is cataloguing different examples of parametric insurance solutions. The link to that catalogue will be made available here in early 2025. 
 
 
@@ -68,6 +72,16 @@ With these priorities in mind, they select the following payout terms:
 
 
 This type of payout structure is replicated by the “linear” vulnerability curve in the Risk Explorer.
+
+
+Selected additional resources
+-------------------------------
+
+* `Parametric insurance to build financial resilience <https://www.insdevforum.org/knowledge/members-reports-and-publications/parametric-insurance-to-build-financial-resilience/>`_. UNDP and Generali. 2024. The report features case studies and actionable insights including the work of the Insurance Development Forum.
+* `What is parametric insurance? <https://corporatesolutions.swissre.com/insights/knowledge/what_is_parametric_insurance.html>`_. Swiss Re. 2023. This article describes the basics of parametric insurance including addressing `'ten myths' <https://corporatesolutions.swissre.com/insights/knowledge/10_myths_about_parametric_insurance.html>`_.
+
+
+
 
 * **Sense-check for an existing commercial model.** It may be useful to have an alternative view to whichever other models are being used, especially given the transparent assumptions in the Risk Explorer.
 
