@@ -82,4 +82,11 @@ While this tool does have the functionality to allow for basic modelling and des
 
 Some examples where the Risk Explorer could be run and prove helpful in a real insurance modelling setting might be:
 
-* **Modelling parametric covers in under-served regions with no commercial models available.** There may not be any commercially available tools for some regions that sit outside of the main insurance markets. In this case the Risk Explorer may be helpful for gauging some idea of potentially reasonable 
+* **Modelling parametric covers in under-served regions with no commercial models available.** There may not be any commercially available tools for some regions that sit outside of the main insurance markets. In this case the Risk Explorer may be helpful for gauging some idea of potentially reasonable parametric insurance coverages and upper or lower bounds of requirements to inform your further discussions with expert providers.
+
+* **Sense-check for an existing commercial model.** It may be useful to have an alternative view to whichever other models are being used, especially given the transparent assumptions in the Risk Explorer.
+
+One of the reasons to be careful when using this for real-world covers is that the market prices you would likely be able to buy the insurance cover at will differ a lot from the :ref:`average losses<g_expectedloss_reference-label>` the tool produces. 
+In practice, insurers need to cover expenses, uncertainty risk and profit margins in the prices they charge. 
+
+Prices will also be impacted by market conditions such as the competitive environment and appetite amongst insurers for writing these types of covers. As such, unless insurers have a much lower view of the underlying :ref:`expected loss<g_expectedloss_reference-label>`, it is likely that real market prices for any covers priced in the tool will be higher than the :ref:`average losses<g_expectedloss_reference-label>` generated here. 

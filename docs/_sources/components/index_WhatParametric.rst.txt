@@ -81,12 +81,3 @@ Selected additional resources
 * `What is parametric insurance? <https://corporatesolutions.swissre.com/insights/knowledge/what_is_parametric_insurance.html>`_. Swiss Re. 2023. This article describes the basics of parametric insurance including addressing `'ten myths' <https://corporatesolutions.swissre.com/insights/knowledge/10_myths_about_parametric_insurance.html>`_.
 
 
-
-
-* **Sense-check for an existing commercial model.** It may be useful to have an alternative view to whichever other models are being used, especially given the transparent assumptions in the Risk Explorer.
-
-One of the reasons to be careful when using this for real-world covers is that the market prices you would likely be able to buy the insurance cover at will differ a lot from the :ref:`average losses<g_expectedloss_reference-label>` the tool produces. 
-In practice, insurers need to cover expenses, uncertainty risk and profit margins in the prices they charge. 
-
-Prices will also be impacted by market conditions such as the competitive environment and appetite amongst insurers for writing these types of covers. As such, unless insurers have a much lower view of the underlying :ref:`expected loss<g_expectedloss_reference-label>`, it is likely that real market prices for any covers priced in the tool will be higher than the :ref:`average losses<g_expectedloss_reference-label>` generated here. 
-
