@@ -1,0 +1,10 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: efs-storage
+provisioner: efs.csi.aws.com
+parameters:
+  provisioningMode: "efs-ap"  # or "efs"
+reclaimPolicy: Retain
+volumeBindingMode: Immediate
+

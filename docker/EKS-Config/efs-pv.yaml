@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: efs-pv
+  namespace: shiny
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-storage
+  nfs:
+    path: /data
+    server: fs-0c821a44e108d7111.efs.eu-west-1.amazonaws.com
+  persistentVolumeReclaimPolicy: Retain
+  accessModes:
+    - ReadWriteMany
