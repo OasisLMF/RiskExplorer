@@ -114,6 +114,7 @@ e_exposure_value_Server <- function(id, selected_hazard_mappings, curr_codes) {
       outputOptions(output, "drought_peril", suspendWhenHidden = FALSE)  
       outputOptions(output, "non_drought_peril", suspendWhenHidden = FALSE)
       
+      output$value <- renderPrint({ numbers() })      
       drought_policy_value <- 
         reactive({
           req(exposure_value_parameters$peril == "Drought",
@@ -163,9 +164,11 @@ e_exposure_value_Server <- function(id, selected_hazard_mappings, curr_codes) {
           renderText({
             
             if(exposure_value_parameters$policy_count > 100 | 
-               exposure_value_parameters$policy_count < 1) 
+               exposure_value_parameters$policy_count < 1 |
+               exposure_value_parameters$policy_count %% 1 != 0) 
             {
-              "Please Enter a Policy Count between 1 and 100" 
+              "Please enter a Policy Count that is a whole number between 1 and 
+              100" 
             } else {
               NULL
             }    
@@ -196,7 +199,8 @@ e_exposure_value_Server <- function(id, selected_hazard_mappings, curr_codes) {
         
         if(exposure_value_parameters$peril == "Drought" &
            exposure_value_parameters$total_value > 0 &
-           exposure_value_parameters$policy_count <= 100
+           exposure_value_parameters$policy_count <= 100 & 
+           exposure_value_parameters$policy_count %% 1 == 0
            ) {
           req(exposure_value_parameters$policy_count)
           section_ok(TRUE)

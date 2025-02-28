@@ -161,7 +161,11 @@ e_polygon_select_Server <- function(id,
             "Please ensure radius is less than 150 km or 93 miles. Sizes above 
             this can cause issues with the calculations."
           )                        
-        }else{
+        } else if (radius_m < 0) {
+          circle_error_rv(
+            "Please enter a positive value."
+          )
+        } else {
           circle_error_rv(NULL)
         }
         

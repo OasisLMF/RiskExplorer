@@ -12,14 +12,14 @@ setup_python_environment <- function(version,
 
 # List of Python packages to install
 packages <- c(
-  "dask",
-  "h5netcdf",
-  "netcdf4",
-  "numpy",
-  "packaging",
-  "pandas",
-  "xarray",
-  "scipy"
+  "dask == 2024.8.0",
+  "h5netcdf == 1.3.0",
+  "netcdf4 == 1.7.1.post1",
+  "numpy == 1.26.4",
+  "packaging == 24.1",
+  "pandas == 2.2.2",
+  "xarray == 2024.7.0",
+  "scipy == 1.13.1"
 )
 
 # Set up the Python environment
@@ -29,3 +29,6 @@ setup_python_environment(
   packages = packages
 )
 
+# Explicitly add the directory containing the Python module to the Python path
+reticulate::py_run_string("import sys")
+reticulate::py_run_string("sys.path.append('/srv/shiny-server/scripts')")
