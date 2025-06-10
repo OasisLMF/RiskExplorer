@@ -64,7 +64,7 @@ ui <- fluidPage(
                              width = 141.03, 
                              position = "fixed-top" ), 
                          "Risk Explorer",
-                         img(src = "IDFIcon.png", 
+                         img(src = "IDFlogo_navyreddot_RGB_v1.png", 
                              height = 40, 
                              width = 163.25), 
                          img(src = "maxinfoIcon.png",
