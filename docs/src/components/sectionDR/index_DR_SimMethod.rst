@@ -5,7 +5,7 @@ Weather Index - How does the simulation methodology Work?
 
 Basic Description – Weather Index with CHIRPS Data
 -------------------------------------------------------
-This section provides a basic overview of how the simulation method works for :ref:`IBTrACS<g_CHIRPS_reference-label:>` hazard data.
+This section provides a basic overview of how the simulation method works for :ref:`CHIRPS<g_CHIRPS_reference-label:>` hazard data.
 
 For drought parametric insurance, to understand potential size of payouts and year to year variability, the number and value of payouts resulting from drought occurrence are simulated for each year in the timeseries of CHIRPS data.
 

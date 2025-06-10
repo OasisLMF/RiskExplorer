@@ -1,4 +1,4 @@
-The Risk Explorer Tool
+The Oasis Risk Explorer
 ====================================================
 
 The Oasis Risk Explorer is an educational tool developed by the `Insurance Development Forum <https://www.insdevforum.org/>`_  in partnership with `Oasis <https://oasislmf.org>`_ and `Maximum Information <https://www.maxinfo.io/>`_. 
