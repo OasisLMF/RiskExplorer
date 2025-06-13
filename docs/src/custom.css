@@ -3,6 +3,6 @@
 @import 'sphinx-rtd-theme.css';
 
 
-.wy-side-nav-search, .wy-nav-top {
-    background: ##666666;
+.wy-side-nav-search {
+    background-color: #f00;
 }
