@@ -1,0 +1,32 @@
+version: '3'
+services:
+  shiny_proxy:
+    restart: always
+    container_name: riskexplorer_proxy
+    image: riskexplorer_proxy
+    ports:
+      - 8081:8081  # Port for the proxy
+    environment:
+      - RE_DOCKER_IMAGE=riskexplorer
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/ubuntu/RiskExplorer_version_2/RiskExplorer/r_code:/srv/shiny-server/r_code
+      - /home/ubuntu/RiskExplorer_version_2_data/data:/srv/shiny-server/r_code/data
+    networks:
+      - shiny-net
+
+  riskexplorer:
+    image: riskexplorer
+    ports:
+      - 3838:3838
+    volumes:
+      - /home/ubuntu/RiskExplorer_version_2/RiskExplorer/r_code:/srv/shiny-server/r_code
+      - /home/ubuntu/RiskExplorer_version_2_data/data:/srv/shiny-server/r_code/data
+
+    networks:
+      - shiny-net
+
+networks:
+  shiny-net:
+    external: true
+

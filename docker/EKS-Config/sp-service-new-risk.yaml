@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: shinyproxy-service
+  namespace: shiny
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: shinyproxy-new
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: riskexplorer-service
+  namespace: shiny
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3838
+      targetPort: 3838
+  selector:
+    app: shinyproxy-new
+

@@ -1,0 +1,115 @@
+FROM rocker/r-ver:4.2.2
+
+
+# System dependencies
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+    r-cran-hmisc \
+    libfontconfig1-dev \
+    libpq-dev \
+    libssl-dev \
+    libudunits2-dev \
+    libproj-dev \
+    libgdal-dev \
+    python3 \
+    python3-pip \
+    python3-venv \
+    git \
+    curl \
+    build-essential \
+    zlib1g-dev \
+    libbz2-dev \
+    libsqlite3-dev \
+    libncurses5-dev \
+    libreadline-dev \
+    libffi-dev \
+    liblzma-dev \
+    libncursesw5-dev \
+    libtk8.6 \
+    libgdbm-dev \
+    libpcap-dev \
+    libssl-dev \
+    libdb5.3-dev \
+    libffi-dev \
+    libgdbm-dev \
+    liblzma-dev \
+    libbz2-dev \
+    zlib1g-dev \
+    tk-dev \
+    libffi-dev \
+    libsqlite3-dev \
+    libgdbm-dev \
+    liblzma-dev \
+    libtk8.6 \
+    libgdbm-dev \
+    && apt-get clean
+
+# Install pyenv
+RUN curl https://pyenv.run | bash
+
+# Add pyenv to PATH
+ENV PATH="/root/.pyenv/bin:${PATH}"
+RUN eval "$(pyenv init --path)" && \
+    eval "$(pyenv init -)" && \
+    eval "$(pyenv virtualenv-init -)"
+
+# Install Python version and packages
+RUN pyenv install 3.9.13 && \
+    pyenv global 3.9.13 && \
+    pip install --upgrade pip && \
+    pip install \
+      dask \
+      h5netcdf \
+      netcdf4 \
+      numpy \
+      packaging \
+      pandas \
+      xarray \
+      scipy
+
+# Install R packages
+RUN R -e "install.packages('bslib', dependencies=TRUE)"
+RUN R -e "install.packages('shinyWidgets', dependencies=TRUE)"
+RUN R -e "install.packages('raster', dependencies=TRUE)"
+RUN R -e "install.packages('shinyjs', dependencies=TRUE)"
+RUN R -e "install.packages('Hmisc', dependencies=TRUE)"
+RUN R -e "install.packages('readr', dependencies=TRUE)"
+RUN R -e "install.packages('dplyr', dependencies=TRUE)"
+RUN R -e "install.packages('data.table', dependencies=TRUE)"
+RUN R -e "install.packages('purrr', dependencies=TRUE)"
+RUN R -e "install.packages('scales', dependencies=TRUE)"
+RUN R -e "install.packages('shiny', dependencies=TRUE)"
+RUN R -e "install.packages('shinyBS', dependencies=TRUE)"
+RUN R -e "install.packages('ggplot2', dependencies=TRUE)"
+RUN R -e "install.packages('plotly', dependencies=TRUE)"
+RUN R -e "install.packages('htmltools', dependencies=TRUE)"
+RUN R -e "install.packages('DT', dependencies=TRUE)"
+RUN R -e "install.packages('tidyr', dependencies=TRUE)"
+RUN R -e "install.packages('leaflet', dependencies=TRUE)"
+RUN R -e "install.packages('leaflet.extras', dependencies=TRUE)"
+RUN R -e "install.packages('tictoc', dependencies=TRUE)"
+RUN R -e "install.packages('lubridate', dependencies=TRUE)"
+RUN R -e "install.packages('sf', dependencies=TRUE)"
+RUN R -e "install.packages('sp', dependencies=TRUE)"
+RUN R -e "install.packages('geosphere', dependencies=TRUE)"
+RUN R -e "install.packages('here', dependencies=TRUE)"
+RUN R -e "install.packages('reticulate', dependencies=TRUE)"
+RUN R -e "install.packages('abind', dependencies=TRUE)"
+RUN R -e "install.packages('runjags', dependencies=TRUE)"
+RUN R -e "install.packages('ncdf4', dependencies=TRUE)"
+RUN R -e "install.packages('tidync', dependencies=TRUE)"
+RUN R -e "install.packages('RColorBrewer', dependencies=TRUE)"
+
+# Set up file system
+WORKDIR /srv/shiny-server/
+COPY ./r_code/ /srv/shiny-server/
+
+# Set up Python environment using reticulate
+COPY ./r_code/scripts/setup_python.R /srv/shiny-server/scripts/
+RUN R -e "source('/srv/shiny-server/scripts/setup_python.R')"
+
+# Set port
+EXPOSE 3838
+
+# Launch UI
+CMD ["R", "-e", "options('shiny.port'=3838, 'shiny.host'='0.0.0.0'); shiny::runApp('/srv/shiny-server')"]
+
