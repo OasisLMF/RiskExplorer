@@ -1,0 +1,34 @@
+proxy:
+  port: 8080
+  authentication: none
+  container-backend: kubernetes
+  container-wait-time: 300000
+  heartbeat-rate: 10000
+  hide-navbar: true
+  heartbeat-timeout: 300000
+  kubernetes:
+    internal-networking: true
+    url: http://localhost:8001
+    namespace: shiny
+    image-pull-policy: IfNotPresent
+    image-pull-secret:
+  specs:
+    - id: riskexplorer
+      display-name: RiskExplorer
+      title: Oasis Risk Explorer
+      container-cmd: ["R", "-e", "options('shiny.host'='0.0.0.0', 'shiny.port'=3838);shiny::runApp()"]
+      container-image: 713007925222.dkr.ecr.eu-west-1.amazonaws.com/riskexplorer:latest
+      container-volumes:
+        - "/mnt/efs/data:/srv/shiny-server/r_code/data"
+        - "/mnt/efs/data:/srv/shiny-server/data"
+      access-groups: [everyone]
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+logging:
+  file:
+    shinyproxy.log
