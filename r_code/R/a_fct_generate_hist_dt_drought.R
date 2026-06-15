@@ -4,15 +4,15 @@ generate_hist_dt_drought <- function(table_data, display_var){
     table_data |> 
     dplyr::group_by(Year) |> 
     dplyr::summarise(Average = mean(!!sym(display_var)),
-                     `Full Range Low` = min(!!sym(display_var)),
-                     `Full Range High` = max(!!sym(display_var)),
-                     `50% Data Range Low` = 
+                     `50% Data Range Low` = min(!!sym(display_var)),
+                     `50% Data Range High` = max(!!sym(display_var)),
+                     `Full Range Low` = 
                        quantile(
                          !!sym(display_var), 
                          probs =  0.25,
                          na.rm = TRUE
                        ),
-                     `50% Data Range High` = quantile(
+                     `Full Range High` = quantile(
                        !!sym(display_var), 
                        probs =  0.75,
                        na.rm = TRUE
