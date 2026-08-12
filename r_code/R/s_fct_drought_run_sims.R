@@ -63,10 +63,10 @@ run_drought_simulation_script <- function(hazard_data,
   year_start <- 1983 
   year_end <- 2019 
   
-  file_intermediate <- paste0("./data/temp/",
+  file_intermediate <- paste0("/srv/shiny-server/data/temp/",
                               runjags::new_unique(),
                               ".nc")
-  file_full <- "./data/chirps/chirps_srx"
+  file_full <- "/srv/shiny-server/data/chirps/chirps_srx"
   file_full <- paste(file_full, 
                      paste0("chirps_", region, ".nc"), 
                      sep = "/")

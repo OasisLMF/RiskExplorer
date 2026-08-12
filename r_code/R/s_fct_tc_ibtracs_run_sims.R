@@ -58,7 +58,7 @@ run_TC_ibtracs_simulation_script <- function(hazard_data,
   hazard_data <-
     data.frame(
       data.table::fread(
-        paste0("./data/ibtracs/", file), stringsAsFactors = TRUE)
+        paste0("srv/shiny-server/data/ibtracs/", file), stringsAsFactors = TRUE)
     ) |>
     tidy_ibtracs_data(agency_selected, agencies) |>
     dplyr::filter(
