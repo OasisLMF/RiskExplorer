@@ -2,12 +2,22 @@ FROM ubuntu:20.04
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y default-jre-headless iproute2
+    apt-get install -y default-jre-headless iproute2 unzip zip
 
 ARG SHINY_VER='2.6.1'
 ADD https://www.shinyproxy.io/downloads/shinyproxy-$SHINY_VER.jar ./shinyproxy.jar
 
-COPY ./shinyproxy/application.yml ./
+# ShinyProxy's bundled app.html hardcodes the browser tab title as
+# "{appTitle} - {appInstanceDisplayName}", where appInstanceDisplayName is
+# ShinyProxy's own "Default" label for the unnamed session instance. There's
+# no config key to override this in 2.6.1, so patch the template directly.
+RUN mkdir -p /tmp/patch && \
+    unzip ./shinyproxy.jar BOOT-INF/classes/templates/app.html -d /tmp/patch && \
+    sed -i "s|<title th:text=\"\${appTitle} + ' - ' + \${appInstanceDisplayName}\"></title>|<title th:text=\"\${appTitle} + ' - OasisLMF'\"></title>|" /tmp/patch/BOOT-INF/classes/templates/app.html && \
+    (cd /tmp/patch && zip /shinyproxy.jar BOOT-INF/classes/templates/app.html) && \
+    rm -rf /tmp/patch
+
+COPY ./shinyproxy/application-eks.yml ./application.yml
 COPY ./shinyproxy/startup.sh ./
 
 ENTRYPOINT ./startup.sh
