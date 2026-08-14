@@ -13,11 +13,16 @@ spec:
       labels:
         app: shinyproxy-new
     spec:
+      serviceAccountName: shinyproxy-sa
       containers:
       - name: shinyproxy
-        image: 713007925222.dkr.ecr.eu-west-1.amazonaws.com/shinyproxy-application:latest
+        image: 713007925222.dkr.ecr.eu-west-1.amazonaws.com/shinyproxy-application:oasislmf-resource-limits
         ports:
         - containerPort: 8081
+        resources:
+          requests:
+            cpu: 500m
+            memory: 512Mi
         volumeMounts:
         - mountPath: /srv/shiny-server/data  # This should be the root of your EFS
           name: efs-storage
@@ -25,6 +30,10 @@ spec:
         image: 713007925222.dkr.ecr.eu-west-1.amazonaws.com/kube-proxy-sidecar:v1
         ports:
         - containerPort: 8001
+        resources:
+          requests:
+            cpu: 50m
+            memory: 64Mi
       volumes:
       - name: efs-storage
         persistentVolumeClaim:

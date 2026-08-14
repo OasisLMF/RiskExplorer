@@ -21,7 +21,7 @@ spec:
   type: LoadBalancer
   ports:
     - port: 3838
-      targetPort: 3838
+      targetPort: 8080
   selector:
     app: shinyproxy-new
 

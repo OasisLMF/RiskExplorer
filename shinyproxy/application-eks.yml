@@ -18,6 +18,10 @@ proxy:
       title: Oasis Risk Explorer
       container-cmd: ["R", "-e", "options('shiny.host'='0.0.0.0', 'shiny.port'=3838);shiny::runApp()"]
       container-image: 713007925222.dkr.ecr.eu-west-1.amazonaws.com/riskexplorer:latest
+      container-memory-request: "768Mi"
+      container-memory-limit: "1536Mi"
+      container-cpu-request: "250m"
+      container-cpu-limit: "1"
       container-volumes:
         - "/mnt/efs/data:/srv/shiny-server/r_code/data"
         - "/mnt/efs/data:/srv/shiny-server/data"
